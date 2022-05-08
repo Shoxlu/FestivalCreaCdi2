@@ -1,0 +1,943 @@
+entry entry0 {
+    version: 8,
+    name: "stgenm/stage07/enm7.png",
+    format: 1,
+    width: 512,
+    height: 1024,
+    memoryPriority: 10,
+    lowResScale: 0,
+    hasData: 1,
+    THTXSize: 2097152,
+    THTXFormat: 1,
+    THTXWidth: 512,
+    THTXHeight: 1024,
+    THTXZero: 0,
+    sprites: {
+        sprite0: { x: 0, y: 0, w: 80, h: 96 },
+        sprite1: { x: 80, y: 0, w: 80, h: 96 },
+        sprite2: { x: 160, y: 0, w: 80, h: 96 },
+        sprite3: { x: 240, y: 0, w: 80, h: 96 },
+        sprite4: { x: 320, y: 0, w: 80, h: 96 },
+        sprite5: { x: 400, y: 0, w: 80, h: 96 },
+        sprite6: { x: 480, y: 0, w: 80, h: 96 },
+        sprite7: { x: 0, y: 96, w: 80, h: 96 },
+        sprite8: { x: 0, y: 96, w: 80, h: 96 },
+        sprite9: { x: 80, y: 96, w: 80, h: 96 },
+        sprite10: { x: 160, y: 96, w: 80, h: 96 },
+        sprite11: { x: 240, y: 96, w: 80, h: 96 },
+        sprite12: { x: 320, y: 96, w: 80, h: 96 },
+        sprite13: { x: 0, y: 96, w: 80, h: 96 },
+        sprite14: { x: 80, y: 96, w: 80, h: 96 },
+        sprite15: { x: 160, y: 96, w: 80, h: 96 },
+        sprite16: { x: 240, y: 96, w: 80, h: 96 },
+        sprite17: { x: 320, y: 96, w: 80, h: 96 },
+        sprite18: { x: 0, y: 192, w: 80, h: 96 },
+        sprite19: { x: 80, y: 192, w: 80, h: 96 },
+        sprite20: { x: 160, y: 192, w: 80, h: 96 },
+        sprite21: { x: 240, y: 192, w: 80, h: 96 },
+        sprite22: { x: 320, y: 192, w: 80, h: 96 }
+    }
+}
+
+script script0 {
+    ins_304(8);
+offset12:
+    ins_407(72, 9, 0.0f, -3.0f, 0.0f);
+    ins_300(sprite0);
++8: // 8
+    ins_300(sprite1);
++8: // 16
+    ins_300(sprite2);
++8: // 24
+    ins_300(sprite1);
++8: // 32
+    ins_300(sprite0);
++8: // 40
+    ins_300(sprite1);
++8: // 48
+    ins_300(sprite2);
++8: // 56
+    ins_300(sprite1);
++8: // 64
+    ins_407(72, 9, 0.0f, 0.0f, 0.0f);
+    ins_300(sprite0);
++8: // 72
+    ins_300(sprite1);
++8: // 80
+    ins_300(sprite3);
++8: // 88
+    ins_300(sprite1);
++8: // 96
+    ins_300(sprite0);
++8: // 104
+    ins_300(sprite1);
++8: // 112
+    ins_300(sprite2);
++8: // 120
+    ins_300(sprite1);
++8: // 128
+    ins_200(offset12, 0);
+}
+
+script script1 {
+    ins_407(1, 9, 0.0f, 0.0f, 0.0f);
+    ins_304(8);
+    ins_308();
+    ins_300(sprite13);
++6: // 6
+    ins_300(sprite14);
++6: // 12
+offset72:
+    ins_300(sprite15);
++6: // 18
+    ins_300(sprite16);
++6: // 24
+    ins_300(sprite17);
++6: // 30
+    ins_300(sprite16);
+    ins_200(offset72, 6);
+    ins_3();
+}
+
+script script2 {
+    ins_407(1, 9, 0.0f, 0.0f, 0.0f);
+    ins_304(8);
+    ins_300(sprite8);
++6: // 6
+    ins_300(sprite9);
++6: // 12
+offset64:
+    ins_300(sprite10);
++6: // 18
+    ins_300(sprite11);
++6: // 24
+    ins_300(sprite12);
++6: // 30
+    ins_300(sprite11);
+    ins_200(offset64, 6);
+    ins_3();
+}
+
+script script3 {
+    ins_407(1, 9, 0.0f, 0.0f, 0.0f);
+    ins_308();
+    ins_304(8);
+    ins_300(sprite14);
++6: // 6
+    ins_300(sprite13);
++6: // 12
+    ins_0();
+offset80:
+    ins_407(72, 9, 0.0f, -3.0f, 0.0f);
+    ins_300(sprite0);
++8: // 20
+    ins_300(sprite1);
++8: // 28
+    ins_300(sprite2);
++8: // 36
+    ins_300(sprite1);
++8: // 44
+    ins_300(sprite0);
++8: // 52
+    ins_300(sprite1);
++8: // 60
+    ins_300(sprite2);
++8: // 68
+    ins_300(sprite1);
++8: // 76
+    ins_407(72, 9, 0.0f, 0.0f, 0.0f);
+    ins_300(sprite0);
++8: // 84
+    ins_300(sprite1);
++8: // 92
+    ins_300(sprite3);
++8: // 100
+    ins_300(sprite1);
++8: // 108
+    ins_300(sprite0);
++8: // 116
+    ins_300(sprite1);
++8: // 124
+    ins_300(sprite2);
++8: // 132
+    ins_300(sprite1);
++8: // 140
+    ins_200(offset80, 12);
+}
+
+script script4 {
+    ins_407(1, 9, 0.0f, 0.0f, 0.0f);
+    ins_304(8);
+    ins_300(sprite9);
++6: // 6
+    ins_300(sprite8);
++6: // 12
+    ins_0();
+offset72:
+    ins_407(72, 9, 0.0f, -3.0f, 0.0f);
+    ins_300(sprite0);
++8: // 20
+    ins_300(sprite1);
++8: // 28
+    ins_300(sprite2);
++8: // 36
+    ins_300(sprite1);
++8: // 44
+    ins_300(sprite0);
++8: // 52
+    ins_300(sprite1);
++8: // 60
+    ins_300(sprite2);
++8: // 68
+    ins_300(sprite1);
++8: // 76
+    ins_407(72, 9, 0.0f, 0.0f, 0.0f);
+    ins_300(sprite0);
++8: // 84
+    ins_300(sprite1);
++8: // 92
+    ins_300(sprite3);
++8: // 100
+    ins_300(sprite1);
++8: // 108
+    ins_300(sprite0);
++8: // 116
+    ins_300(sprite1);
++8: // 124
+    ins_300(sprite2);
++8: // 132
+    ins_300(sprite1);
++8: // 140
+    ins_200(offset72, 12);
+}
+
+script script5 {
+    ins_304(8);
+offset12:
+    ins_300(sprite18);
++8: // 8
+    ins_300(sprite19);
++8: // 16
+    ins_300(sprite20);
++8: // 24
+    ins_300(sprite21);
++8: // 32
+    ins_200(offset12, 0);
+    ins_3();
+}
+
+
+entry entry1 {
+    version: 8,
+    name: "stgenm/stage05/enm5b.png",
+    format: 1,
+    width: 512,
+    height: 512,
+    memoryPriority: 0,
+    lowResScale: 0,
+    hasData: 1,
+    THTXSize: 1048576,
+    THTXFormat: 1,
+    THTXWidth: 512,
+    THTXHeight: 512,
+    THTXZero: 0,
+    sprites: {
+        sprite23: { x: 0, y: 0, w: 128, h: 128 }
+    }
+}
+
+script script6 {
+    ins_304(14);
+    ins_300(sprite23);
+    ins_3();
+}
+
+script script7 {
+    ins_300(-1);
+    ins_304(14);
+    ins_604(1.0f, 3);
+    ins_402(1.0f, 1.0f);
+    ins_404(0, 0, 255);
+    ins_406(64, 64, 255);
+    ins_403(0);
+    ins_405(0);
+    ins_409(120, 0, 64);
+    ins_414(120, 0, 255);
+    ins_402(512.0f, 512.0f);
+    ins_412(120, 0, 0.0f, 0.0f);
+    ins_401([10010.0f], 0.0f, [10010.0f]);
+    ins_415(0.05235988f, 0.0f, 0.05235988f);
++120: // 120
+    ins_1();
+}
+
+script script8 {
+    ins_300(-1);
+    ins_304(14);
+    ins_604(1.0f, 3);
+    ins_402(1.0f, 1.0f);
+    ins_404(255, 0, 0);
+    ins_406(255, 64, 64);
+    ins_403(0);
+    ins_405(0);
+    ins_409(120, 0, 64);
+    ins_414(120, 0, 255);
+    ins_402(256.0f, 256.0f);
+    ins_412(120, 0, 0.0f, 0.0f);
+    ins_401([10010.0f], 0.0f, [10010.0f]);
+    ins_415(0.05235988f, 0.0f, 0.05235988f);
++120: // 120
+    ins_1();
+}
+
+script script9 {
+    ins_300(-1);
+    ins_304(14);
+    ins_604(1.0f, 3);
+    ins_402(1.0f, 1.0f);
+    ins_404(0, 255, 0);
+    ins_406(64, 255, 64);
+    ins_403(0);
+    ins_405(0);
+    ins_409(120, 0, 64);
+    ins_414(120, 0, 255);
+    ins_402(512.0f, 512.0f);
+    ins_412(120, 0, 0.0f, 0.0f);
+    ins_401([10010.0f], 0.0f, [10010.0f]);
+    ins_415(0.05235988f, 0.0f, 0.05235988f);
++120: // 120
+    ins_1();
+}
+
+
+entry entry2 {
+    version: 8,
+    name: "face/enemy7/face07no.png",
+    format: 1,
+    width: 256,
+    height: 256,
+    xOffset: 383,
+    yOffset: 156,
+    memoryPriority: 0,
+    lowResScale: 1,
+    hasData: 1,
+    THTXSize: 192360,
+    THTXFormat: 1,
+    THTXWidth: 229,
+    THTXHeight: 210,
+    THTXZero: 0,
+    sprites: {
+        sprite24: { x: 0, y: 0, w: 229, h: 210 }
+    }
+}
+
+
+entry entry3 {
+    version: 8,
+    name: "face/enemy7/face07n2.png",
+    format: 1,
+    width: 256,
+    height: 256,
+    xOffset: 383,
+    yOffset: 156,
+    memoryPriority: 0,
+    lowResScale: 1,
+    hasData: 1,
+    THTXSize: 192360,
+    THTXFormat: 1,
+    THTXWidth: 229,
+    THTXHeight: 210,
+    THTXZero: 0,
+    sprites: {
+        sprite25: { x: 0, y: 0, w: 229, h: 210 }
+    }
+}
+
+
+entry entry4 {
+    version: 8,
+    name: "face/dummy.png",
+    format: 7,
+    width: 4,
+    height: 4,
+    memoryPriority: 0,
+    lowResScale: 0,
+    hasData: 1,
+    THTXSize: 16,
+    THTXFormat: 7,
+    THTXWidth: 4,
+    THTXHeight: 4,
+    THTXZero: 0,
+    sprites: {
+        sprite26: { x: 0, y: 0, w: 4, h: 4 }
+    }
+}
+
+
+entry entry5 {
+    version: 8,
+    name: "face/dummy.png",
+    format: 7,
+    width: 4,
+    height: 4,
+    memoryPriority: 0,
+    lowResScale: 0,
+    hasData: 1,
+    THTXSize: 16,
+    THTXFormat: 7,
+    THTXWidth: 4,
+    THTXHeight: 4,
+    THTXZero: 0,
+    sprites: {
+        sprite27: { x: 0, y: 0, w: 4, h: 4 }
+    }
+}
+
+
+entry entry6 {
+    version: 8,
+    name: "face/enemy7/face07sw.png",
+    format: 1,
+    width: 256,
+    height: 256,
+    xOffset: 383,
+    yOffset: 156,
+    memoryPriority: 0,
+    lowResScale: 1,
+    hasData: 1,
+    THTXSize: 192360,
+    THTXFormat: 1,
+    THTXWidth: 229,
+    THTXHeight: 210,
+    THTXZero: 0,
+    sprites: {
+        sprite28: { x: 0, y: 0, w: 229, h: 210 }
+    }
+}
+
+
+entry entry7 {
+    version: 8,
+    name: "face/enemy7/face07dp.png",
+    format: 1,
+    width: 256,
+    height: 256,
+    xOffset: 383,
+    yOffset: 156,
+    memoryPriority: 0,
+    lowResScale: 1,
+    hasData: 1,
+    THTXSize: 192360,
+    THTXFormat: 1,
+    THTXWidth: 229,
+    THTXHeight: 210,
+    THTXZero: 0,
+    sprites: {
+        sprite29: { x: 0, y: 0, w: 229, h: 210 }
+    }
+}
+
+
+entry entry8 {
+    version: 8,
+    name: "face/enemy7/face07pr.png",
+    format: 1,
+    width: 256,
+    height: 256,
+    xOffset: 383,
+    yOffset: 156,
+    memoryPriority: 0,
+    lowResScale: 1,
+    hasData: 1,
+    THTXSize: 192360,
+    THTXFormat: 1,
+    THTXWidth: 229,
+    THTXHeight: 210,
+    THTXZero: 0,
+    sprites: {
+        sprite30: { x: 0, y: 0, w: 229, h: 210 }
+    }
+}
+
+
+entry entry9 {
+    version: 8,
+    name: "face/dummy.png",
+    format: 7,
+    width: 4,
+    height: 4,
+    memoryPriority: 0,
+    lowResScale: 0,
+    hasData: 1,
+    THTXSize: 16,
+    THTXFormat: 7,
+    THTXWidth: 4,
+    THTXHeight: 4,
+    THTXZero: 0,
+    sprites: {
+        sprite31: { x: 0, y: 0, w: 4, h: 4 }
+    }
+}
+
+
+entry entry10 {
+    version: 8,
+    name: "face/enemy7/face07lo.png",
+    format: 1,
+    width: 1024,
+    height: 1024,
+    memoryPriority: 0,
+    lowResScale: 1,
+    hasData: 1,
+    THTXSize: 3600000,
+    THTXFormat: 1,
+    THTXWidth: 1000,
+    THTXHeight: 900,
+    THTXZero: 0,
+    sprites: {
+        sprite32: { x: 0, y: 0, w: 1000, h: 900 }
+    }
+}
+
+
+entry entry11 {
+    version: 8,
+    name: "face/enemy7/face07bs.png",
+    format: 1,
+    width: 1024,
+    height: 1024,
+    memoryPriority: 0,
+    lowResScale: 1,
+    hasData: 1,
+    THTXSize: 3600000,
+    THTXFormat: 1,
+    THTXWidth: 1000,
+    THTXHeight: 900,
+    THTXZero: 0,
+    sprites: {
+        sprite33: { x: 0, y: 0, w: 1000, h: 900 },
+        sprite34: { x: 0, y: 0, w: 1, h: 1 }
+    }
+}
+
+script script10 {
+    ins_304(25);
+    ins_300(sprite33);
+    ins_421(1, 1);
+    ins_431(1);
+    ins_403(0);
+    ins_409(15, 0, 255);
+    ins_400(96.0f, 76.0f, 0.0f);
+    ins_304(25);
+    ins_313(2);
+    ins_311(1);
+    ins_5(3);
+    ins_304(26);
+    ins_313(2);
+    ins_407(15, 2, 64.0f, 76.0f, 0.0f);
+    ins_408(15, 0, 96, 96, 96);
++15: // 15
+    ins_3();
+    ins_5(2);
+    ins_304(27);
+    ins_313(2);
+    ins_407(15, 5, 0.0f, 60.0f, 0.0f);
+    ins_408(15, 0, 255, 255, 255);
++15: // 30
+    ins_3();
+    ins_5(7);
+    ins_407(2, 0, -8.0f, 52.0f, 0.0f);
++2: // 32
+    ins_407(2, 0, -4.0f, 64.0f, 0.0f);
++2: // 34
+    ins_407(2, 0, 8.0f, 56.0f, 0.0f);
++2: // 36
+    ins_407(2, 0, 4.0f, 68.0f, 0.0f);
++2: // 38
+    ins_407(2, 0, 0.0f, 52.0f, 0.0f);
++2: // 40
+    ins_407(2, 0, -8.0f, 64.0f, 0.0f);
++2: // 42
+    ins_407(2, 0, -4.0f, 56.0f, 0.0f);
++2: // 44
+    ins_407(2, 0, 8.0f, 68.0f, 0.0f);
++2: // 46
+    ins_407(2, 0, -4.0f, 56.0f, 0.0f);
++2: // 48
+    ins_407(2, 0, 0.0f, 64.0f, 0.0f);
++15: // 63
+    ins_3();
+    ins_5(8);
+    ins_304(27);
+    ins_313(2);
+    ins_407(15, 2, 64.0f, 76.0f, 0.0f);
+    ins_408(15, 0, 96, 96, 240);
++15: // 78
+    ins_3();
+    ins_5(1);
+    ins_407(30, 6, 96.0f, 76.0f, 0.0f);
+    ins_409(30, 0, 0);
++30: // 108
+    ins_1();
+    ins_5(17);
+    ins_5(18);
+    ins_5(19);
+    ins_5(20);
+    ins_5(21);
+    ins_5(22);
+    ins_5(23);
+    ins_5(24);
+    ins_300(sprite33);
+    ins_7();
+    ins_5(25);
+    ins_300(sprite32);
+    ins_7();
+}
+
+script script11 {
+    ins_300(sprite24);
+    ins_421(1, 1);
+    ins_431(1);
+    ins_403(0);
+    ins_409(15, 0, 255);
+    ins_400(479.0f, 232.0f, 0.0f);
+    ins_304(25);
+    ins_313(2);
+    ins_311(1);
+    ins_5(3);
+    ins_304(26);
+    ins_313(2);
+    ins_407(15, 2, 447.0f, 232.0f, 0.0f);
+    ins_408(15, 0, 96, 96, 96);
++15: // 15
+    ins_3();
+    ins_5(2);
+    ins_304(27);
+    ins_313(2);
+    ins_407(15, 5, 383.0f, 216.0f, 0.0f);
+    ins_408(15, 0, 255, 255, 255);
++15: // 30
+    ins_3();
+    ins_5(7);
+    ins_407(2, 0, 375.0f, 208.0f, 0.0f);
++2: // 32
+    ins_407(2, 0, 379.0f, 220.0f, 0.0f);
++2: // 34
+    ins_407(2, 0, 391.0f, 212.0f, 0.0f);
++2: // 36
+    ins_407(2, 0, 387.0f, 224.0f, 0.0f);
++2: // 38
+    ins_407(2, 0, 383.0f, 208.0f, 0.0f);
++2: // 40
+    ins_407(2, 0, 375.0f, 220.0f, 0.0f);
++2: // 42
+    ins_407(2, 0, 379.0f, 212.0f, 0.0f);
++2: // 44
+    ins_407(2, 0, 391.0f, 224.0f, 0.0f);
++2: // 46
+    ins_407(2, 0, 379.0f, 212.0f, 0.0f);
++2: // 48
+    ins_407(2, 0, 383.0f, 220.0f, 0.0f);
++15: // 63
+    ins_3();
+    ins_5(8);
+    ins_304(27);
+    ins_313(2);
+    ins_407(15, 2, 447.0f, 232.0f, 0.0f);
+    ins_408(15, 0, 96, 96, 240);
++15: // 78
+    ins_3();
+    ins_5(1);
+    ins_407(30, 6, 479.0f, 232.0f, 0.0f);
+    ins_409(30, 0, 0);
++30: // 108
+    ins_1();
+    ins_5(17);
+    ins_300(sprite24);
+    ins_7();
+    ins_5(18);
+    ins_300(sprite25);
+    ins_7();
+    ins_5(19);
+    ins_300(sprite26);
+    ins_7();
+    ins_5(20);
+    ins_300(sprite27);
+    ins_7();
+    ins_5(21);
+    ins_300(sprite28);
+    ins_7();
+    ins_5(22);
+    ins_300(sprite29);
+    ins_7();
+    ins_5(23);
+    ins_300(sprite30);
+    ins_7();
+    ins_5(24);
+    ins_300(sprite31);
+    ins_7();
+    ins_5(25);
+    ins_300(sprite34);
+    ins_7();
+}
+
+script script12 {
+-1:
+    ins_403(0);
+    ins_304(24);
+    ins_313(2);
+    ins_400(288.0f, 0.0f, 0.0f);
+0:
+    ins_502(script11);
+    ins_502(script10);
+    ins_3();
+    ins_5(1);
++30: // 30
+    ins_1();
+}
+
+
+entry entry12 {
+    version: 8,
+    name: "stgenm/stage06/cdbg06a.png",
+    format: 3,
+    width: 512,
+    height: 512,
+    memoryPriority: 0,
+    lowResScale: 0,
+    hasData: 1,
+    THTXSize: 524288,
+    THTXFormat: 3,
+    THTXWidth: 512,
+    THTXHeight: 512,
+    THTXZero: 0,
+    sprites: {
+        sprite35: { x: 0, y: 0, w: 384, h: 448 },
+        sprite36: { x: 150, y: 0, w: 384, h: 448 }
+    }
+}
+
+script script13 {
+    ins_403(0);
+    ins_304(4);
+    ins_500(script16);
+    ins_500(script15);
+    ins_500(script14);
+    ins_3();
+}
+
+script script14 {
+-1:
+    ins_304(4);
+    ins_300(sprite35);
+    ins_400(0.0f, 128.0f, 0.0f);
+    ins_303(2);
+    ins_425(-0.0033333334f);
+    ins_404(128, 128, 128);
+0:
+    ins_100([10000], 256);
+    ins_100([10001], 1);
+    ins_402(380.0f, 190.0f);
+    ins_600([10000]);
+    ins_401(0.0f, 0.0f, -1.5707964f);
+offset168:
+    ins_408(120, 9, 255, 255, 64);
++120: // 120
+    ins_408(120, 9, 64, 255, 64);
++120: // 240
+    ins_408(120, 9, 255, 64, 255);
++120: // 360
+    ins_408(120, 9, 64, 64, 255);
++120: // 480
+    ins_200(offset168, 0);
+    ins_3();
+}
+
+
+entry entry13 {
+    version: 8,
+    name: "stgenm/stage07/cdbg06b.png",
+    format: 3,
+    width: 256,
+    height: 512,
+    memoryPriority: 0,
+    lowResScale: 0,
+    hasData: 1,
+    THTXSize: 262144,
+    THTXFormat: 3,
+    THTXWidth: 256,
+    THTXHeight: 512,
+    THTXZero: 0,
+    sprites: {
+        sprite37: { x: 0, y: 0, w: 384, h: 448 },
+        sprite38: { x: 192, y: 0, w: 384, h: 448 }
+    }
+}
+
+script script15 {
+-1:
+    ins_304(4);
+    ins_300(sprite37);
+    ins_426(0.00066666666f);
+    ins_421(0, 1);
+    ins_400(0.0f, 0.0f, 0.0f);
+    ins_404(128, 128, 128);
+    ins_403(64);
+    ins_303(1);
+0:
+    ins_3();
+}
+
+script script16 {
+-1:
+    ins_304(4);
+    ins_300(sprite38);
+    ins_426(0.0005f);
+    ins_421(0, 1);
+    ins_404(128, 128, 128);
+    ins_400(0.0f, 0.0f, 0.0f);
+0:
+    ins_3();
+}
+
+
+entry entry14 {
+    version: 8,
+    name: "face/enemy6/ename01.png",
+    format: 5,
+    width: 256,
+    height: 128,
+    memoryPriority: 0,
+    lowResScale: 1,
+    hasData: 1,
+    THTXSize: 65536,
+    THTXFormat: 5,
+    THTXWidth: 256,
+    THTXHeight: 128,
+    THTXZero: 0,
+    sprites: {
+        sprite39: { x: 0, y: 0, w: 256, h: 128 }
+    }
+}
+
+script script17 {
+    ins_313(2);
+    ins_400(640.0f, 740.0f, 0.0f);
+    ins_403(0);
+    ins_500(script19);
+    ins_500(script18);
++300: // 300
+    ins_0();
+    ins_5(1);
++20: // 320
+    ins_1();
+}
+
+script script18 {
+    ins_431(1);
+    ins_307(1);
+    ins_421(0, 0);
+    ins_304(27);
+    ins_313(2);
+    ins_300(sprite39);
+    ins_402(1.0f, 0.0f);
+    ins_302(0);
+    ins_412(20, 4, 1.0f, 1.0f);
+    ins_400(0.0f, 0.0f, 0.0f);
+    ins_403(0);
+    ins_409(30, 0, 255);
++200: // 200
+    ins_0();
+    ins_302(1);
+    ins_311(0);
+    ins_407(120, 3, -24.0f, 0.0f, 0.0f);
++100: // 300
+    ins_0();
+    ins_5(1);
+    ins_409(20, 0, 0);
++20: // 320
+    ins_1();
+}
+
+
+entry entry15 {
+    version: 8,
+    name: "face/enemy6/enamebk.png",
+    format: 5,
+    width: 128,
+    height: 128,
+    memoryPriority: 0,
+    lowResScale: 1,
+    hasData: 1,
+    THTXSize: 32768,
+    THTXFormat: 5,
+    THTXWidth: 128,
+    THTXHeight: 128,
+    THTXZero: 0,
+    sprites: {
+        sprite40: { x: 0, y: 0, w: 128, h: 128 }
+    }
+}
+
+script script19 {
+-1:
+    ins_431(1);
+    ins_307(1);
+    ins_304(27);
+    ins_313(2);
+    ins_302(1);
+    ins_300(sprite40);
+    ins_400(-32.0f, -32.0f, 0.0f);
+    ins_407(320, 0, 32.0f, 32.0f, 0.0f);
+    ins_402(0.0f, 0.0f);
+    ins_412(20, 4, 1.0f, 1.0f);
+    ins_415(0.0f, 0.0f, 0.01308997f);
+    ins_403(0);
+    ins_409(120, 0, 255);
+300:
+    ins_0();
+    ins_5(1);
+    ins_409(20, 0, 0);
++20: // 320
+    ins_1();
+}
+
+
+entry entry16 {
+    version: 8,
+    name: "face/enemy7/face07ct.png",
+    format: 1,
+    width: 512,
+    height: 1024,
+    memoryPriority: 0,
+    lowResScale: 0,
+    hasData: 1,
+    THTXSize: 1105920,
+    THTXFormat: 1,
+    THTXWidth: 512,
+    THTXHeight: 540,
+    THTXZero: 0,
+    sprites: {
+        sprite41: { x: 0, y: 0, w: 512, h: 540 }
+    }
+}
+
+script script20 {
+    ins_300(sprite41);
+    ins_304(6);
+    ins_421(0, 1);
+    ins_302(2);
+    ins_400(0.0f, 448.0f, 0.0f);
+    ins_404(0, 0, 0);
+    ins_408(30, 0, 255, 255, 255);
+    ins_407(30, 0, 0.0f, 0.0f, 0.0f);
++30: // 30
+    ins_407(90, 0, 0.0f, -64.0f, 0.0f);
++90: // 120
+    ins_407(30, 0, 0.0f, -192.0f, 0.0f);
+    ins_408(30, 0, 0, 0, 0);
++30: // 150
+    ins_1();
+}
+
+

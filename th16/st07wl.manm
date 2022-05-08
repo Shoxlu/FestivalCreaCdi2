@@ -1,0 +1,296 @@
+entry entry0 {
+    version: 8,
+    name: "background/stage07/stage05a.png",
+    format: 1,
+    width: 512,
+    height: 512,
+    memoryPriority: 0,
+    lowResScale: 0,
+    hasData: 1,
+    THTXSize: 1048576,
+    THTXFormat: 1,
+    THTXWidth: 512,
+    THTXHeight: 512,
+    THTXZero: 0,
+    sprites: {
+        sprite0: { x: 0, y: 0, w: 399, h: 455 }
+    }
+}
+
+script script0 {
+    sprite(sprite0);
+    type(8);
+    alpha(0);
++400: // 400
+    alphaTime(200, 0, 255);
++200: // 600
+    case(8);
+    alpha(255);
+    stop();
+}
+
+
+entry entry1 {
+    version: 8,
+    name: "background/stage07/stage05b.png",
+    format: 1,
+    width: 256,
+    height: 256,
+    memoryPriority: 0,
+    lowResScale: 0,
+    hasData: 1,
+    THTXSize: 262144,
+    THTXFormat: 1,
+    THTXWidth: 256,
+    THTXHeight: 256,
+    THTXZero: 0,
+    sprites: {
+        sprite1: { x: 0, y: 0, w: 256, h: 256 }
+    }
+}
+
+script script1 {
+    sprite(sprite1);
+    type(8);
+    rotate(-1.5707964f, -3.1415927f, 0.0f);
+    stop();
+}
+
+
+entry entry2 {
+    version: 8,
+    name: "background/stage07/stage05b2.png",
+    format: 1,
+    width: 256,
+    height: 256,
+    memoryPriority: 0,
+    lowResScale: 0,
+    hasData: 1,
+    THTXSize: 262144,
+    THTXFormat: 1,
+    THTXWidth: 256,
+    THTXHeight: 256,
+    THTXZero: 0,
+    sprites: {
+        sprite2: { x: 0, y: 0, w: 256, h: 256 }
+    }
+}
+
+script script2 {
+    sprite(sprite2);
+    type(8);
+    rotate(-1.5707964f, -3.1415927f, 0.0f);
+    stop();
+}
+
+
+entry entry3 {
+    version: 8,
+    name: "background/stage07/stage05b3.png",
+    format: 1,
+    width: 256,
+    height: 256,
+    memoryPriority: 0,
+    lowResScale: 0,
+    hasData: 1,
+    THTXSize: 262144,
+    THTXFormat: 1,
+    THTXWidth: 256,
+    THTXHeight: 256,
+    THTXZero: 0,
+    sprites: {
+        sprite3: { x: 0, y: 0, w: 256, h: 256 }
+    }
+}
+
+script script3 {
+    sprite(sprite3);
+    type(8);
+    rotate(-1.5707964f, -3.1415927f, 0.0f);
+    stop();
+}
+
+
+entry entry4 {
+    version: 8,
+    name: "background/stage07/stage05b4.png",
+    format: 1,
+    width: 256,
+    height: 256,
+    memoryPriority: 0,
+    lowResScale: 0,
+    hasData: 1,
+    THTXSize: 262144,
+    THTXFormat: 1,
+    THTXWidth: 256,
+    THTXHeight: 256,
+    THTXZero: 0,
+    sprites: {
+        sprite4: { x: 0, y: 0, w: 256, h: 256 }
+    }
+}
+
+script script4 {
+    sprite(sprite4);
+    type(8);
+    rotate(-1.5707964f, -3.1415927f, 0.0f);
+    stop();
+}
+
+
+entry entry5 {
+    version: 8,
+    name: "background/stage07/stage05b1.png",
+    format: 1,
+    width: 128,
+    height: 256,
+    memoryPriority: 0,
+    lowResScale: 0,
+    hasData: 1,
+    THTXSize: 47196,
+    THTXFormat: 1,
+    THTXWidth: 69,
+    THTXHeight: 171,
+    THTXZero: 0,
+    sprites: {
+        sprite5: { x: 0, y: 0, w: 69, h: 171 }
+    }
+}
+
+script script5 {
+    sprite(sprite5);
+    type(8);
+    anchor(2, 1);
+    rotate(-1.5707964f, -3.1415927f, 0.0f);
+    pos(-69.0f, -1.0f, -110.0f);
+    rotateTime(600, 9, -1.5707964f, -3.1415927f, -0.5235988f);
+    case(8);
+offset116:
+    rotateTime(220, 9, -1.5707964f, -3.1415927f, -2.0943952f);
++220: // 220
+    rotateTime(260, 9, -1.5707964f, -3.1415927f, -0.5235988f);
++260: // 480
+    jmp(offset116, 0);
+    stop();
+}
+
+script script6 {
+    sprite(sprite5);
+    type(8);
+    anchor(1, 1);
+    rotate(-1.5707964f, -3.1415927f, 0.0f);
+    pos(69.0f, -1.0f, -110.0f);
+    rotateTime(600, 9, -1.5707964f, -3.1415927f, 0.5235988f);
+    case(8);
+offset116:
+    rotateTime(240, 9, -1.5707964f, -3.1415927f, 2.0943952f);
++240: // 240
+    rotateTime(280, 9, -1.5707964f, -3.1415927f, 0.5235988f);
++280: // 520
+    jmp(offset116, 0);
+    stop();
+}
+
+script script7 {
+    sprite(sprite5);
+    type(8);
+    anchor(2, 1);
+    rotate(-1.5707964f, -3.1415927f, 0.0f);
+    pos(-69.0f, -1.0f, -110.0f);
+    rotateTime(600, 9, -1.5707964f, -3.1415927f, -0.5235988f);
+    case(8);
+offset116:
+    rotateTime(300, 9, -1.5707964f, -3.1415927f, -2.0943952f);
++300: // 300
+    rotateTime(320, 9, -1.5707964f, -3.1415927f, -0.5235988f);
++320: // 620
+    jmp(offset116, 0);
+    stop();
+}
+
+script script8 {
+    sprite(sprite5);
+    type(8);
+    anchor(1, 1);
+    rotate(-1.5707964f, -3.1415927f, 0.0f);
+    pos(69.0f, -1.0f, -110.0f);
+    rotateTime(600, 9, -1.5707964f, -3.1415927f, 0.5235988f);
+    case(8);
+offset116:
+    rotateTime(340, 9, -1.5707964f, -3.1415927f, 2.0943952f);
++340: // 340
+    rotateTime(280, 9, -1.5707964f, -3.1415927f, 0.5235988f);
++280: // 620
+    jmp(offset116, 0);
+    stop();
+}
+
+script script9 {
+    sprite(sprite5);
+    type(8);
+    anchor(2, 1);
+    rotate(-1.5707964f, -3.1415927f, 0.0f);
+    pos(-69.0f, -1.0f, -110.0f);
+    rotateTime(600, 9, -1.5707964f, -3.1415927f, -0.5235988f);
+    case(8);
+offset116:
+    rotateTime(180, 9, -1.5707964f, -3.1415927f, -2.0943952f);
++180: // 180
+    rotateTime(300, 9, -1.5707964f, -3.1415927f, -0.5235988f);
++300: // 480
+    jmp(offset116, 0);
+    stop();
+}
+
+script script10 {
+    sprite(sprite5);
+    type(8);
+    anchor(1, 1);
+    rotate(-1.5707964f, -3.1415927f, 0.0f);
+    pos(69.0f, -1.0f, -110.0f);
+    rotateTime(600, 9, -1.5707964f, -3.1415927f, 0.5235988f);
+    case(8);
+offset116:
+    rotateTime(240, 9, -1.5707964f, -3.1415927f, 2.0943952f);
++240: // 240
+    rotateTime(210, 9, -1.5707964f, -3.1415927f, 0.5235988f);
++210: // 450
+    jmp(offset116, 0);
+    stop();
+}
+
+script script11 {
+    sprite(sprite5);
+    type(8);
+    anchor(2, 1);
+    rotate(-1.5707964f, -3.1415927f, 0.0f);
+    pos(-69.0f, -1.0f, -110.0f);
+    rotateTime(600, 9, -1.5707964f, -3.1415927f, -0.5235988f);
+    case(8);
+offset116:
+    rotateTime(340, 9, -1.5707964f, -3.1415927f, -2.0943952f);
++340: // 340
+    rotateTime(280, 9, -1.5707964f, -3.1415927f, -0.5235988f);
++280: // 620
+    jmp(offset116, 0);
+    stop();
+}
+
+script script12 {
+    sprite(sprite5);
+    type(8);
+    anchor(1, 1);
+    rotate(-1.5707964f, -3.1415927f, 0.0f);
+    pos(69.0f, -1.0f, -110.0f);
+    rotateTime(600, 9, -1.5707964f, -3.1415927f, 0.5235988f);
+    case(8);
+offset116:
+    rotateTime(250, 9, -1.5707964f, -3.1415927f, 2.0943952f);
++250: // 250
+    rotateTime(290, 9, -1.5707964f, -3.1415927f, 0.5235988f);
++290: // 540
+    jmp(offset116, 0);
+    stop();
+}
+
+
