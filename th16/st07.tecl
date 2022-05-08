@@ -1,4 +1,4 @@
-anim { "enemy.anm"; "st07enm.anm"; "st07enm2.anm"; "st07enm3.anm"; }
+anim { "enemy.anm"; "st07enm.anm"; "st07enm2.anm";}
 ecli { "default.ecl"; "st07mbs.ecl"; "st07mbs2.ecl"; "st07bs.ecl"; }
 
 void MainBossSpell();
