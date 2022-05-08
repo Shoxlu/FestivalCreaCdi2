@@ -1,6 +1,6 @@
 entry entry0 {
     version: 8,
-    name: "stgenm/stage05/enm5.png",
+    name: "stgenm/stage07mid/enm7m.png",
     format: 1,
     width: 512,
     height: 512,
@@ -281,7 +281,7 @@ entry entry1 {
 
 entry entry2 {
     version: 8,
-    name: "face/enemy5/face05n2.png",
+    name: "face/enemy7/face07mn2.png",
     format: 1,
     width: 256,
     height: 256,
@@ -403,7 +403,7 @@ entry entry7 {
 
 entry entry8 {
     version: 8,
-    name: "face/enemy5/face05sp.png",
+    name: "face/enemy7/face07msp.png",
     format: 1,
     width: 256,
     height: 256,
@@ -445,7 +445,7 @@ entry entry9 {
 
 entry entry10 {
     version: 8,
-    name: "face/enemy5/face05bs.png",
+    name: "face/enemy7/face07mbs.png",
     format: 1,
     width: 1024,
     height: 1024,
@@ -642,7 +642,7 @@ script script8 {
 
 entry entry11 {
     version: 8,
-    name: "stgenm/stage05/cdbg05a00.png",
+    name: "stgenm/stage07mid/cdbg07a00.png",
     format: 1,
     width: 512,
     height: 512,
@@ -683,7 +683,7 @@ script script10 {
 
 entry entry12 {
     version: 8,
-    name: "stgenm/stage05/cdbg05b00.png",
+    name: "stgenm/stage07mid/cdbg07b00.png",
     format: 1,
     width: 512,
     height: 512,
@@ -731,20 +731,20 @@ script script12 {
 
 entry entry13 {
     version: 8,
-    name: "face/enemy5/face05ct3.png",
+    name: "face/enemy7/face07mct.png",
     format: 1,
     width: 512,
-    height: 512,
+    height: 554,
     memoryPriority: 0,
     lowResScale: 0,
     hasData: 1,
-    THTXSize: 714872,
+    THTXSize: 1134592,
     THTXFormat: 1,
-    THTXWidth: 386,
-    THTXHeight: 463,
+    THTXWidth: 512,
+    THTXHeight: 554,
     THTXZero: 0,
     sprites: {
-        sprite41: { x: 0, y: 0, w: 386, h: 463 }
+        sprite41: { x: 0, y: 0, w: 512, h: 554 }
     }
 }
 

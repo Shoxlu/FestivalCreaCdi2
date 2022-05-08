@@ -940,4 +940,40 @@ script script20 {
     ins_1();
 }
 
+entry entry17 {
+    version: 8,
+    name: "stgenm/stage07/fan.png",
+    format: 5,
+    width: 512,
+    height: 256,
+    yOffset: 256,
+    memoryPriority: 0,
+    lowResScale: 0,
+    hasData: 1,
+    THTXSize: 262144,
+    THTXFormat: 5,
+    THTXWidth: 512,
+    THTXHeight: 256,
+    THTXZero: 0,
+    sprites: {
+        sprite42: { x: 0, y: 0, w: 512, h: 256 }
+    }
+}
+
+script script21 {
+    flipX();
+    sprite(sprite42);
+    layer(7);
+    blendMode(1);
+    scale(1.0f, 0.0f);
+    scaleTime(60, 1, 1.0f, 0.1f);
++60: // 60
+    scaleTime(60, 4, 1.0f, 1.0f);
+offset108:
+    posTime(40, 9, 0.0f, -4.0f, 0.0f);
++40: // 100
+    posTime(40, 9, 0.0f, 4.0f, 0.0f);
++40: // 140
+    jmp(offset108, 60);
+}
 
