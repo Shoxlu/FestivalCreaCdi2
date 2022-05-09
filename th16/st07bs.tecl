@@ -217,26 +217,36 @@ void Boss1_at2(int color)
 	etNew(2);
 	etAim(2, 1);
 	etSprite(2, 22, color);
-	etCount(2, 1, 4);
+	I0 = color;
+	etCount(2, 2, 4);
 	etSpeed(2, 1f, 2f);
-	etAngle(2, rad(135), 0f);
+	etAngle(2, rad(90), rad(90));
 	etExSet(2, 0, 1, EX_ANIM, 0, NEG, NEGF, NEGF);
-	// etExSet(2, 1, 1, EX_SPECIAL, NEG, NEG, NEGF, NEGF);
-	// etExSub(2, 1, "createbutterflies");
-	etOn(2);
-	etAngle(2, rad(45), 0f);
+	etExSet(2, 1, 0, EX_VELTIME, 180, NEG, 0.0001f, NEGF);
+	etExSet(2, 2, 0, EX_WAIT, 30, NEG, NEGF, NEGF);
+	//etExSet(2, 4, 0, EX_VELTIME, 60, NEG, 4f, NEGF);
+	etExSet(2, 3, 1, EX_SPECIAL, NEG, NEG, NEGF, NEGF);
+	etExSub(2, 3, "createbutterflies");
 	etOn(2);
 }
 
 void createbutterflies()
 {
+	float angle = ANGLE_PLAYER;
 	etNew(3);
 	etAim(3, 1);
-	etSpeed(3, 1f, 2f);
-	etCount(3, 2, 4);
+	etSprite(3, 22, 2);
+	etCount(3, 1, 4);
+	etSpeed(3, 1f, 0f);
+	etAngle(3, rad(90), rad(45));
+	etExSet(3, 0, 1, EX_ANIM, 0, NEG, NEGF, NEGF);
+	etExSet(3, 1, 0, EX_AIM, 180, NEG, 3f/180f, angle/180f);
+	etOn(3);
+	etExSet(3, 1, 0, EX_AIM, 180, NEG, 3f/180f, (angle+rad(120))/180f);
+	etOn(3);
+	etExSet(3, 1, 0, EX_AIM, 180, NEG, 3f/180f, (angle+rad(240))/180f);
 	etOn(3);
 }
-
 void Boss10()
 {
     setInvuln(180);
