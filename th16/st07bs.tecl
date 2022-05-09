@@ -1,4 +1,4 @@
-
+#include "main.tecl"
 void BossItemPhase(var A, var B, var C);
 
 void BossItemCard();
@@ -11,8 +11,10 @@ void Boss()
 {
     setBoss(0);
     $GI1 = $ID;
+	GI0 = 1;
     setInvuln(120);
     flagSet(47);
+	flagExtDmg(1);
     $CAPTURE = 1;
     movePos(0.0f, 128.0f);
     unless (($SPELL_ID == 117) || ($SPELL_ID == 118)) goto Boss_376 @ 0;
@@ -110,6 +112,46 @@ Boss_2884:
     delete();
 }
 
+void fan()
+{
+	flagSet(2);
+	flagSet(128);
+	anmSelect(3);
+	anmSetSprite(4, 21);
+	flagSet(4096);
+	setHurtbox(384f, 50f);
+	followBoss() async;
+	lifeSet(100000);
+	int A = LIFE;
+	while(1)
+	{
+		if(A != LIFE)
+		{
+			if(SHOTTYPE == 2)
+			{
+				BI3 = BI3 + 2;
+			}else{
+				BI3 = BI3 + 5;
+			}
+			lifeSet(100000);
+			A = LIFE;
+		}
+		wait(1);
+	}
+	wait(10000);
+}
+void followBoss()
+{
+	while(1)
+	{
+		if(GI0 != 0)
+		{
+			movePos(BOSS_X, BOSS_Y);
+		}
+		wait(1);
+	}
+}
+
 void Boss1()
 {
     timerReset();
@@ -122,23 +164,77 @@ void Boss1()
     anmPlay(1, 75);
     playSound(54);
     wait(60);
-	anmSelect(3);
-	anmSetSprite(4, 21);
+	enmCreate("fan", 0f, 0f, 10, 10, 1);
     anmPlay(1, 86);
     playSound(6);
-    goto Boss1_564 @ 0;
-Boss1_348:
-    @Boss1_at(0.13962634f) async;
-    wait(100);
-    moveRand(60, 4, 1.9f);
-    wait(60);
-    @Boss1_at(-0.13962634f) async;
-    wait(100);
-    moveRand(60, 4, 1.9f);
-    wait(60);
-Boss1_564:
-    if (1) goto Boss1_348 @ 0;
+	Boss1_at(30, 7);
+	wait(100);
+	Boss1_at1() async;
+	while(1)
+	{
+		wait(40);
+		Boss1_at2(2);
+		wait(180);
+		Boss1_at2(3);
+		wait(180);
+		Boss1_at(23, 5);
+		wait(60);
+	}
     return;
+}
+
+void Boss1_at(int count1, int count2)
+{
+	etNew(0);
+	etAim(0, 2);
+	etSprite(0, 32, 1);
+	etSpeed(0, 4f, 1.5f);
+	etCount(0, count1, count2);
+	etOn(0);
+}
+
+void Boss1_at1()
+{
+	etNew(1);
+	etCount(1, 2, 1);
+	etAim(1, 1);
+	etAngle(1, rad(0), rad(180));
+	etSprite(1, 8, 4);
+	etSpeed(1, 1.5f, 1.5f);
+	etExSet(1, 0, 1, EX_ANIM, 0, NEG, NEGF, NEGF);
+	while(1)
+	{
+		etSpeed(1, 1.5f+RANDF2*0.5f, 1.5f);
+		etAngle(1, rad(0)+ RANDRAD / 16f, rad(180));
+		etOffset(1, RANDF2*180f, RANDF2*20f);
+		etOn(1);
+		wait(4);
+	}
+}
+
+void Boss1_at2(int color)
+{
+	etNew(2);
+	etAim(2, 1);
+	etSprite(2, 22, color);
+	etCount(2, 1, 4);
+	etSpeed(2, 1f, 2f);
+	etAngle(2, rad(135), 0f);
+	etExSet(2, 0, 1, EX_ANIM, 0, NEG, NEGF, NEGF);
+	// etExSet(2, 1, 1, EX_SPECIAL, NEG, NEG, NEGF, NEGF);
+	// etExSub(2, 1, "createbutterflies");
+	etOn(2);
+	etAngle(2, rad(45), 0f);
+	etOn(2);
+}
+
+void createbutterflies()
+{
+	etNew(3);
+	etAim(3, 1);
+	etSpeed(3, 1f, 2f);
+	etCount(3, 2, 4);
+	etOn(3);
 }
 
 void Boss10()
@@ -192,30 +288,7 @@ Boss10_804:
     return;
 }
 
-void Boss1_at(var A)
-{
-    var B, C;
-    etNew(0);
-    etAim(0, 3);
-    etSprite(0, 10, 4);
-    etCount(0, 1, 5);
-    etAngle(0, 0.0f, 0.0f);
-    etSpeed(0, 4.5f, 3.0f);
-    etEx(0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-    etDist(0, 32.0f);
-    etOffset(0, 0.0f, -24.0f);
-    %B = %ANGLE_PLAYER;
-    $C = 100;
-    goto Boss1_at_536 @ 0;
-Boss1_at_392:
-    etAngle(0, %B, 0.0f);
-    %B = %B + %A;
-    etOn(0);
-    wait(3);
-Boss1_at_536:
-    if ($C--) goto Boss1_at_392 @ 0;
-    return;
-}
+
 
 void Boss2()
 {
