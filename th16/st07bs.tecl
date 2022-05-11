@@ -169,7 +169,7 @@ void Boss1()
     playSound(6);
 	Boss1_at(30, 7);
 	wait(100);
-	// Boss1_at1() async;
+	Boss1_at1() async;
 	while(1)
 	{
 		wait(40);
@@ -177,7 +177,7 @@ void Boss1()
 		wait(180);
 		Boss1_at2(3);
 		wait(180);
-		// Boss1_at(23, 5);
+		Boss1_at(23, 5);
 		wait(60);
 	}
     // @BossCard2_at2(-0.034906585f, (%RANDF2 * _f(32)) - _f(128), (%RANDF2 * _f(32)) + _f(128));
@@ -230,13 +230,14 @@ void Boss1_at2(int color)
 	float speed = 0.7f;
 	float speed2 = 0.2f;
 	float B = rad(120);
+	float C;
 	etNew(2);
 	etAim(2, 1);
 	etSprite(2, 22, color);
 	I0 = color;
-	etCount(2, 2, 1);
+	etCount(2, 1, 1);
 	etSpeed(2, 0.7f, 2f);
-	etAngle(2, rad(90), rad(90));
+	etAngle(2, rad(45), rad(90));
 	etExSet(2, 0, 1, EX_ANIM, 0, NEG, NEGF, NEGF);
 	etExSet(2, 1, 0, EX_VELTIME, 120, NEG, 0.1f, NEGF);
 	//etExSet(2, 4, 0, EX_VELTIME, 60, NEG, 4f, NEGF);
@@ -275,6 +276,55 @@ void Boss1_at2(int color)
 				etOn(2);
 				speed = speed + ((4f-1.5f)/5f);
 			}
+			A += B;
+			speed2 = speed2 + (1f-speed2)/5f;
+	}
+	etAngle(2, rad(135), rad(90));
+	D = 0.4f;
+	times(4)
+	{
+		etExSet(2, 4, 0, EX_ACCEL, 60, -999999, D / _f(60), -999999.0f);
+		%D = %D + 0.4f;
+			A = rad(-50);
+			etExSet2(2, 2, 0, EX_ANGLE, 20, 1, 1, NEG, A, 0.3f, NEGF, NEGF);
+			etExSet(2, 3, 0, EX_ANGLE_ACCEL, 60, -999999, 0.0f, (rad(120))/60f);
+			speed = 1.5f;
+			C = A;
+
+			times(5){
+				etExSet2(2, 2, 0, EX_ANGLE, 20, 1, 1, NEG, A, 0.3f, NEGF, NEGF);
+				etSpeed(2, speed, speed);
+				etOn(2);
+				speed = speed + ((4f-1.5f)/5f);
+				A += rad(20);
+			}
+			A = C;
+			A += B;
+			etExSet2(2, 2, 0, EX_ANGLE, 20, 1, 1, NEG, A,  0.3f, NEGF, NEGF);
+			etExSet(2, 3, 0, EX_ANGLE_ACCEL, 60, -999999, 0.0f, (rad(120))/60f);
+			speed = 1.5f;
+			C = A;
+			times(5){
+				etExSet2(2, 2, 0, EX_ANGLE, 20, 1, 1, NEG, A, 0.3f, NEGF, NEGF);
+				etSpeed(2, speed, speed);
+				etOn(2);
+				speed = speed + ((4f-1.5f)/5f);
+				A += rad(20);
+			}
+			A = C;
+			A += B;
+			etExSet2(2, 2, 0, EX_ANGLE, 20, 1, 1, NEG, A, 0.3f, NEGF, NEGF);
+			etExSet(2, 3, 0, EX_ANGLE_ACCEL, 60, -999999, 0f, (rad(120))/60f);
+			speed = 1.5f;
+			C = A;
+			times(5){
+				etExSet2(2, 2, 0, EX_ANGLE, 20, 1, 1, NEG, A, 0.3f, NEGF, NEGF);
+				etSpeed(2, speed, speed);
+				etOn(2);
+				speed = speed + ((4f-1.5f)/5f);
+				A += rad(20);
+			}
+			A = C;
 			A += B;
 			speed2 = speed2 + (1f-speed2)/5f;
 	}
