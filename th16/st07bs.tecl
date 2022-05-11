@@ -30,7 +30,7 @@ Boss_376:
 Boss_764:
     flagClear(32);
     flagSet(64);
-    lifeSet(14000);
+    lifeSet(28000);
     spec1(200);
     anmSetSprite(0, 0);
 +2: //2
@@ -50,65 +50,65 @@ Boss_1136:
     spec1(200);
     unless ($SPELL_ID >= 0) goto Boss_2884 @ 3;
     unless ($SPELL_ID == 109) goto Boss_1504 @ 3;
-    lifeSet(3000);
+    lifeSet(6000);
     @BossCard1();
     goto Boss_1584 @ 3;
 Boss_1504:
     unless ($SPELL_ID == 110) goto Boss_1660 @ 3;
 Boss_1584:
-    lifeSet(2000);
+    lifeSet(6000);
     @BossCard2();
     goto Boss_1740 @ 3;
 Boss_1660:
     unless ($SPELL_ID == 111) goto Boss_1816 @ 3;
 Boss_1740:
-    lifeSet(3500);
+    lifeSet(7000);
     @BossCard3();
     goto Boss_1896 @ 3;
 Boss_1816:
     unless ($SPELL_ID == 112) goto Boss_1972 @ 3;
 Boss_1896:
-    lifeSet(2700);
+    lifeSet(5400);
     @BossCard4();
     goto Boss_2052 @ 3;
 Boss_1972:
     unless ($SPELL_ID == 113) goto Boss_2128 @ 3;
 Boss_2052:
-    lifeSet(2000);
+    lifeSet(4000);
     @BossCard5();
     goto Boss_2208 @ 3;
 Boss_2128:
     unless ($SPELL_ID == 114) goto Boss_2284 @ 3;
 Boss_2208:
-    lifeSet(3000);
+    lifeSet(6000);
     @BossCard6();
     goto Boss_2364 @ 3;
 Boss_2284:
     unless ($SPELL_ID == 115) goto Boss_2440 @ 3;
 Boss_2364:
-    lifeSet(3000);
+    lifeSet(6000);
     @BossCard7();
     goto Boss_2520 @ 3;
 Boss_2440:
     unless ($SPELL_ID == 116) goto Boss_2596 @ 3;
 Boss_2520:
-    lifeSet(2400);
+    lifeSet(4800);
     @BossCard8();
     goto Boss_2676 @ 3;
 Boss_2596:
     unless ($SPELL_ID == 117) goto Boss_2752 @ 3;
 Boss_2676:
-    lifeSet(3000);
+    lifeSet(6000);
     @BossCard9();
     goto Boss_2832 @ 3;
 Boss_2752:
     unless ($SPELL_ID == 118) goto Boss_2884 @ 3;
 Boss_2832:
-    lifeSet(5500);
+    lifeSet(11000);
     @BossCard10();
 Boss_2884:
     debug22(3, "Boss8");
-    @Boss1();
+    @Boss2();
     delete();
 }
 
@@ -120,6 +120,7 @@ void fan()
 	anmSetSprite(4, 21);
 	flagSet(4096);
 	setHurtbox(384f, 50f);
+	bombShield(1, 21);
 	followBoss() async;
 	lifeSet(100000);
 	int A = LIFE;
@@ -155,8 +156,8 @@ void followBoss()
 void Boss1()
 {
     timerReset();
-    setNext(0, 3000, 3600, "BossCard1");
-    lifeMarker(0, 3000.0f, -24448);
+    setNext(0, 6000, 3600, "BossCard1");
+    lifeMarker(0, 6000.0f, -24448);
     stars(9);
     spec0(2400, 200, 80);
     anmSelect(3);
@@ -176,21 +177,10 @@ void Boss1()
 		Boss1_at2(2);
 		wait(180);
 		Boss1_at2(3);
-		wait(180);
-		Boss1_at(23, 5);
+		wait(220);
+		Boss1_at(23, 3);
 		wait(60);
 	}
-    // @BossCard2_at2(-0.034906585f, (%RANDF2 * _f(32)) - _f(128), (%RANDF2 * _f(32)) + _f(128));
-    // wait(20);
-    // @BossCard2_at2(0.034906585f, (%RANDF2 * _f(32)) - _f(64), (%RANDF2 * _f(32)) + _f(128));
-    // wait(20);
-    // @BossCard2_at2(-0.034906585f, (%RANDF2 * _f(32)) - _f(0), (%RANDF2 * _f(32)) + _f(128));
-    // wait(20);
-    // @BossCard2_at2(0.034906585f, (%RANDF2 * _f(32)) + _f(64), (%RANDF2 * _f(32)) + _f(128));
-    // wait(20);
-    // @BossCard2_at2(-0.034906585f, (%RANDF2 * _f(32)) + _f(128), (%RANDF2 * _f(32)) + _f(128));
-    // diffWait(110, 110, 110, 90);
-	// wait(10000);
     return;
 }
 
@@ -231,13 +221,21 @@ void Boss1_at2(int color)
 	float speed2 = 0.2f;
 	float B = rad(120);
 	float C;
+	int rad;
 	etNew(2);
 	etAim(2, 1);
 	etSprite(2, 22, color);
 	I0 = color;
 	etCount(2, 1, 1);
 	etSpeed(2, 0.7f, 2f);
-	etAngle(2, rad(45), rad(90));
+	if(RAND % 2)
+	{
+		etAngle(2, rad(45), rad(90));
+		rad = 45;
+	}else{
+		etAngle(2, rad(135), rad(90));
+		rad = 135;
+	}
 	etExSet(2, 0, 1, EX_ANIM, 0, NEG, NEGF, NEGF);
 	etExSet(2, 1, 0, EX_VELTIME, 120, NEG, 0.1f, NEGF);
 	//etExSet(2, 4, 0, EX_VELTIME, 60, NEG, 4f, NEGF);
@@ -279,8 +277,12 @@ void Boss1_at2(int color)
 			A += B;
 			speed2 = speed2 + (1f-speed2)/5f;
 	}
-	etAngle(2, rad(135), rad(90));
 	D = 0.4f;
+	if(rad == 135){
+		etAngle(2, rad(45), rad(90));
+	}else{
+		etAngle(2, rad(135), rad(90));
+	}
 	times(4)
 	{
 		etExSet(2, 4, 0, EX_ACCEL, 60, -999999, D / _f(60), -999999.0f);
@@ -385,7 +387,7 @@ Boss10_200:
     bombShield(0, 0);
     flagClear(3);
     anmColorTime(0, 60, 0, 255, 255, 255);
-    lifeSet(5500);
+    lifeSet(11000);
     stars(0);
     dropClear();
     unless ($CAPTURE == 1) goto Boss10_464 @ 0;
@@ -429,7 +431,7 @@ Boss10_804:
 void Boss2()
 {
     setInvuln(120);
-    lifeSet(13000);
+    lifeSet(26000);
     unless ($TIMEOUT == 0) goto Boss2_200 @ 0;
     etCancel(640.0f);
     goto Boss2_220 @ 0;
@@ -461,8 +463,8 @@ Boss2_516:
     spec0(2400, 200, 80);
     anmSelect(3);
     anmSetMain(0, 0);
-    setNext(0, 2000, 3600, "BossCard2");
-    lifeMarker(0, 2000.0f, -24448);
+    setNext(0, 4000, 3600, "BossCard2");
+    lifeMarker(0, 4000.0f, -24448);
     stars(8);
     movePosTime(60, 4, 0.0f, 128.0f);
     wait(120);
@@ -472,50 +474,30 @@ Boss2_516:
     wait(60);
     anmPlay(1, 86);
     playSound(6);
-    goto Boss2_1408 @ 0;
-Boss2_1176:
-    @Boss2_at(0.13962634f, 0.008726646f) async;
-    wait(100);
-    moveRand(60, 4, 1.9f);
-    wait(60);
-    @Boss2_at(-0.13962634f, -0.008726646f) async;
-    wait(100);
-    moveRand(60, 4, 1.9f);
-    wait(60);
-Boss2_1408:
-    if (1) goto Boss2_1176 @ 0;
-    return;
+    @Boss2_at(25, 5);
+	wait(10000);
 }
 
-void Boss2_at(var A, var B)
+void Boss2_at(int count1, int count2)
 {
-    var C, D;
-    etNew(0);
-    etAim(0, 3);
-    etSprite(0, 10, 6);
-    etCount(0, 1, 5);
-    etAngle(0, 0.0f, 0.0f);
-    etSpeed(0, 4.5f, 3.0f);
-    etEx(0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-    etDist(0, 32.0f);
-    etOffset(0, 0.0f, -24.0f);
-    %C = %ANGLE_PLAYER;
-    $D = 100;
-    goto Boss2_at_536 @ 0;
-Boss2_at_392:
-    etAngle(0, %C, %B);
-    %C = %C + %A;
-    etOn(0);
-    wait(3);
-Boss2_at_536:
-    if ($D--) goto Boss2_at_392 @ 0;
-    return;
+	etNew(0);
+	etAim(0, 2);
+	etSprite(0, 32, 1);
+	etSpeed(0, 3f, 0.5f);
+	etAngle(0, rad(0), rad(20));
+	etCount(0, count1, count2);
+	etCopy(1, 0);
+	etEx(1, 0, EX_HITBOX, 1, 0, 0.1f, 0.1f);
+	etSprite(1, 33, 2);
+	etOn(0);
+	etOn(1);
 }
+
 
 void Boss3()
 {
     setInvuln(120);
-    lifeSet(14500);
+    lifeSet(29000);
     unless ($TIMEOUT == 0) goto Boss3_200 @ 0;
     etCancel(640.0f);
     goto Boss3_220 @ 0;
@@ -547,8 +529,8 @@ Boss3_516:
     spec0(2400, 200, 80);
     anmSelect(3);
     anmSetMain(0, 0);
-    setNext(0, 3500, 3600, "BossCard3");
-    lifeMarker(0, 3500.0f, -24448);
+    setNext(0, 7000, 3600, "BossCard3");
+    lifeMarker(0, 7000.0f, -24448);
     stars(7);
     movePosTime(60, 4, 0.0f, 128.0f);
     wait(120);
@@ -601,7 +583,7 @@ Boss3_at_536:
 void Boss4()
 {
     setInvuln(120);
-    lifeSet(13700);
+    lifeSet(25400);
     unless ($TIMEOUT == 0) goto Boss4_200 @ 0;
     etCancel(640.0f);
     goto Boss4_220 @ 0;
@@ -633,8 +615,8 @@ Boss4_516:
     spec0(2400, 200, 80);
     anmSelect(3);
     anmSetMain(0, 0);
-    setNext(0, 2700, 3600, "BossCard4");
-    lifeMarker(0, 2700.0f, -24448);
+    setNext(0, 5400, 3600, "BossCard4");
+    lifeMarker(0, 5400.0f, -24448);
     stars(6);
     movePosTime(60, 4, 0.0f, 128.0f);
     moveLimitReset();
@@ -689,7 +671,7 @@ void Boss5()
 {
     var A;
     setInvuln(120);
-    lifeSet(13000);
+    lifeSet(26000);
     unless ($TIMEOUT == 0) goto Boss5_200 @ 0;
     etCancel(640.0f);
     goto Boss5_220 @ 0;
@@ -721,8 +703,8 @@ Boss5_516:
     spec0(2400, 200, 80);
     anmSelect(3);
     anmSetMain(0, 0);
-    setNext(0, 2000, 4200, "BossCard5");
-    lifeMarker(0, 2000.0f, -24448);
+    setNext(0, 4000, 4200, "BossCard5");
+    lifeMarker(0, 4000.0f, -24448);
     stars(5);
     moveLimitReset();
     movePos(0.0f, 356.0f);
@@ -805,7 +787,7 @@ void Boss5_at2()
 void Boss6()
 {
     setInvuln(120);
-    lifeSet(14000);
+    lifeSet(28000);
     unless ($TIMEOUT == 0) goto Boss6_200 @ 0;
     etCancel(640.0f);
     goto Boss6_220 @ 0;
@@ -837,8 +819,8 @@ Boss6_516:
     spec0(2400, 200, 80);
     anmSelect(3);
     anmSetMain(0, 0);
-    setNext(0, 3000, 4200, "BossCard6");
-    lifeMarker(0, 3000.0f, -24448);
+    setNext(0, 6000, 4200, "BossCard6");
+    lifeMarker(0, 6000.0f, -24448);
     stars(4);
     movePosTime(60, 4, 0.0f, 128.0f);
     moveLimitReset();
@@ -892,7 +874,7 @@ Boss6_at_536:
 void Boss7()
 {
     setInvuln(120);
-    lifeSet(14000);
+    lifeSet(28000);
     unless ($TIMEOUT == 0) goto Boss7_200 @ 0;
     etCancel(640.0f);
     goto Boss7_220 @ 0;
@@ -924,8 +906,8 @@ Boss7_516:
     spec0(2400, 200, 80);
     anmSelect(3);
     anmSetMain(0, 0);
-    setNext(0, 3000, 4200, "BossCard7");
-    lifeMarker(0, 3000.0f, -24448);
+    setNext(0, 6000, 4200, "BossCard7");
+    lifeMarker(0, 6000.0f, -24448);
     stars(3);
     movePosTime(60, 4, 0.0f, 128.0f);
     moveLimitReset();
@@ -979,7 +961,7 @@ Boss7_at_536:
 void Boss8()
 {
     setInvuln(120);
-    lifeSet(13400);
+    lifeSet(26800);
     unless ($TIMEOUT == 0) goto Boss8_200 @ 0;
     etCancel(640.0f);
     goto Boss8_220 @ 0;
@@ -1011,8 +993,8 @@ Boss8_516:
     spec0(2400, 200, 80);
     anmSelect(3);
     anmSetMain(0, 0);
-    setNext(0, 2400, 4200, "BossCard8");
-    lifeMarker(0, 2400.0f, -24448);
+    setNext(0, 4800, 4200, "BossCard8");
+    lifeMarker(0, 4800.0f, -24448);
     stars(2);
     movePosTime(60, 4, 0.0f, 128.0f);
     moveLimitReset();
@@ -1073,7 +1055,7 @@ Boss9_180:
     etClear(640.0f);
 Boss9_200:
     bombShield(0, 0);
-    lifeSet(3000);
+    lifeSet(6000);
     stars(1);
     @BossItemPhase3(60, 60, 64.0f);
     timerReset();
@@ -1198,9 +1180,9 @@ BossCard10_412:
     bombShield(1, 0);
     setNext(0, 0, 9000, "BossDead");
     spellEx(118, 9000, 0, "「アナーキーバレットヘル」");
-    lifeMarker(0, 4000.0f, -24448);
-    lifeMarker(1, 2500.0f, -24448);
-    lifeMarker(2, 1000.0f, -24448);
+    lifeMarker(0, 8000.0f, -24448);
+    lifeMarker(1, 5000.0f, -24448);
+    lifeMarker(2, 2000.0f, -24448);
     anmSelect(3);
     anmPlay(1, 73);
 +90: //90
@@ -1209,15 +1191,15 @@ BossCard10_412:
     flagClear(3);
     $A = 2;
     @BossCard10_move() async;
-    @BossCard10_at(4000, 6600);
+    @BossCard10_at(8000, 6600);
     playSound(27);
     etClear(640.0f);
     @BossCard10_at2() async;
-    @BossCard10_at(2500, 6600);
+    @BossCard10_at(5000, 6600);
     playSound(27);
     etClear(640.0f);
     @BossCard10_at3() async;
-    @BossCard10_at(1000, 6600);
+    @BossCard10_at(2000, 6600);
     playSound(27);
     etClear(640.0f);
     @BossCard10_at4() async;
