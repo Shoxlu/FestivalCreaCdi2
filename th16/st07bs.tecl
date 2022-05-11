@@ -108,6 +108,7 @@ Boss_2832:
     @BossCard10();
 Boss_2884:
     debug22(3, "Boss8");
+	enmCreate("fan", 0f, 0f, 10, 10, 1);
     @Boss2();
     delete();
 }
@@ -475,6 +476,13 @@ Boss2_516:
     anmPlay(1, 86);
     playSound(6);
     @Boss2_at(25, 5);
+	while(1)
+	{
+	@Boss2_at1(2, 1f);
+	wait(100);
+	@Boss2_at1(3, -1f);
+	wait(100);
+	}
 	wait(10000);
 }
 
@@ -483,7 +491,7 @@ void Boss2_at(int count1, int count2)
 	etNew(0);
 	etAim(0, 2);
 	etSprite(0, 32, 1);
-	etSpeed(0, 3f, 0.5f);
+	etSpeed(0, 4f, 1.5f);
 	etAngle(0, rad(0), rad(20));
 	etCount(0, count1, count2);
 	etCopy(1, 0);
@@ -493,6 +501,32 @@ void Boss2_at(int count1, int count2)
 	etOn(1);
 }
 
+void Boss2_at1(int color, float rotation)
+{
+	float D = 0.4f;
+	etNew(2);
+	etAim(2, 3);
+	etSprite(2, 22, color);
+	etSpeed(2, 0.4f, 0.4f);
+	etCount(2, 20, 1);
+	etExSet(2, 0, 1, EX_ANIM, 0, NEG, NEGF, NEGF);
+	etExSet(2, 1, 0, EX_ANGLE_ACCEL, 60, -999999, 0.0f, (rad(180)*rotation)/60f);
+	times(10)
+	{
+		etExSet(2, 2, 0, EX_ACCEL, 60, -999999, D / _f(60), -999999.0f);
+		etOn(2);
+		%D = %D + 0.4f;
+	}
+	wait(40);
+	etExSet(2, 1, 0, EX_ANGLE_ACCEL, 60, -999999, 0.0f, (rad(260)*rotation)/60f);
+	D = 0.4f;
+	times(10)
+	{
+		etExSet(2, 2, 0, EX_ACCEL, 60, -999999, D / _f(60), -999999.0f);
+		etOn(2);
+		%D = %D + 0.4f;
+	}
+}
 
 void Boss3()
 {
