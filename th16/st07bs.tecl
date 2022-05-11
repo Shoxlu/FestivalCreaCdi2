@@ -238,18 +238,19 @@ void Boss1_at2(int color)
 	etSpeed(2, 0.7f, 2f);
 	etAngle(2, rad(90), rad(90));
 	etExSet(2, 0, 1, EX_ANIM, 0, NEG, NEGF, NEGF);
-	etExSet(2, 1, 0, EX_VELTIME, 180, NEG, 0.1f, NEGF);
+	etExSet(2, 1, 0, EX_VELTIME, 120, NEG, 0.1f, NEGF);
 	//etExSet(2, 4, 0, EX_VELTIME, 60, NEG, 4f, NEGF);
 	// etExSet(2, 3, 1, EX_SPECIAL, NEG, NEG, NEGF, NEGF);
 	// etExSub(2, 3, "createbutterflies");
 	D = 0.4f;
 	float A = 0f;
-	times(5)
+	times(4)
 	{
-		etExSet(2, 3, 0, EX_ACCEL, 60, -999999, D / _f(60), -999999.0f);
+		etExSet(2, 4, 0, EX_ACCEL, 60, -999999, D / _f(60), -999999.0f);
 		%D = %D + 0.4f;
 			A = 0f;
-			etExSet2(2, 2, 0, EX_ANGLE, 20, 1, 1, NEG, A, 0.5f, NEGF, NEGF);
+			etExSet2(2, 2, 0, EX_ANGLE, 20, 1, 1, NEG, A, 0.3f, NEGF, NEGF);
+			etExSet(2, 3, 0, EX_ANGLE_ACCEL, 60, -999999, 0.0f, (rad(120))/60f);
 			speed = 1.5f;
 			times(5){
 				etSpeed(2, speed, speed);
@@ -257,7 +258,8 @@ void Boss1_at2(int color)
 				speed = speed + ((4f-1.5f)/5f);
 			}
 			A += B;
-			etExSet2(2, 2, 0, EX_ANGLE, 20, 1, 0, NEG, A,  0.5f, NEGF, NEGF);
+			etExSet2(2, 2, 0, EX_ANGLE, 20, 1, 1, NEG, A,  0.3f, NEGF, NEGF);
+			etExSet(2, 3, 0, EX_ANGLE_ACCEL, 60, -999999, 0.0f, (rad(120))/60f);
 			speed = 1.5f;
 			times(5){
 				etSpeed(2, speed, speed);
@@ -265,7 +267,8 @@ void Boss1_at2(int color)
 				speed = speed + ((4f-1.5f)/5f);
 			}
 			A += B;
-			etExSet2(2, 2, 0, EX_ANGLE, 20, 1, 0, NEG, A, 0.5f, NEGF, NEGF);
+			etExSet2(2, 2, 0, EX_ANGLE, 20, 1, 1, NEG, A, 0.3f, NEGF, NEGF);
+			etExSet(2, 3, 0, EX_ANGLE_ACCEL, 60, -999999, 0f, (rad(120))/60f);
 			speed = 1.5f;
 			times(5){
 				etSpeed(2, speed, speed);
