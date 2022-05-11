@@ -169,7 +169,7 @@ void Boss1()
     playSound(6);
 	Boss1_at(30, 7);
 	wait(100);
-	Boss1_at1() async;
+	// Boss1_at1() async;
 	while(1)
 	{
 		wait(40);
@@ -177,9 +177,20 @@ void Boss1()
 		wait(180);
 		Boss1_at2(3);
 		wait(180);
-		Boss1_at(23, 5);
+		// Boss1_at(23, 5);
 		wait(60);
 	}
+    // @BossCard2_at2(-0.034906585f, (%RANDF2 * _f(32)) - _f(128), (%RANDF2 * _f(32)) + _f(128));
+    // wait(20);
+    // @BossCard2_at2(0.034906585f, (%RANDF2 * _f(32)) - _f(64), (%RANDF2 * _f(32)) + _f(128));
+    // wait(20);
+    // @BossCard2_at2(-0.034906585f, (%RANDF2 * _f(32)) - _f(0), (%RANDF2 * _f(32)) + _f(128));
+    // wait(20);
+    // @BossCard2_at2(0.034906585f, (%RANDF2 * _f(32)) + _f(64), (%RANDF2 * _f(32)) + _f(128));
+    // wait(20);
+    // @BossCard2_at2(-0.034906585f, (%RANDF2 * _f(32)) + _f(128), (%RANDF2 * _f(32)) + _f(128));
+    // diffWait(110, 110, 110, 90);
+	// wait(10000);
     return;
 }
 
@@ -214,20 +225,56 @@ void Boss1_at1()
 
 void Boss1_at2(int color)
 {
+	float D = 1f;
+	float F;
+	float speed = 0.7f;
+	float speed2 = 0.2f;
+	float B = rad(120);
 	etNew(2);
 	etAim(2, 1);
 	etSprite(2, 22, color);
 	I0 = color;
-	etCount(2, 2, 4);
-	etSpeed(2, 1f, 2f);
+	etCount(2, 2, 1);
+	etSpeed(2, 0.7f, 2f);
 	etAngle(2, rad(90), rad(90));
 	etExSet(2, 0, 1, EX_ANIM, 0, NEG, NEGF, NEGF);
-	etExSet(2, 1, 0, EX_VELTIME, 180, NEG, 0.0001f, NEGF);
-	etExSet(2, 2, 0, EX_WAIT, 30, NEG, NEGF, NEGF);
+	etExSet(2, 1, 0, EX_VELTIME, 180, NEG, 0.1f, NEGF);
 	//etExSet(2, 4, 0, EX_VELTIME, 60, NEG, 4f, NEGF);
-	etExSet(2, 3, 1, EX_SPECIAL, NEG, NEG, NEGF, NEGF);
-	etExSub(2, 3, "createbutterflies");
-	etOn(2);
+	// etExSet(2, 3, 1, EX_SPECIAL, NEG, NEG, NEGF, NEGF);
+	// etExSub(2, 3, "createbutterflies");
+	D = 0.4f;
+	float A = 0f;
+	times(5)
+	{
+		etExSet(2, 3, 0, EX_ACCEL, 60, -999999, D / _f(60), -999999.0f);
+		%D = %D + 0.4f;
+			A = 0f;
+			etExSet2(2, 2, 0, EX_ANGLE, 20, 1, 1, NEG, A, 0.5f, NEGF, NEGF);
+			speed = 1.5f;
+			times(5){
+				etSpeed(2, speed, speed);
+				etOn(2);
+				speed = speed + ((4f-1.5f)/5f);
+			}
+			A += B;
+			etExSet2(2, 2, 0, EX_ANGLE, 20, 1, 0, NEG, A,  0.5f, NEGF, NEGF);
+			speed = 1.5f;
+			times(5){
+				etSpeed(2, speed, speed);
+				etOn(2);
+				speed = speed + ((4f-1.5f)/5f);
+			}
+			A += B;
+			etExSet2(2, 2, 0, EX_ANGLE, 20, 1, 0, NEG, A, 0.5f, NEGF, NEGF);
+			speed = 1.5f;
+			times(5){
+				etSpeed(2, speed, speed);
+				etOn(2);
+				speed = speed + ((4f-1.5f)/5f);
+			}
+			A += B;
+			speed2 = speed2 + (1f-speed2)/5f;
+	}
 }
 
 void createbutterflies()
@@ -240,13 +287,39 @@ void createbutterflies()
 	etSpeed(3, 1f, 0f);
 	etAngle(3, rad(90), rad(45));
 	etExSet(3, 0, 1, EX_ANIM, 0, NEG, NEGF, NEGF);
-	etExSet(3, 1, 0, EX_AIM, 180, NEG, 3f/180f, angle/180f);
-	etOn(3);
-	etExSet(3, 1, 0, EX_AIM, 180, NEG, 3f/180f, (angle+rad(120))/180f);
-	etOn(3);
-	etExSet(3, 1, 0, EX_AIM, 180, NEG, 3f/180f, (angle+rad(240))/180f);
-	etOn(3);
+	// etExSet(3, 1, 0, EX_AIM, 180, NEG, 3f/180f, angle/180f);
+	// etOn(3);
+	// etExSet(3, 1, 0, EX_AIM, 180, NEG, 3f/180f, (angle+rad(120))/180f);
+	// etOn(3);
+	// etExSet(3, 1, 0, EX_AIM, 180, NEG, 3f/180f, (angle+rad(240))/180f);
+	// etOn(3);
 }
+
+
+
+// void BossCard2_at2()
+// {
+	// Var A is angle rotation, B and C used for postionning
+    // var D, E;
+    // etNew(0);
+    // etAim(0, 2);
+    // etSprite(0, 22, 2);
+    // etCount(0, 6, 1);
+    // etAngle(0, %RANDRAD, 0.0f);
+    // etSpeed(0, 0.7f, 2.0f);
+    // etEx(0, 1, EX_ANIM, 1, -999999, -999999.0f, -999999.0f);
+    // etEx(0, 0, EX_ANGLE_ACCEL, 90, -999999, 0.0f, %A);
+    // %D = 0.8f;
+    // diffI($E, 2, 5, 5, 5);
+    // times($E)
+	// {
+		// etExSet(0, 2, 0, EX_ACCEL, 90, -999999, %D / _f(90), -999999.0f);
+		// %D = %D + 0.6f;
+		// etOn(0);
+	// }
+// }
+
+
 void Boss10()
 {
     setInvuln(180);
