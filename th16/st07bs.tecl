@@ -593,13 +593,13 @@ void Boss3_at(int count1, int count2)
 {
 	etNew(0);
 	etAim(0, 2);
-	etSprite(0, 32, 1);
+	etSprite(0, 32, 0);
 	etSpeed(0, 4f, 1.5f);
-	etAngle(0, rad(0), rad(20));
+	etAngle(0, rad(0), rad(180));
 	etCount(0, count1, count2);
 	etCopy(1, 0);
 	etEx(1, 0, EX_HITBOX, 1, 0, 0.1f, 0.1f);
-	etSprite(1, 33, 2);
+	etSprite(1, 33, 1);
 	etOn(0);
 	etOn(1);
 }
