@@ -432,7 +432,7 @@ Boss10_804:
 void Boss2()
 {
     setInvuln(120);
-    lifeSet(26000);
+    lifeSet(22000);
     unless ($TIMEOUT == 0) goto Boss2_200 @ 0;
     etCancel(640.0f);
     goto Boss2_220 @ 0;
@@ -478,10 +478,10 @@ Boss2_516:
     @Boss2_at(25, 5);
 	while(1)
 	{
-	@Boss2_at1(2, 1f);
-	wait(100);
-	@Boss2_at1(3, -1f);
-	wait(100);
+	@Boss2_at1(2, 3, 1f);
+	wait(140);
+	@Boss2_at1(3, 2, -1f);
+	wait(140);
 	}
 	wait(10000);
 }
@@ -501,24 +501,28 @@ void Boss2_at(int count1, int count2)
 	etOn(1);
 }
 
-void Boss2_at1(int color, float rotation)
+void Boss2_at1(int color, int color2, float rotation)
 {
 	float D = 0.4f;
+	float A = RANDRAD;
 	etNew(2);
 	etAim(2, 3);
 	etSprite(2, 22, color);
 	etSpeed(2, 0.4f, 0.4f);
 	etCount(2, 20, 1);
+	etAngle(2, A, 0f);
 	etExSet(2, 0, 1, EX_ANIM, 0, NEG, NEGF, NEGF);
-	etExSet(2, 1, 0, EX_ANGLE_ACCEL, 60, -999999, 0.0f, (rad(180)*rotation)/60f);
+	etExSet(2, 1, 0, EX_ANGLE_ACCEL, 60, -999999, 0.0f, rad(160)*rotation/60f);
 	times(10)
 	{
 		etExSet(2, 2, 0, EX_ACCEL, 60, -999999, D / _f(60), -999999.0f);
 		etOn(2);
 		%D = %D + 0.4f;
 	}
-	wait(40);
-	etExSet(2, 1, 0, EX_ANGLE_ACCEL, 60, -999999, 0.0f, (rad(260)*rotation)/60f);
+	wait(20);
+	etSprite(2, 22, color2);
+	etAngle(2, rad(45)+A, 0f);
+	etExSet(2, 1, 0, EX_ANGLE_ACCEL, 60, -999999, 0.0f, rad(160)*rotation/60f);
 	D = 0.4f;
 	times(10)
 	{
