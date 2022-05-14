@@ -109,18 +109,38 @@ Boss_2832:
 Boss_2884:
     debug22(3, "Boss8");
 	enmCreate("fan", 0f, 0f, 10, 10, 1);
-    @Boss3();
+    @Boss4();
     delete();
 }
 
 void fan()
 {
-	flagSet(2);
+	flagSet(3);
 	flagSet(128);
 	anmSelect(3);
 	anmSetSprite(4, 21);
 	flagSet(4096);
+	enmCreate("HitboxEnm", 0f, -30f, 100, 100, 1);
+	followBoss() async;
+	wait(10000);
+}
+void followBoss()
+{
+	while(1)
+	{
+		if(GI0 != 0)
+		{
+			movePos(BOSS_X, BOSS_Y-30f);
+		}
+		wait(1);
+	}
+}
+void HitboxEnm()
+{
+	flagSet(2);
+	flagSet(128);
 	setHurtbox(384f, 50f);
+	flagSet(4096);
 	bombShield(1, 21);
 	followBoss() async;
 	lifeSet(100000);
@@ -140,20 +160,7 @@ void fan()
 		}
 		wait(1);
 	}
-	wait(10000);
 }
-void followBoss()
-{
-	while(1)
-	{
-		if(GI0 != 0)
-		{
-			movePos(BOSS_X, BOSS_Y);
-		}
-		wait(1);
-	}
-}
-
 void Boss1()
 {
     timerReset();
@@ -535,7 +542,7 @@ void Boss2_at1(int color, int color2, float rotation)
 void Boss3()
 {
     setInvuln(120);
-    lifeSet(25000);
+    lifeSet(24000);
     unless ($TIMEOUT == 0) goto Boss3_200 @ 0;
     etCancel(640.0f);
     goto Boss3_220 @ 0;
@@ -698,7 +705,65 @@ Boss4_516:
     wait(60);
     anmPlay(1, 86);
     playSound(6);
-	wait(100000);
+	@Boss4_at(4, 6);
+	while(1)
+	{
+	@Boss4_at1(1, 2, 1f);
+	wait(20);
+	@Boss4_at1(2, 1, -1f);
+	wait(20);
+	}
+	wait(10000);
+}
+
+void Boss4_at(int count1, int count2)
+{
+	float A = RANDRAD;
+	etNew(0);
+	etAim(0, 3);
+	etSprite(0, 32, 2);
+	etSpeed(0, 4f, 2f);
+	etAngle(0, rad(0), rad(180));
+	etCount(0, count1, count2);
+	etCopy(1, 0);
+	etEx(1, 0, EX_HITBOX, 1, 0, 0.1f, 0.1f);
+	etSprite(1, 33, 3);
+	times(6)
+	{
+		etAngle(0, A, rad(0));
+		etAngle(1, A, rad(0));
+		etOn(0);
+		etOn(1);
+		A += rad(15);
+		wait(5);
+	}
+}
+
+void Boss4_at1(int color, int color2, float rotation)
+{
+	float D = 2f;
+	float A = RANDRAD;
+	float waitT = 90f;
+	etNew(2);
+	etAim(2, 3);
+	etSprite(2, 22, color);
+	etSpeed(2, 0.4f, 0.4f);
+	etCount(2, 25, 1);
+	etAngle(2, A, 0f);
+	etExSet(2, 0, 1, EX_ANIM, 0, NEG, NEGF, NEGF);
+	etExSet(2, 1, 0, EX_ANGLE_ACCEL,  _S(waitT), -999999, 1f/90f, rad(160)*rotation/ waitT);
+	//etExSet(2, 2, 0, EX_WAIT, 20, NEG, NEGF, NEGF);
+	D = 1.5f;
+	times(4)
+	{
+		etExSet(2, 2, 0, EX_ACCEL, 60, -999999, D / _f(60), -999999.0f);
+		etOn(2);
+		%D = %D + 0.5f;
+	}
+	A += rad(45)/2f;
+	etAngle(2, A, 0f);
+	waitT += 30f;
+
 }
 
 void Boss5()
