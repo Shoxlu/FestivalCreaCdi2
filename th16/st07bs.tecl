@@ -737,7 +737,7 @@ void Boss4_at(int count1, int count2)
 		A += rad(15);
 		wait(5);
 	}
-} 
+}
 
 void Boss4_at1(int color, int color2, float rotation)
 {
