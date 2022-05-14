@@ -709,9 +709,9 @@ Boss4_516:
 	while(1)
 	{
 	@Boss4_at1(1, 2, 1f);
-	wait(20);
+	wait(30);
 	@Boss4_at1(2, 1, -1f);
-	wait(20);
+	wait(30);
 	}
 	wait(10000);
 }
@@ -751,7 +751,7 @@ void Boss4_at1(int color, int color2, float rotation)
 	etCount(2, 25, 1);
 	etAngle(2, A, 0f);
 	etExSet(2, 0, 1, EX_ANIM, 0, NEG, NEGF, NEGF);
-	etExSet(2, 1, 0, EX_ANGLE_ACCEL,  _S(waitT), -999999, 1f/90f, rad(160)*rotation/ waitT);
+	etExSet(2, 1, 0, EX_ANGLE_ACCEL,  _S(waitT), -999999, 0.5f/90f, rad(160)*rotation/ waitT);
 	//etExSet(2, 2, 0, EX_WAIT, 20, NEG, NEGF, NEGF);
 	D = 1.5f;
 	times(4)
