@@ -109,7 +109,7 @@ Boss_2832:
 Boss_2884:
     debug22(3, "Boss8");
 	enmCreate("fan", 0f, 0f, 10, 10, 1);
-    @Boss4();
+    @Boss6();
     delete();
 }
 
@@ -121,16 +121,16 @@ void fan()
 	anmSetSprite(4, 21);
 	flagSet(4096);
 	enmCreate("HitboxEnm", 0f, -30f, 100, 100, 1);
-	followBoss() async;
+	followBoss(0f) async;
 	wait(10000);
 }
-void followBoss()
+void followBoss(float A)
 {
 	while(1)
 	{
 		if(GI0 != 0)
 		{
-			movePos(BOSS_X, BOSS_Y-30f);
+			movePos(BOSS_X, BOSS_Y-A);
 		}
 		wait(1);
 	}
@@ -142,7 +142,7 @@ void HitboxEnm()
 	setHurtbox(384f, 50f);
 	flagSet(4096);
 	bombShield(1, 21);
-	followBoss() async;
+	followBoss(30f) async;
 	lifeSet(100000);
 	int A = LIFE;
 	while(1)
@@ -806,7 +806,7 @@ Boss5_516:
     lifeMarker(0, 4000.0f, -24448);
     stars(5);
     moveLimitReset();
-    movePos(0.0f, 356.0f);
+    movePosTime(120, 0, 0.0f, 128.0f);
     wait(120);
     moveLimit(0.0f, 224.0f, 240.0f, 448.0f);
     anmPlay(1, 75);
@@ -814,73 +814,65 @@ Boss5_516:
     wait(60);
     anmPlay(1, 86);
     playSound(6);
-    $A = 600;
-    movePosTime(600, 0, 0.0f, 128.0f);
-    @Boss5_at2() async;
-    $I0 = 50;
-    goto Boss5_2192 @ 0;
-Boss5_1328:
-    @Boss5_at(0.13962634f, 0.008726646f) async;
-    @Boss5_at(-0.13962634f, -0.008726646f) async;
-    wait(100);
-    moveRandRel(60, 4, 1.9f);
-    wait(60);
-    moveReset();
-    $A = $A - 160;
-    unless ($A > 0) goto Boss5_1720 @ 0;
-    movePosTime($A, 0, 0.0f, 128.0f);
-    goto Boss5_1760 @ 0;
-Boss5_1720:
-    $I0 = 100;
-Boss5_1760:
-    @Boss5_at(0.13962634f, 0.008726646f) async;
-    @Boss5_at(-0.13962634f, -0.008726646f) async;
-    wait(100);
-    moveRandRel(60, 4, 1.9f);
-    wait(60);
-    moveReset();
-    $A = $A - 160;
-    unless ($A > 0) goto Boss5_2152 @ 0;
-    movePosTime($A, 0, 0.0f, 128.0f);
-    goto Boss5_2192 @ 0;
-Boss5_2152:
-    $I0 = 100;
-Boss5_2192:
-    if (1) goto Boss5_1328 @ 0;
-    return;
+   
+	@Boss5_at() async;
+	@Boss5_at2();
 }
 
-void Boss5_at(var A, var B)
+void Boss5_at()
 {
-    var C, D;
-    etNew(0);
-    etAim(0, 3);
-    etSprite(0, 10, 13);
-    etCount(0, 1, 3);
-    etAngle(0, 0.0f, 0.0f);
-    etSpeed(0, 3.0f, 2.0f);
-    etEx(0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-    etDist(0, 32.0f);
-    etOffset(0, 0.0f, -24.0f);
-    %C = %ANGLE_PLAYER;
-    $D = $I0;
-    goto Boss5_at_536 @ 0;
-Boss5_at_392:
-    etAngle(0, %C, 0.0f);
-    %C = %C + %A;
-    etOn(0);
-    wait(3);
-Boss5_at_536:
-    if ($D--) goto Boss5_at_392 @ 0;
-    return;
+	etNew(0);
+	etAim(0, 3);
+	etCount(0, 4, 1);
+	etSprite(0, 22, 4);
+	etSpeed(0, 2f, 2f);
+	etAngle(0, 0f, 0f);
+	float A = 0f;
+	float B = 1f;
+	while(1)
+	{
+		times(150)
+		{
+			etAngle(0, A, 0f);
+			A += rad(11)*B;
+			etOn(0);
+			wait(5);
+		}
+		B *= -1f;
+	}
 }
 
 void Boss5_at2()
 {
-    wait(600);
-    moveReset();
-    moveLimit(0.0f, 128.0f, 240.0f, 64.0f);
-    return;
+	float A = 0f;
+	float B = 1f;
+	etNew(1);
+	etAim(1, 3);
+	etCount(1, 2, 1);
+	etSprite(1, 22, 2);
+	etSpeed(1, 3f, 3f);
+	etAngle(1, 0f, 0f);
+	etExSet(1, 0, 0, EX_WAIT, 10, NEG, NEGF, NEGF);
+	etExSet(1, 1, 0, EX_SAVEANGLE, NEG, NEG, NEGF, NEGF);
+	etCopy(2, 1);
+	etAngle(2, A-rad(3), 0f);
+	etSpeed(2, 3.1f, 3.1f);
+	etSprite(2, 22, 3);
+	while(1)
+	{
+		times(150)
+		{
+			etAngle(1, A, 0f);
+			etExSet2(1, 2, 0, EX_ANGLE, 60, 1, 0, NEG, rad(-90), 1.6f, NEGF, NEGF);
+			etExSet2(2, 2, 0, EX_ANGLE, 60, 1, 0, NEG, rad(90), 1.5f, NEGF, NEGF); 
+			etAngle(2, A-rad(3), 0f);
+			A += rad(11)*B;
+			etOn(1);
+			etOn(2);
+			wait(5);
+		}
+		B *= -1f;
+	}
 }
 
 void Boss6()
@@ -930,45 +922,66 @@ Boss6_516:
     wait(60);
     anmPlay(1, 86);
     playSound(6);
-    goto Boss6_1424 @ 0;
-Boss6_1192:
-    @Boss6_at(0.13962634f, 0.008726646f) async;
-    wait(100);
-    moveRand(60, 4, 1.9f);
-    wait(60);
-    @Boss6_at(-0.13962634f, -0.008726646f) async;
-    wait(100);
-    moveRand(60, 4, 1.9f);
-    wait(60);
-Boss6_1424:
-    if (1) goto Boss6_1192 @ 0;
-    return;
+    @Boss6_at() async;
+	@Boss6_at2();
 }
 
-void Boss6_at(var A, var B)
+void Boss6_at()
 {
-    var C, D;
-    etNew(0);
-    etAim(0, 3);
-    etSprite(0, 10, 14);
-    etCount(0, 3, 3);
-    etAngle(0, 0.0f, 0.0f);
-    etSpeed(0, 4.0f, 3.0f);
-    etEx(0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-    etDist(0, 32.0f);
-    etOffset(0, 0.0f, -24.0f);
-    %C = %ANGLE_PLAYER;
-    $D = 100;
-    goto Boss6_at_536 @ 0;
-Boss6_at_392:
-    etAngle(0, %C, 0.0f);
-    %C = %C + %A;
-    etOn(0);
-    wait(3);
-Boss6_at_536:
-    if ($D--) goto Boss6_at_392 @ 0;
-    return;
+	etNew(0);
+	etAim(0, 3);
+	etCount(0, 4, 1);
+	etSprite(0, 22, 4);
+	etSpeed(0, 2f, 2f);
+	etAngle(0, 0f, 0f);
+	float A = 0f;
+	float B = 1f;
+	while(1)
+	{
+		times(150)
+		{
+			etAngle(0, A, 0f);
+			A += rad(21)*B;
+			etOn(0);
+			wait(5);
+		}
+		B *= -1f;
+	}
 }
+
+void Boss6_at2()
+{
+	float A = 0f;
+	float B = 1f;
+	etNew(1);
+	etAim(1, 3);
+	etCount(1, 2, 1);
+	etSprite(1, 22, 2);
+	etSpeed(1, 2f, 1f);
+	etAngle(1, 0f, 0f);
+	etExSet(1, 0, 0, EX_WAIT, 10, NEG, NEGF, NEGF);
+	etExSet(1, 1, 0, EX_SAVEANGLE, NEG, NEG, NEGF, NEGF);
+	etCopy(2, 1);
+	etAngle(2, A-rad(3), 0f);
+	etSpeed(2, 2.1f, 1.1f);
+	etSprite(2, 22, 3);
+	while(1)
+	{
+		times(150)
+		{
+			etAngle(1, A, 0f);
+			etExSet2(1, 2, 0, EX_ANGLE, 60, 1, 0, NEG, rad(-120), 0.9f, NEGF, NEGF);
+			etExSet2(2, 2, 0, EX_ANGLE, 60, 1, 0, NEG, rad(120), 1.0f, NEGF, NEGF); 
+			etAngle(2, A-rad(3), 0f);
+			A += rad(11)*B;
+			etOn(1);
+			etOn(2);
+			wait(5);
+		}
+		B *= -1f;
+	}
+}
+
 
 void Boss7()
 {
