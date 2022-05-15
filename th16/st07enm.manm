@@ -511,11 +511,11 @@ entry entry11 {
     hasData: 1,
     THTXSize: 4142000,
     THTXFormat: 1,
-    THTXWidth: 950,
+    THTXWidth: 1000,
     THTXHeight: 1090,
     THTXZero: 0,
     sprites: {
-        sprite33: { x: 0, y: 0, w: 950, h: 1090 },
+        sprite33: { x: 0, y: 0, w: 1000, h: 1090 },
         sprite34: { x: 0, y: 0, w: 1, h: 1 }
     }
 }
@@ -527,7 +527,7 @@ script script10 {
     ins_431(1);
     alpha(0);
     alphaTime(15, 0, 255);
-    pos(96.0f, 76.0f, 0.0f);
+    pos(300.0f, 76.0f, 0.0f);
     layer(25);
     resolutionMode(2);
     resampleMode(1);
