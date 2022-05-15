@@ -509,13 +509,13 @@ entry entry11 {
     memoryPriority: 0,
     lowResScale: 1,
     hasData: 1,
-    THTXSize: 3600000,
+    THTXSize: 4142000,
     THTXFormat: 1,
-    THTXWidth: 1000,
-    THTXHeight: 900,
+    THTXWidth: 950,
+    THTXHeight: 1090,
     THTXZero: 0,
     sprites: {
-        sprite33: { x: 0, y: 0, w: 1000, h: 900 },
+        sprite33: { x: 0, y: 0, w: 950, h: 1090 },
         sprite34: { x: 0, y: 0, w: 1, h: 1 }
     }
 }
