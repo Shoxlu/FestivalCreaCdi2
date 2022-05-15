@@ -40,190 +40,190 @@ entry entry0 {
 }
 
 script script0 {
-    ins_304(8);
+    layer(8);
 offset12:
-    ins_407(72, 9, 0.0f, -3.0f, 0.0f);
-    ins_300(sprite0);
+    posTime(72, 9, 0.0f, -3.0f, 0.0f);
+    sprite(sprite0);
 +8: // 8
-    ins_300(sprite1);
+    sprite(sprite1);
 +8: // 16
-    ins_300(sprite2);
+    sprite(sprite2);
 +8: // 24
-    ins_300(sprite1);
+    sprite(sprite1);
 +8: // 32
-    ins_300(sprite0);
+    sprite(sprite0);
 +8: // 40
-    ins_300(sprite1);
+    sprite(sprite1);
 +8: // 48
-    ins_300(sprite2);
+    sprite(sprite2);
 +8: // 56
-    ins_300(sprite1);
+    sprite(sprite1);
 +8: // 64
-    ins_407(72, 9, 0.0f, 0.0f, 0.0f);
-    ins_300(sprite0);
+    posTime(72, 9, 0.0f, 0.0f, 0.0f);
+    sprite(sprite0);
 +8: // 72
-    ins_300(sprite1);
+    sprite(sprite1);
 +8: // 80
-    ins_300(sprite3);
+    sprite(sprite3);
 +8: // 88
-    ins_300(sprite1);
+    sprite(sprite1);
 +8: // 96
-    ins_300(sprite0);
+    sprite(sprite0);
 +8: // 104
-    ins_300(sprite1);
+    sprite(sprite1);
 +8: // 112
-    ins_300(sprite2);
+    sprite(sprite2);
 +8: // 120
-    ins_300(sprite1);
+    sprite(sprite1);
 +8: // 128
-    ins_200(offset12, 0);
+    jmp(offset12, 0);
 }
 
 script script1 {
-    ins_407(1, 9, 0.0f, 0.0f, 0.0f);
-    ins_304(8);
-    ins_308();
-    ins_300(sprite13);
+    posTime(1, 9, 0.0f, 0.0f, 0.0f);
+    layer(8);
+    flipX();
+    sprite(sprite13);
 +6: // 6
-    ins_300(sprite14);
+    sprite(sprite14);
 +6: // 12
 offset72:
-    ins_300(sprite15);
+    sprite(sprite15);
 +6: // 18
-    ins_300(sprite16);
+    sprite(sprite16);
 +6: // 24
-    ins_300(sprite17);
+    sprite(sprite17);
 +6: // 30
-    ins_300(sprite16);
-    ins_200(offset72, 6);
-    ins_3();
+    sprite(sprite16);
+    jmp(offset72, 6);
+    stop();
 }
 
 script script2 {
-    ins_407(1, 9, 0.0f, 0.0f, 0.0f);
-    ins_304(8);
-    ins_300(sprite8);
+    posTime(1, 9, 0.0f, 0.0f, 0.0f);
+    layer(8);
+    sprite(sprite8);
 +6: // 6
-    ins_300(sprite9);
+    sprite(sprite9);
 +6: // 12
 offset64:
-    ins_300(sprite10);
+    sprite(sprite10);
 +6: // 18
-    ins_300(sprite11);
+    sprite(sprite11);
 +6: // 24
-    ins_300(sprite12);
+    sprite(sprite12);
 +6: // 30
-    ins_300(sprite11);
-    ins_200(offset64, 6);
-    ins_3();
+    sprite(sprite11);
+    jmp(offset64, 6);
+    stop();
 }
 
 script script3 {
-    ins_407(1, 9, 0.0f, 0.0f, 0.0f);
-    ins_308();
-    ins_304(8);
-    ins_300(sprite14);
+    posTime(1, 9, 0.0f, 0.0f, 0.0f);
+    flipX();
+    layer(8);
+    sprite(sprite14);
 +6: // 6
-    ins_300(sprite13);
+    sprite(sprite13);
 +6: // 12
-    ins_0();
+    nop();
 offset80:
-    ins_407(72, 9, 0.0f, -3.0f, 0.0f);
-    ins_300(sprite0);
+    posTime(72, 9, 0.0f, -3.0f, 0.0f);
+    sprite(sprite0);
 +8: // 20
-    ins_300(sprite1);
+    sprite(sprite1);
 +8: // 28
-    ins_300(sprite2);
+    sprite(sprite2);
 +8: // 36
-    ins_300(sprite1);
+    sprite(sprite1);
 +8: // 44
-    ins_300(sprite0);
+    sprite(sprite0);
 +8: // 52
-    ins_300(sprite1);
+    sprite(sprite1);
 +8: // 60
-    ins_300(sprite2);
+    sprite(sprite2);
 +8: // 68
-    ins_300(sprite1);
+    sprite(sprite1);
 +8: // 76
-    ins_407(72, 9, 0.0f, 0.0f, 0.0f);
-    ins_300(sprite0);
+    posTime(72, 9, 0.0f, 0.0f, 0.0f);
+    sprite(sprite0);
 +8: // 84
-    ins_300(sprite1);
+    sprite(sprite1);
 +8: // 92
-    ins_300(sprite3);
+    sprite(sprite3);
 +8: // 100
-    ins_300(sprite1);
+    sprite(sprite1);
 +8: // 108
-    ins_300(sprite0);
+    sprite(sprite0);
 +8: // 116
-    ins_300(sprite1);
+    sprite(sprite1);
 +8: // 124
-    ins_300(sprite2);
+    sprite(sprite2);
 +8: // 132
-    ins_300(sprite1);
+    sprite(sprite1);
 +8: // 140
-    ins_200(offset80, 12);
+    jmp(offset80, 12);
 }
 
 script script4 {
-    ins_407(1, 9, 0.0f, 0.0f, 0.0f);
-    ins_304(8);
-    ins_300(sprite9);
+    posTime(1, 9, 0.0f, 0.0f, 0.0f);
+    layer(8);
+    sprite(sprite9);
 +6: // 6
-    ins_300(sprite8);
+    sprite(sprite8);
 +6: // 12
-    ins_0();
+    nop();
 offset72:
-    ins_407(72, 9, 0.0f, -3.0f, 0.0f);
-    ins_300(sprite0);
+    posTime(72, 9, 0.0f, -3.0f, 0.0f);
+    sprite(sprite0);
 +8: // 20
-    ins_300(sprite1);
+    sprite(sprite1);
 +8: // 28
-    ins_300(sprite2);
+    sprite(sprite2);
 +8: // 36
-    ins_300(sprite1);
+    sprite(sprite1);
 +8: // 44
-    ins_300(sprite0);
+    sprite(sprite0);
 +8: // 52
-    ins_300(sprite1);
+    sprite(sprite1);
 +8: // 60
-    ins_300(sprite2);
+    sprite(sprite2);
 +8: // 68
-    ins_300(sprite1);
+    sprite(sprite1);
 +8: // 76
-    ins_407(72, 9, 0.0f, 0.0f, 0.0f);
-    ins_300(sprite0);
+    posTime(72, 9, 0.0f, 0.0f, 0.0f);
+    sprite(sprite0);
 +8: // 84
-    ins_300(sprite1);
+    sprite(sprite1);
 +8: // 92
-    ins_300(sprite3);
+    sprite(sprite3);
 +8: // 100
-    ins_300(sprite1);
+    sprite(sprite1);
 +8: // 108
-    ins_300(sprite0);
+    sprite(sprite0);
 +8: // 116
-    ins_300(sprite1);
+    sprite(sprite1);
 +8: // 124
-    ins_300(sprite2);
+    sprite(sprite2);
 +8: // 132
-    ins_300(sprite1);
+    sprite(sprite1);
 +8: // 140
-    ins_200(offset72, 12);
+    jmp(offset72, 12);
 }
 
 script script5 {
-    ins_304(8);
+    layer(8);
 offset12:
-    ins_300(sprite18);
+    sprite(sprite18);
 +8: // 8
-    ins_300(sprite19);
+    sprite(sprite19);
 +8: // 16
-    ins_300(sprite20);
+    sprite(sprite20);
 +8: // 24
-    ins_300(sprite21);
+    sprite(sprite21);
 +8: // 32
-    ins_200(offset12, 0);
-    ins_3();
+    jmp(offset12, 0);
+    stop();
 }
 
 
@@ -247,66 +247,66 @@ entry entry1 {
 }
 
 script script6 {
-    ins_304(14);
-    ins_300(sprite23);
-    ins_3();
+    layer(14);
+    sprite(sprite23);
+    stop();
 }
 
 script script7 {
-    ins_300(-1);
-    ins_304(14);
-    ins_604(1.0f, 3);
-    ins_402(1.0f, 1.0f);
-    ins_404(0, 0, 255);
-    ins_406(64, 64, 255);
-    ins_403(0);
-    ins_405(0);
-    ins_409(120, 0, 64);
-    ins_414(120, 0, 255);
-    ins_402(512.0f, 512.0f);
-    ins_412(120, 0, 0.0f, 0.0f);
-    ins_401([10010.0f], 0.0f, [10010.0f]);
-    ins_415(0.05235988f, 0.0f, 0.05235988f);
+    sprite(-1);
+    layer(14);
+    drawPoly(1.0f, 3);
+    scale(1.0f, 1.0f);
+    color(0, 0, 255);
+    color2(64, 64, 255);
+    alpha(0);
+    alpha2(0);
+    alphaTime(120, 0, 64);
+    alpha2Time(120, 0, 255);
+    scale(512.0f, 512.0f);
+    scaleTime(120, 0, 0.0f, 0.0f);
+    rotate(%RANDRAD, 0.0f, %RANDRAD);
+    angleVel(0.05235988f, 0.0f, 0.05235988f);
 +120: // 120
-    ins_1();
+    delete();
 }
 
 script script8 {
-    ins_300(-1);
-    ins_304(14);
-    ins_604(1.0f, 3);
-    ins_402(1.0f, 1.0f);
-    ins_404(255, 0, 0);
-    ins_406(255, 64, 64);
-    ins_403(0);
-    ins_405(0);
-    ins_409(120, 0, 64);
-    ins_414(120, 0, 255);
-    ins_402(256.0f, 256.0f);
-    ins_412(120, 0, 0.0f, 0.0f);
-    ins_401([10010.0f], 0.0f, [10010.0f]);
-    ins_415(0.05235988f, 0.0f, 0.05235988f);
+    sprite(-1);
+    layer(14);
+    drawPoly(1.0f, 3);
+    scale(1.0f, 1.0f);
+    color(255, 0, 0);
+    color2(255, 64, 64);
+    alpha(0);
+    alpha2(0);
+    alphaTime(120, 0, 64);
+    alpha2Time(120, 0, 255);
+    scale(256.0f, 256.0f);
+    scaleTime(120, 0, 0.0f, 0.0f);
+    rotate(%RANDRAD, 0.0f, %RANDRAD);
+    angleVel(0.05235988f, 0.0f, 0.05235988f);
 +120: // 120
-    ins_1();
+    delete();
 }
 
 script script9 {
-    ins_300(-1);
-    ins_304(14);
-    ins_604(1.0f, 3);
-    ins_402(1.0f, 1.0f);
-    ins_404(0, 255, 0);
-    ins_406(64, 255, 64);
-    ins_403(0);
-    ins_405(0);
-    ins_409(120, 0, 64);
-    ins_414(120, 0, 255);
-    ins_402(512.0f, 512.0f);
-    ins_412(120, 0, 0.0f, 0.0f);
-    ins_401([10010.0f], 0.0f, [10010.0f]);
-    ins_415(0.05235988f, 0.0f, 0.05235988f);
+    sprite(-1);
+    layer(14);
+    drawPoly(1.0f, 3);
+    scale(1.0f, 1.0f);
+    color(0, 255, 0);
+    color2(64, 255, 64);
+    alpha(0);
+    alpha2(0);
+    alphaTime(120, 0, 64);
+    alpha2Time(120, 0, 255);
+    scale(512.0f, 512.0f);
+    scaleTime(120, 0, 0.0f, 0.0f);
+    rotate(%RANDRAD, 0.0f, %RANDRAD);
+    angleVel(0.05235988f, 0.0f, 0.05235988f);
 +120: // 120
-    ins_1();
+    delete();
 }
 
 
@@ -521,179 +521,179 @@ entry entry11 {
 }
 
 script script10 {
-    ins_304(25);
-    ins_300(sprite33);
-    ins_421(1, 1);
+    layer(25);
+    sprite(sprite33);
+    anchor(1, 1);
     ins_431(1);
-    ins_403(0);
-    ins_409(15, 0, 255);
-    ins_400(96.0f, 76.0f, 0.0f);
-    ins_304(25);
-    ins_313(2);
-    ins_311(1);
-    ins_5(3);
-    ins_304(26);
-    ins_313(2);
-    ins_407(15, 2, 64.0f, 76.0f, 0.0f);
-    ins_408(15, 0, 96, 96, 96);
+    alpha(0);
+    alphaTime(15, 0, 255);
+    pos(96.0f, 76.0f, 0.0f);
+    layer(25);
+    resolutionMode(2);
+    resampleMode(1);
+    case(3);
+    layer(26);
+    resolutionMode(2);
+    posTime(15, 2, 64.0f, 76.0f, 0.0f);
+    colorTime(15, 0, 96, 96, 96);
 +15: // 15
-    ins_3();
-    ins_5(2);
-    ins_304(27);
-    ins_313(2);
-    ins_407(15, 5, 0.0f, 60.0f, 0.0f);
-    ins_408(15, 0, 255, 255, 255);
+    stop();
+    case(2);
+    layer(27);
+    resolutionMode(2);
+    posTime(15, 5, 0.0f, 60.0f, 0.0f);
+    colorTime(15, 0, 255, 255, 255);
 +15: // 30
-    ins_3();
-    ins_5(7);
-    ins_407(2, 0, -8.0f, 52.0f, 0.0f);
+    stop();
+    case(7);
+    posTime(2, 0, -8.0f, 52.0f, 0.0f);
 +2: // 32
-    ins_407(2, 0, -4.0f, 64.0f, 0.0f);
+    posTime(2, 0, -4.0f, 64.0f, 0.0f);
 +2: // 34
-    ins_407(2, 0, 8.0f, 56.0f, 0.0f);
+    posTime(2, 0, 8.0f, 56.0f, 0.0f);
 +2: // 36
-    ins_407(2, 0, 4.0f, 68.0f, 0.0f);
+    posTime(2, 0, 4.0f, 68.0f, 0.0f);
 +2: // 38
-    ins_407(2, 0, 0.0f, 52.0f, 0.0f);
+    posTime(2, 0, 0.0f, 52.0f, 0.0f);
 +2: // 40
-    ins_407(2, 0, -8.0f, 64.0f, 0.0f);
+    posTime(2, 0, -8.0f, 64.0f, 0.0f);
 +2: // 42
-    ins_407(2, 0, -4.0f, 56.0f, 0.0f);
+    posTime(2, 0, -4.0f, 56.0f, 0.0f);
 +2: // 44
-    ins_407(2, 0, 8.0f, 68.0f, 0.0f);
+    posTime(2, 0, 8.0f, 68.0f, 0.0f);
 +2: // 46
-    ins_407(2, 0, -4.0f, 56.0f, 0.0f);
+    posTime(2, 0, -4.0f, 56.0f, 0.0f);
 +2: // 48
-    ins_407(2, 0, 0.0f, 64.0f, 0.0f);
+    posTime(2, 0, 0.0f, 64.0f, 0.0f);
 +15: // 63
-    ins_3();
-    ins_5(8);
-    ins_304(27);
-    ins_313(2);
-    ins_407(15, 2, 64.0f, 76.0f, 0.0f);
-    ins_408(15, 0, 96, 96, 240);
+    stop();
+    case(8);
+    layer(27);
+    resolutionMode(2);
+    posTime(15, 2, 64.0f, 76.0f, 0.0f);
+    colorTime(15, 0, 96, 96, 240);
 +15: // 78
-    ins_3();
-    ins_5(1);
-    ins_407(30, 6, 96.0f, 76.0f, 0.0f);
-    ins_409(30, 0, 0);
+    stop();
+    case(1);
+    posTime(30, 6, 96.0f, 76.0f, 0.0f);
+    alphaTime(30, 0, 0);
 +30: // 108
-    ins_1();
-    ins_5(17);
-    ins_5(18);
-    ins_5(19);
-    ins_5(20);
-    ins_5(21);
-    ins_5(22);
-    ins_5(23);
-    ins_5(24);
-    ins_300(sprite33);
-    ins_7();
-    ins_5(25);
-    ins_300(sprite32);
-    ins_7();
+    delete();
+    case(17);
+    case(18);
+    case(19);
+    case(20);
+    case(21);
+    case(22);
+    case(23);
+    case(24);
+    sprite(sprite33);
+    caseReturn();
+    case(25);
+    sprite(sprite32);
+    caseReturn();
 }
 
 script script11 {
-    ins_300(sprite24);
-    ins_421(1, 1);
+    sprite(sprite24);
+    anchor(1, 1);
     ins_431(1);
-    ins_403(0);
-    ins_409(15, 0, 255);
-    ins_400(479.0f, 232.0f, 0.0f);
-    ins_304(25);
-    ins_313(2);
-    ins_311(1);
-    ins_5(3);
-    ins_304(26);
-    ins_313(2);
-    ins_407(15, 2, 447.0f, 232.0f, 0.0f);
-    ins_408(15, 0, 96, 96, 96);
+    alpha(0);
+    alphaTime(15, 0, 255);
+    pos(479.0f, 232.0f, 0.0f);
+    layer(25);
+    resolutionMode(2);
+    resampleMode(1);
+    case(3);
+    layer(26);
+    resolutionMode(2);
+    posTime(15, 2, 447.0f, 232.0f, 0.0f);
+    colorTime(15, 0, 96, 96, 96);
 +15: // 15
-    ins_3();
-    ins_5(2);
-    ins_304(27);
-    ins_313(2);
-    ins_407(15, 5, 383.0f, 216.0f, 0.0f);
-    ins_408(15, 0, 255, 255, 255);
+    stop();
+    case(2);
+    layer(27);
+    resolutionMode(2);
+    posTime(15, 5, 383.0f, 216.0f, 0.0f);
+    colorTime(15, 0, 255, 255, 255);
 +15: // 30
-    ins_3();
-    ins_5(7);
-    ins_407(2, 0, 375.0f, 208.0f, 0.0f);
+    stop();
+    case(7);
+    posTime(2, 0, 375.0f, 208.0f, 0.0f);
 +2: // 32
-    ins_407(2, 0, 379.0f, 220.0f, 0.0f);
+    posTime(2, 0, 379.0f, 220.0f, 0.0f);
 +2: // 34
-    ins_407(2, 0, 391.0f, 212.0f, 0.0f);
+    posTime(2, 0, 391.0f, 212.0f, 0.0f);
 +2: // 36
-    ins_407(2, 0, 387.0f, 224.0f, 0.0f);
+    posTime(2, 0, 387.0f, 224.0f, 0.0f);
 +2: // 38
-    ins_407(2, 0, 383.0f, 208.0f, 0.0f);
+    posTime(2, 0, 383.0f, 208.0f, 0.0f);
 +2: // 40
-    ins_407(2, 0, 375.0f, 220.0f, 0.0f);
+    posTime(2, 0, 375.0f, 220.0f, 0.0f);
 +2: // 42
-    ins_407(2, 0, 379.0f, 212.0f, 0.0f);
+    posTime(2, 0, 379.0f, 212.0f, 0.0f);
 +2: // 44
-    ins_407(2, 0, 391.0f, 224.0f, 0.0f);
+    posTime(2, 0, 391.0f, 224.0f, 0.0f);
 +2: // 46
-    ins_407(2, 0, 379.0f, 212.0f, 0.0f);
+    posTime(2, 0, 379.0f, 212.0f, 0.0f);
 +2: // 48
-    ins_407(2, 0, 383.0f, 220.0f, 0.0f);
+    posTime(2, 0, 383.0f, 220.0f, 0.0f);
 +15: // 63
-    ins_3();
-    ins_5(8);
-    ins_304(27);
-    ins_313(2);
-    ins_407(15, 2, 447.0f, 232.0f, 0.0f);
-    ins_408(15, 0, 96, 96, 240);
+    stop();
+    case(8);
+    layer(27);
+    resolutionMode(2);
+    posTime(15, 2, 447.0f, 232.0f, 0.0f);
+    colorTime(15, 0, 96, 96, 240);
 +15: // 78
-    ins_3();
-    ins_5(1);
-    ins_407(30, 6, 479.0f, 232.0f, 0.0f);
-    ins_409(30, 0, 0);
+    stop();
+    case(1);
+    posTime(30, 6, 479.0f, 232.0f, 0.0f);
+    alphaTime(30, 0, 0);
 +30: // 108
-    ins_1();
-    ins_5(17);
-    ins_300(sprite24);
-    ins_7();
-    ins_5(18);
-    ins_300(sprite25);
-    ins_7();
-    ins_5(19);
-    ins_300(sprite26);
-    ins_7();
-    ins_5(20);
-    ins_300(sprite27);
-    ins_7();
-    ins_5(21);
-    ins_300(sprite28);
-    ins_7();
-    ins_5(22);
-    ins_300(sprite29);
-    ins_7();
-    ins_5(23);
-    ins_300(sprite30);
-    ins_7();
-    ins_5(24);
-    ins_300(sprite31);
-    ins_7();
-    ins_5(25);
-    ins_300(sprite34);
-    ins_7();
+    delete();
+    case(17);
+    sprite(sprite24);
+    caseReturn();
+    case(18);
+    sprite(sprite25);
+    caseReturn();
+    case(19);
+    sprite(sprite26);
+    caseReturn();
+    case(20);
+    sprite(sprite27);
+    caseReturn();
+    case(21);
+    sprite(sprite28);
+    caseReturn();
+    case(22);
+    sprite(sprite29);
+    caseReturn();
+    case(23);
+    sprite(sprite30);
+    caseReturn();
+    case(24);
+    sprite(sprite31);
+    caseReturn();
+    case(25);
+    sprite(sprite34);
+    caseReturn();
 }
 
 script script12 {
 -1:
-    ins_403(0);
-    ins_304(24);
-    ins_313(2);
-    ins_400(288.0f, 0.0f, 0.0f);
+    alpha(0);
+    layer(24);
+    resolutionMode(2);
+    pos(288.0f, 0.0f, 0.0f);
 0:
-    ins_502(script11);
-    ins_502(script10);
-    ins_3();
-    ins_5(1);
+    scriptNewFront(script11);
+    scriptNewFront(script10);
+    stop();
+    case(1);
 +30: // 30
-    ins_1();
+    delete();
 }
 
 
@@ -718,39 +718,39 @@ entry entry12 {
 }
 
 script script13 {
-    ins_403(0);
-    ins_304(4);
-    ins_500(script16);
-    ins_500(script15);
-    ins_500(script14);
-    ins_3();
+    alpha(0);
+    layer(4);
+    scriptNew(script16);
+    scriptNew(script15);
+    scriptNew(script14);
+    stop();
 }
 
 script script14 {
 -1:
-    ins_304(4);
-    ins_300(sprite35);
-    ins_400(0.0f, 128.0f, 0.0f);
-    ins_303(2);
-    ins_425(-0.0033333334f);
-    ins_404(128, 128, 128);
+    layer(4);
+    sprite(sprite35);
+    pos(0.0f, 128.0f, 0.0f);
+    blendMode(2);
+    scrollX(-0.0033333334f);
+    color(128, 128, 128);
 0:
-    ins_100([10000], 256);
-    ins_100([10001], 1);
-    ins_402(380.0f, 190.0f);
-    ins_600([10000]);
-    ins_401(0.0f, 0.0f, -1.5707964f);
+    iset($I0, 256);
+    iset($I1, 1);
+    scale(380.0f, 190.0f);
+    texCircle($I0);
+    rotate(0.0f, 0.0f, -1.5707964f);
 offset168:
-    ins_408(120, 9, 255, 255, 64);
+    colorTime(120, 9, 255, 255, 64);
 +120: // 120
-    ins_408(120, 9, 64, 255, 64);
+    colorTime(120, 9, 64, 255, 64);
 +120: // 240
-    ins_408(120, 9, 255, 64, 255);
+    colorTime(120, 9, 255, 64, 255);
 +120: // 360
-    ins_408(120, 9, 64, 64, 255);
+    colorTime(120, 9, 64, 64, 255);
 +120: // 480
-    ins_200(offset168, 0);
-    ins_3();
+    jmp(offset168, 0);
+    stop();
 }
 
 
@@ -776,28 +776,28 @@ entry entry13 {
 
 script script15 {
 -1:
-    ins_304(4);
-    ins_300(sprite37);
-    ins_426(0.00066666666f);
-    ins_421(0, 1);
-    ins_400(0.0f, 0.0f, 0.0f);
-    ins_404(128, 128, 128);
-    ins_403(64);
-    ins_303(1);
+    layer(4);
+    sprite(sprite37);
+    scrollY(0.00066666666f);
+    anchor(0, 1);
+    pos(0.0f, 0.0f, 0.0f);
+    color(128, 128, 128);
+    alpha(64);
+    blendMode(1);
 0:
-    ins_3();
+    stop();
 }
 
 script script16 {
 -1:
-    ins_304(4);
-    ins_300(sprite38);
-    ins_426(0.0005f);
-    ins_421(0, 1);
-    ins_404(128, 128, 128);
-    ins_400(0.0f, 0.0f, 0.0f);
+    layer(4);
+    sprite(sprite38);
+    scrollY(0.0005f);
+    anchor(0, 1);
+    color(128, 128, 128);
+    pos(0.0f, 0.0f, 0.0f);
 0:
-    ins_3();
+    stop();
 }
 
 
@@ -821,42 +821,42 @@ entry entry14 {
 }
 
 script script17 {
-    ins_313(2);
-    ins_400(640.0f, 740.0f, 0.0f);
-    ins_403(0);
-    ins_500(script19);
-    ins_500(script18);
+    resolutionMode(2);
+    pos(640.0f, 740.0f, 0.0f);
+    alpha(0);
+    scriptNew(script19);
+    scriptNew(script18);
 +300: // 300
-    ins_0();
-    ins_5(1);
+    nop();
+    case(1);
 +20: // 320
-    ins_1();
+    delete();
 }
 
 script script18 {
     ins_431(1);
-    ins_307(1);
-    ins_421(0, 0);
-    ins_304(27);
-    ins_313(2);
-    ins_300(sprite39);
-    ins_402(1.0f, 0.0f);
-    ins_302(0);
-    ins_412(20, 4, 1.0f, 1.0f);
-    ins_400(0.0f, 0.0f, 0.0f);
-    ins_403(0);
-    ins_409(30, 0, 255);
+    randMode(1);
+    anchor(0, 0);
+    layer(27);
+    resolutionMode(2);
+    sprite(sprite39);
+    scale(1.0f, 0.0f);
+    type(0);
+    scaleTime(20, 4, 1.0f, 1.0f);
+    pos(0.0f, 0.0f, 0.0f);
+    alpha(0);
+    alphaTime(30, 0, 255);
 +200: // 200
-    ins_0();
-    ins_302(1);
-    ins_311(0);
-    ins_407(120, 3, -24.0f, 0.0f, 0.0f);
+    nop();
+    type(1);
+    resampleMode(0);
+    posTime(120, 3, -24.0f, 0.0f, 0.0f);
 +100: // 300
-    ins_0();
-    ins_5(1);
-    ins_409(20, 0, 0);
+    nop();
+    case(1);
+    alphaTime(20, 0, 0);
 +20: // 320
-    ins_1();
+    delete();
 }
 
 
@@ -882,24 +882,24 @@ entry entry15 {
 script script19 {
 -1:
     ins_431(1);
-    ins_307(1);
-    ins_304(27);
-    ins_313(2);
-    ins_302(1);
-    ins_300(sprite40);
-    ins_400(-32.0f, -32.0f, 0.0f);
-    ins_407(320, 0, 32.0f, 32.0f, 0.0f);
-    ins_402(0.0f, 0.0f);
-    ins_412(20, 4, 1.0f, 1.0f);
-    ins_415(0.0f, 0.0f, 0.01308997f);
-    ins_403(0);
-    ins_409(120, 0, 255);
+    randMode(1);
+    layer(27);
+    resolutionMode(2);
+    type(1);
+    sprite(sprite40);
+    pos(-32.0f, -32.0f, 0.0f);
+    posTime(320, 0, 32.0f, 32.0f, 0.0f);
+    scale(0.0f, 0.0f);
+    scaleTime(20, 4, 1.0f, 1.0f);
+    angleVel(0.0f, 0.0f, 0.01308997f);
+    alpha(0);
+    alphaTime(120, 0, 255);
 300:
-    ins_0();
-    ins_5(1);
-    ins_409(20, 0, 0);
+    nop();
+    case(1);
+    alphaTime(20, 0, 0);
 +20: // 320
-    ins_1();
+    delete();
 }
 
 
@@ -923,22 +923,23 @@ entry entry16 {
 }
 
 script script20 {
-    ins_300(sprite41);
-    ins_304(6);
-    ins_421(0, 1);
-    ins_302(2);
-    ins_400(0.0f, 448.0f, 0.0f);
-    ins_404(0, 0, 0);
-    ins_408(30, 0, 255, 255, 255);
-    ins_407(30, 0, 0.0f, 0.0f, 0.0f);
+    sprite(sprite41);
+    layer(6);
+    anchor(0, 1);
+    type(2);
+    pos(0.0f, 448.0f, 0.0f);
+    color(0, 0, 0);
+    colorTime(30, 0, 255, 255, 255);
+    posTime(30, 0, 0.0f, 0.0f, 0.0f);
 +30: // 30
-    ins_407(90, 0, 0.0f, -64.0f, 0.0f);
+    posTime(90, 0, 0.0f, -64.0f, 0.0f);
 +90: // 120
-    ins_407(30, 0, 0.0f, -192.0f, 0.0f);
-    ins_408(30, 0, 0, 0, 0);
+    posTime(30, 0, 0.0f, -192.0f, 0.0f);
+    colorTime(30, 0, 0, 0, 0);
 +30: // 150
-    ins_1();
+    delete();
 }
+
 
 entry entry17 {
     version: 8,
@@ -976,4 +977,5 @@ offset108:
 +40: // 140
     jmp(offset108, 60);
 }
+
 
