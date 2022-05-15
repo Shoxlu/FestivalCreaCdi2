@@ -505,7 +505,7 @@ entry entry11 {
     name: "face/enemy7/face07bs.png",
     format: 1,
     width: 1024,
-    height: 1024,
+    height: 1090,
     memoryPriority: 0,
     lowResScale: 1,
     hasData: 1,
