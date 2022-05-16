@@ -109,7 +109,7 @@ Boss_2832:
 Boss_2884:
     debug22(3, "Boss8");
 	enmCreate("fan", 0f, 0f, 10, 10, 1);
-    @Boss7();
+    @Boss8();
     delete();
 }
 
@@ -1150,44 +1150,133 @@ Boss8_516:
     wait(60);
     anmPlay(1, 86);
     playSound(6);
-    goto Boss8_1424 @ 0;
-Boss8_1192:
-    @Boss8_at(0.113662824f, 0.012217305f) async;
-    wait(100);
-    moveRand(60, 4, 1.9f);
-    wait(60);
-    @Boss8_at(-0.113662824f, -0.012217305f) async;
-    wait(100);
-    moveRand(60, 4, 1.9f);
-    wait(60);
-Boss8_1424:
-    if (1) goto Boss8_1192 @ 0;
+    Boss8_at(30, 7, 1f, 0.05f);
+	wait(100);
+	Boss8_at1() async;
+	while(1)
+	{
+		wait(40);
+		Boss8_at2(2);
+		wait(180);
+		Boss8_at2(3);
+		wait(220);
+		//Boss8_at(15, 3, 2.5f, 1f);
+		wait(60);
+	}
     return;
 }
 
-void Boss8_at(var A, var B)
+void Boss8_at(int count1, int count2, float speed1, float speed2)
 {
-    var C, D;
-    etNew(0);
-    etAim(0, 3);
-    etSprite(0, 10, 4);
-    etCount(0, 11, 2);
-    etAngle(0, 0.0f, 0.0f);
-    etSpeed(0, 4.0f, 3.8f);
-    etEx(0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-    etDist(0, 32.0f);
-    etOffset(0, 0.0f, -24.0f);
-    %C = %ANGLE_PLAYER;
-    $D = 30;
-    goto Boss8_at_536 @ 0;
-Boss8_at_392:
-    etAngle(0, %C, 0.0f);
-    %C = %C + %A;
-    etOn(0);
-    wait(5);
-Boss8_at_536:
-    if ($D--) goto Boss8_at_392 @ 0;
-    return;
+
+	float A = speed1;
+	float D = speed2;
+	etNew(0);
+	etAim(0, 2);
+	etSprite(0, 32, 0);
+	etExSet(0, 0, 0, EX_WAIT, 15, NEG, NEGF, NEGF);
+	etCount(0, count1, 1);
+	times(count2)
+	{
+		etSpeed(0, A, A);
+		etExSet(0, 1, 0, EX_ACCEL, 90, -999999, D / _f(30), -999999.0f);
+		etOn(0);
+		A = A + ((speed2-speed1)/_f(count2));
+		D = D + ((speed1-speed2)/_f(count2));
+	}
+}
+
+void Boss8_at1()
+{
+	etNew(1);
+	etCount(1, 2, 1);
+	etAim(1, 1);
+	etAngle(1, rad(0), rad(180));
+	etSprite(1, 8, 4);
+	etSpeed(1, 1.5f, 1.5f);
+	etExSet(1, 0, 1, EX_ANIM, 0, NEG, NEGF, NEGF);
+	float X =  RANDF2*90f;
+	while(1)
+	{
+		X =  RANDF2*90f;
+		etSpeed(1, 1.5f+RANDF2*0.2f, 1.5f);
+		etAngle(1, rad(0)+ RANDRAD / 32f, rad(180));
+		etOffset(1, X*2f, RANDF2*20f);
+		etOn(1);
+		wait(6);
+	}
+}
+
+void Boss8_at2(int color)
+{
+	float D = 1f;
+	float F;
+	float speed = 0.7f;
+	float speed2 = 0.2f;
+	float B = rad(120);
+	float A = 0f;
+	float C;
+	int rad;
+	etNew(2);
+	etAim(2, 3);
+	etSprite(2, 22, color);
+	I0 = color;
+	etCount(2, 6, 1);
+	etSpeed(2, 0.7f, 2f);
+	etAngle(2, RANDRAD, rad(0));
+	etExSet(2, 0, 1, EX_ANIM, 0, NEG, NEGF, NEGF);
+	etExSet(2, 1, 0, EX_VELTIME, 120, NEG, 0.1f, NEGF);
+	//etExSet(2, 4, 0, EX_VELTIME, 60, NEG, 4f, NEGF);
+	// etExSet(2, 3, 1, EX_SPECIAL, NEG, NEG, NEGF, NEGF);
+	// etExSub(2, 3, "createbutterflies");
+	D = 0.7f;
+	times(4)
+	{
+		etExSet(2, 4, 0, EX_ACCEL, 60, -999999, D / _f(60), -999999.0f);
+		%D = %D + 0.5f;
+			A = rad(-50);
+			etExSet2(2, 2, 0, EX_ANGLE, 20, 1, 1, NEG, A, 0.3f, NEGF, NEGF);
+			etExSet(2, 3, 0, EX_ANGLE_ACCEL, 60, -999999, 0.0f, (rad(120))/60f);
+			speed = 1.5f;
+			C = A;
+
+			times(5){
+				etExSet2(2, 2, 0, EX_ANGLE, 20, 1, 1, NEG, A, 0.3f, NEGF, NEGF);
+				etSpeed(2, speed, speed);
+				etOn(2);
+				speed = speed + ((4f-1.5f)/5f);
+				A += rad(20);
+			}
+			A = C;
+			A += B;
+			etExSet2(2, 2, 0, EX_ANGLE, 20, 1, 1, NEG, A,  0.3f, NEGF, NEGF);
+			etExSet(2, 3, 0, EX_ANGLE_ACCEL, 60, -999999, 0.0f, (rad(120))/60f);
+			speed = 1.5f;
+			C = A;
+			times(5){
+				etExSet2(2, 2, 0, EX_ANGLE, 20, 1, 1, NEG, A, 0.3f, NEGF, NEGF);
+				etSpeed(2, speed, speed);
+				etOn(2);
+				speed = speed + ((4f-1.5f)/5f);
+				A += rad(20);
+			}
+			A = C;
+			A += B;
+			etExSet2(2, 2, 0, EX_ANGLE, 20, 1, 1, NEG, A, 0.3f, NEGF, NEGF);
+			etExSet(2, 3, 0, EX_ANGLE_ACCEL, 60, -999999, 0f, (rad(120))/60f);
+			speed = 1.5f;
+			C = A;
+			times(5){
+				etExSet2(2, 2, 0, EX_ANGLE, 20, 1, 1, NEG, A, 0.3f, NEGF, NEGF);
+				etSpeed(2, speed, speed);
+				etOn(2);
+				speed = speed + ((4f-1.5f)/5f);
+				A += rad(20);
+			}
+			A = C;
+			A += B;
+			speed2 = speed2 + (1f-speed2)/5f;
+	}
 }
 
 void Boss9()

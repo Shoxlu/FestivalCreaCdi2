@@ -907,23 +907,24 @@ entry entry16 {
     version: 8,
     name: "face/enemy7/face07ct.png",
     format: 1,
-    width: 512,
-    height: 1024,
+    width: 1000,
+    height: 1090,
     memoryPriority: 0,
-    lowResScale: 0,
+    lowResScale: 1,
     hasData: 1,
-    THTXSize: 1105920,
+    THTXSize: 4360000,
     THTXFormat: 1,
-    THTXWidth: 512,
-    THTXHeight: 540,
+    THTXWidth: 1000,
+    THTXHeight: 1090,
     THTXZero: 0,
     sprites: {
-        sprite41: { x: 0, y: 0, w: 512, h: 540 }
+        sprite41: { x: 0, y: 0, w: 1000, h: 1090 }
     }
 }
 
 script script20 {
     sprite(sprite41);
+	scale(0.5f, 0.5f);
     layer(6);
     anchor(0, 1);
     type(2);
