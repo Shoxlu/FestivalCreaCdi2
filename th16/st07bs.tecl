@@ -109,7 +109,7 @@ Boss_2832:
 Boss_2884:
     debug22(3, "Boss8");
 	enmCreate("fan", 0f, 0f, 10, 10, 1);
-    @Boss8();
+    @BossCard8();
     delete();
 }
 
@@ -2270,7 +2270,6 @@ BossCard7_at_et_368:
 
 void BossCard8()
 {
-    var A, B, C;
     @BossItemCard();
     timerReset();
     killAllAsync();
@@ -2295,146 +2294,77 @@ BossCard8_264:
     bombShield(1, 0);
     setNext(0, 0, 5400, "Boss9");
     spellEx(116, 5400, 0, "”é‹Vu–³‰‚ÌŒ|”\\ŽÒv");
-    %F0 = _f(160);
-    unless (%PLAYER_X2 > _f(0)) goto BossCard8_888 @ 0;
-    %F0 = %F0 * -1.0f;
-BossCard8_888:
-    movePosTime(120, 4, %F0, 416.0f);
-    moveLimitReset();
-    anmPlay(1, 73);
-+120: //120
-    nop();
-    $A = 2;
-    @BossCard8_at() async;
-    @BossCard8_at2() async;
-    $B = -1;
-    $C = 1000;
-    goto BossCard8_1396 @ 120;
-BossCard8_1192:
-    $B = $B + 1;
-    %F0 = %F0 * -1.0f;
-    movePosTime(300, 0, %F0, 416.0f);
-    wait(400);
-BossCard8_1396:
-    if ($C--) goto BossCard8_1192 @ 120;
-    goto BossCard8_1484 @ 120;
-BossCard8_1464:
-    wait(1000);
-BossCard8_1484:
-    if (1) goto BossCard8_1464 @ 120;
-    return;
+	anmSelect(3);
+	times(10)
+	{
+		anmPlay(1, 71);
+		playSound(SE_CHARGE4);
+		wait(10);
+	}
+	anmPlay(1, 86);
+	anmPlay(1, 90);
+	playSound(SE_EXPLODE2);
+	float A = 1f;
+	while(1)
+	{
+		times(4)
+		{
+			@BossCard8_at1(1, 2, A);
+			wait(45);
+			A = A * -1f;
+		}
+		wait(200);
+	}
+	wait(10000);
 }
 
-void BossCard8_Dead()
+void BossCard8_at(int count1, int count2)
 {
-    etNew(0);
-    etAim(0, 3);
-    etSprite(0, 4, 6);
-    etCount(0, 1, 1);
-    etAngle(0, 1.5707964f + (%RANDF2 * 0.17453292f), 0.0f);
-    etSpeed(0, 1.5f, 1.0f);
-    etEx(0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-    etProtectRange(32.0f);
-    etSound(0, 21, -1);
-    etSound(0, 21, -1);
-    etOn(0);
-    return;
+	float A = RANDRAD;
+	etNew(0);
+	etAim(0, 3);
+	etSprite(0, 32, 2);
+	etSpeed(0, 4f, 2f);
+	etAngle(0, rad(0), rad(180));
+	etCount(0, count1, count2);
+	etCopy(1, 0);
+	etEx(1, 0, EX_HITBOX, 1, 0, 0.1f, 0.1f);
+	etSprite(1, 33, 3);
+	times(6)
+	{
+		etAngle(0, A, rad(0));
+		etAngle(1, A, rad(0));
+		etOn(0);
+		etOn(1);
+		A += rad(15);
+		wait(5);
+	}
 }
 
-void BossCard8_ECir00()
+void BossCard8_at1(int color, int color2, float rotation)
 {
-    var A;
-    anmSelect(2);
-    anmSetSprite(0, 56);
-    %A = _f(1);
-    setHurtbox(24.0f, 24.0f);
-    setHitbox(16.0f, 16.0f);
-    dropMain(0);
-    spec0(100, 10, 8);
-    flagSet(12);
-    setDeath("BossCard8_Dead");
-    moveVel(1.5707964f, 0.8f);
-    flagClear(12);
-    goto BossCard8_ECir00_360 @ 0;
-BossCard8_ECir00_340:
-    wait(1000);
-BossCard8_ECir00_360:
-    if (1) goto BossCard8_ECir00_340 @ 0;
-    delete();
-}
+	float D = 2f;
+	float A = RANDRAD;
+	float waitT = 140f;
+	etNew(2);
+	etAim(2, 3);
+	etSprite(2, 22, color);
+	etSpeed(2, 0.4f, 0.6f);
+	etCount(2, 25, 2);
+	etAngle(2, A, rad(40));
+	etExSet(2, 0, 1, EX_ANIM, 0, NEG, NEGF, NEGF);
+	etExSet(2, 1, 0, EX_WAIT, 50, NEG, NEGF, NEGF);
+	etExSet(2, 2, 0, EX_ANGLE_ACCEL,  _S(waitT), -999999, 1f/waitT, rad(80)*rotation/ waitT);
+	//etExSet(2, 2, 0, EX_WAIT, 20, NEG, NEGF, NEGF);
+		D = 0.5f;
+		times(3)
+		{
+			etExSet(2, 3, 0, EX_ACCEL, 90, -999999, D / _f(90), -999999.0f);
+			etOn(2);
+			%D = %D + 1f;
+		}
 
-void BossCard8_ECir00_at()
-{
-    var A, B, C;
-    wait(10 + ($RAND % 30));
-    etNew(0);
-    etAim(0, 3);
-    etSprite(0, 8, 2);
-    etCount(0, 1, 1);
-    etAngle(0, 0.0f, 0.0f);
-    etSpeed(0, 1.5f, 1.0f);
-    etEx(0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-    etSound(0, 21, -1);
-    %A = 1.570796f;
-    $B = 9;
-    goto BossCard8_ECir00_at_548 @ 0;
-BossCard8_ECir00_at_480:
-    etAngle(0, %ANGLE_PLAYER, 0.0f);
-    etOn(0);
-    wait(30);
-BossCard8_ECir00_at_548:
-    if ($B--) goto BossCard8_ECir00_at_480 @ 0;
-    etSprite(0, 8, 6);
-    $C = 400;
-    goto BossCard8_ECir00_at_844 @ 0;
-BossCard8_ECir00_at_684:
-    etAngle(0, %ANGLE_PLAYER + (%RANDF2 * 0.5235988f), 0.0f);
-    etOn(0);
-    wait(20);
-BossCard8_ECir00_at_844:
-    if ($C--) goto BossCard8_ECir00_at_684 @ 0;
-    return;
 }
-
-void BossCard8_at()
-{
-    var A, B;
-    etNew(0);
-    etAim(0, 1);
-    etSprite(0, 34, 6);
-    etCount(0, 4, 1);
-    etAngle(0, 0.0f, 0.0f);
-    etSpeed(0, 0.01f, 1.0f);
-    etEx(0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-    etEx(0, 0, -2147483648, 180, -999999, -999999.0f, -999999.0f);
-    etEx(0, 0, 2097152, 120, -999999, 2.0f, -999999.0f);
-    etDist(0, 32.0f);
-    etOffset(0, 0.0f, 48.0f);
-    %A = -1.570796f;
-    $B = 10000;
-    goto BossCard8_at_640 @ 0;
-BossCard8_at_480:
-    etAngle(0, %A + (%RANDF2 * 0.08726646f), 0.5235988f);
-    etOn(0);
-    wait(15);
-BossCard8_at_640:
-    if ($B--) goto BossCard8_at_480 @ 0;
-    return;
-}
-
-void BossCard8_at2()
-{
-    var A, B;
-    $B = 20000;
-    goto BossCard8_at2_236 @ 0;
-BossCard8_at2_100:
-    enmCreateA("BossCard8_ECir00", %RANDF2 * _f(190), -32.0f, 100, 1000, -1);
-    wait(10);
-BossCard8_at2_236:
-    if ($B--) goto BossCard8_at2_100 @ 0;
-    return;
-}
-
 void BossCard9()
 {
     var A, B;
