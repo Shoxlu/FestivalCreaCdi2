@@ -1586,7 +1586,7 @@ main_568:
     // etClear(640.0f);
     // ins_571();
     setChapter(41);
-    wait(160);
+    // wait(160);
     // dialogRead(0);
     @MainBoss();
     goto main_1316 @ 60;

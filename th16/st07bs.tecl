@@ -115,6 +115,7 @@ Boss_2884:
 
 void fan()
 {
+	GI3 = 1;
 	flagSet(3);
 	flagSet(128);
 	anmSelect(3);
@@ -135,6 +136,14 @@ void followBoss(float A)
 		wait(1);
 	}
 }
+void timeoutMode()
+{
+	flagSet(3);
+	flagSet(4096);
+	followBoss(30f) async;
+	bombShield(0, 21);
+	wait(100000);
+}
 void HitboxEnm()
 {
 	flagSet(2);
@@ -147,17 +156,23 @@ void HitboxEnm()
 	int A = LIFE;
 	while(1)
 	{
-		if(A != LIFE)
+		while(GI3 == 1)
 		{
-			if(SHOTTYPE == 2)
+			flagClear(1);
+			if(A != LIFE)
 			{
-				BI3 = BI3 + 2;
-			}else{
-				BI3 = BI3 + 5;
+				if(SHOTTYPE == 2)
+				{
+					BI3 = BI3 + 2;
+				}else{
+					BI3 = BI3 + 5;
+				}
+				lifeSet(100000);
+				A = LIFE;
 			}
-			lifeSet(100000);
-			A = LIFE;
+			wait(1);
 		}
+		flagSet(1);
 		wait(1);
 	}
 }
@@ -1414,6 +1429,7 @@ BossCard10_412:
     bombShield(1, 0);
     setNext(0, 0, 9000, "BossDead");
     spellEx(118, 9000, 0, "「アナーキーバレットヘル」");
+	GI3 = 1;
     lifeMarker(0, 8000.0f, -24448);
     lifeMarker(1, 5000.0f, -24448);
     lifeMarker(2, 2000.0f, -24448);
@@ -2291,9 +2307,12 @@ BossCard8_264:
     $BOMB_COUNT = 0;
     $CAPTURE = 1;
     spec0(2400, 200, 80);
-    bombShield(1, 0);
-    setNext(0, 0, 5400, "Boss9");
-    spellEx(116, 5400, 0, "秘儀「無縁の芸能\者」");
+    bombShield(0, 0);
+    setNext(0, 0, 3960, "Boss9");
+    spellEx(116, 3960, 0, "Resurrection Butterfly - 80% Reflowering");
+	spellTimeout();
+	flagSet(3);
+	GI3 = 0;
 	anmSelect(3);
 	times(10)
 	{
@@ -2305,39 +2324,93 @@ BossCard8_264:
 	anmPlay(1, 90);
 	playSound(SE_EXPLODE2);
 	float A = 1f;
+	int B = 3;
+	float angleStart = rad(0);
 	while(1)
 	{
+		if(B % 2 == 0)
+		{
+			angleStart = rad(90)+rad(360)/_f(B*2)/2f;
+		}else{
+			angleStart = rad(0);
+		}
+			@BossCard8_atLasers(B, angleStart);
+		wait(60);
+		@BossCard8_at2();
+		wait(100);
 		times(4)
 		{
 			@BossCard8_at1(1, 2, A);
 			wait(45);
 			A = A * -1f;
 		}
-		wait(200);
+		wait(150);
+		@BossCard8_at(25, 3, 3f, 1.5f);
+		wait(50);
+		B += 1;
 	}
 	wait(10000);
 }
 
-void BossCard8_at(int count1, int count2)
+void BossCard8_atLasers(int count1, float angleStart)
 {
-	float A = RANDRAD;
-	etNew(0);
-	etAim(0, 3);
-	etSprite(0, 32, 2);
-	etSpeed(0, 4f, 2f);
-	etAngle(0, rad(0), rad(180));
-	etCount(0, count1, count2);
-	etCopy(1, 0);
-	etEx(1, 0, EX_HITBOX, 1, 0, 0.1f, 0.1f);
-	etSprite(1, 33, 3);
-	times(6)
+	int laserID = 1;
+	float angle = angleStart;
+	F0 = angle;
+	etNew(1);
+	etAim(1, 3);
+	etCount(1, 1, 1);
+	etAngle(1, rad(90), 0f);
+	etSpeed(1, 8f, 8f);
+	etSprite(1, 8, 4);
+	laserNew(1, 0f, 600f, 0f, 30f);
+	laserTiming(1, 60, 20, 230, 60, 0);
+	float angl1 = rad(180);
+	times(count1)
 	{
-		etAngle(0, A, rad(0));
-		etAngle(1, A, rad(0));
+		etSprite(1, 8, 4);
+		etOffset(1,cos(angle)*60f, sin(angle)*60f);
+		etAngle(1, angle, 0f);
+		laserStOn(1, laserID);
+		@laserRotate(angle, laserID, 1f, count1) async;
+		laserID += 1;
+		angle += rad(360)/_f(count1*2);
+		etSprite(1, 8, 6);
+		etOffset(1,cos(angle)*60f, sin(angle)*60f);
+		etAngle(1, angle, 0f);
+		laserStOn(1, laserID);
+		@laserRotate(angle, laserID, -1f, count1) async;
+		angle += rad(360)/_f(count1*2);
+		laserID += 1;
+	}
+}
+
+void laserRotate(float angl1, int laserID, float A, int count1)
+{
+	times(60)
+	{
+		laserOffset(laserID, BOSS_X + cos(angl1)*60f, BOSS_Y + sin(angl1)*60f);
+		laserStAngle(laserID, angl1);
+		wait(1);
+		angl1 += (rad(360)/_f(count1*2)/60f)*A;
+	}
+}
+void BossCard8_at(int count1, int count2, float speed1, float speed2)
+{
+	float A = speed2;
+	float D = speed2;
+	etNew(0);
+	etAim(0, 2);
+	etSprite(0, 32, 0);
+	etExSet(0, 0, 0, EX_WAIT, 20, NEG, NEGF, NEGF);
+	etCount(0, count1, 1);
+	times(count2)
+	{
+		etSpeed(0, A, A);
+		etExSet(0, 1, 0, EX_ACCEL, 20, -999999, D / _f(20), -999999.0f);
 		etOn(0);
-		etOn(1);
-		A += rad(15);
-		wait(5);
+		A = A + (speed1-speed2)/_f(count2-1);
+		D = D - (speed1-speed2)/_f(count2-1)*2f;
 	}
 }
 
@@ -2345,26 +2418,54 @@ void BossCard8_at1(int color, int color2, float rotation)
 {
 	float D = 2f;
 	float A = RANDRAD;
-	float waitT = 140f;
+	float waitT = 130f;
 	etNew(2);
 	etAim(2, 3);
 	etSprite(2, 22, color);
 	etSpeed(2, 0.4f, 0.6f);
-	etCount(2, 25, 2);
-	etAngle(2, A, rad(40));
+	etCount(2, 24, 2);
+	etAngle(2, A, rad(10)*rotation);
 	etExSet(2, 0, 1, EX_ANIM, 0, NEG, NEGF, NEGF);
 	etExSet(2, 1, 0, EX_WAIT, 50, NEG, NEGF, NEGF);
 	etExSet(2, 2, 0, EX_ANGLE_ACCEL,  _S(waitT), -999999, 1f/waitT, rad(80)*rotation/ waitT);
 	//etExSet(2, 2, 0, EX_WAIT, 20, NEG, NEGF, NEGF);
-		D = 0.5f;
+		D = 0.25f;
 		times(3)
 		{
-			etExSet(2, 3, 0, EX_ACCEL, 90, -999999, D / _f(90), -999999.0f);
+			etExSet(2, 3, 0, EX_ACCEL, 60, -999999, D / _f(60), -999999.0f);
 			etOn(2);
-			%D = %D + 1f;
+			%D = %D + 1.5f;
 		}
 
 }
+
+void BossCard8_at2()
+{
+	etNew(3);
+	etAim(3, 3);
+	etSprite(3, 22, 3);
+	etSpeed(3, 1.5f, 1.5f);
+	etCount(3, 36, 1);
+	etAngle(3, rad(90), rad(0));
+	etExSet(3, 0, 1, EX_ANIM, 0, NEG, NEGF, NEGF);
+	etExSet(3, 1, 0, EX_WAIT, 60, NEG, NEGF, NEGF);
+	etCopy(4, 3);
+	etAim(4, 5);
+	etSprite(4, 22, 2);
+	times(4){
+		etExSet(3, 2, 0, EX_WAIT, 0, NEG, NEGF, NEGF); 
+		etOn(3);
+		etExSet(3, 2, 0, EX_ACCEL, 30, NEG, 1.5f/30f, NEGF); 
+		etOn(3);
+		wait(10);
+		etExSet(4, 2, 0, EX_WAIT, 0, NEG, NEGF, NEGF); 
+		etOn(4);
+		etExSet(4, 2, 0, EX_ACCEL, 30, NEG, 1.5f/30f, NEGF); 
+		etOn(4);
+		wait(10);
+	}
+}
+
 void BossCard9()
 {
     var A, B;
