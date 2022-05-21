@@ -479,13 +479,13 @@ entry entry10 {
     memoryPriority: 0,
     lowResScale: 1,
     hasData: 1,
-    THTXSize: 3600000,
+    THTXSize: 4360000,
     THTXFormat: 1,
     THTXWidth: 1000,
-    THTXHeight: 900,
+    THTXHeight: 1090,
     THTXZero: 0,
     sprites: {
-        sprite32: { x: 0, y: 0, w: 1000, h: 900 }
+        sprite32: { x: 0, y: 0, w: 1000, h: 1090 }
     }
 }
 
@@ -691,15 +691,15 @@ entry entry12 {
     version: 8,
     name: "stgenm/stage06/cdbg06a.png",
     format: 3,
-    width: 512,
-    height: 512,
+    width: 256,
+    height: 256,
     memoryPriority: 0,
     lowResScale: 0,
     hasData: 1,
     THTXSize: 524288,
     THTXFormat: 3,
-    THTXWidth: 512,
-    THTXHeight: 512,
+    THTXWidth: 256,
+    THTXHeight: 256,
     THTXZero: 0,
     sprites: {
         sprite35: { x: 0, y: 0, w: 384, h: 448 },
@@ -749,14 +749,14 @@ entry entry13 {
     name: "stgenm/stage07/cdbg06b.png",
     format: 3,
     width: 256,
-    height: 512,
+    height: 256,
     memoryPriority: 0,
     lowResScale: 0,
     hasData: 1,
     THTXSize: 262144,
     THTXFormat: 3,
     THTXWidth: 256,
-    THTXHeight: 512,
+    THTXHeight: 256,
     THTXZero: 0,
     sprites: {
         sprite37: { x: 0, y: 0, w: 384, h: 448 },
