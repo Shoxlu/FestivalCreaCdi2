@@ -53,7 +53,7 @@
     "113": "Cérémonie secrète « Kyōgen de la porte de derrière »",
     "114": "Cérémonie secrète « Matarah Dukkha »",
     "115": "Cérémonie secrète « Épée des Sept Étoiles »",
-    "116": "Resurrection Butterfly - 80/100 Reflowering -",
-    "117": "« La face arrière du Sarugaku sombre »",
-    "118": "« Enfer anarchique de projectiles »"
+    "116": "« Resurrection Butterfly - 80/100 Reflowering - »",
+    "117": "90/100 « Vital Spring in the World of the Dead »",
+    "118": "« Perfect Cherry Blossom »"
 }
