@@ -110,7 +110,7 @@ Boss_2832:
 Boss_2884:
     debug22(3, "Boss8");
 	enmCreate("fan", 0f, 0f, 10, 10, 1);
-    @BossDead();
+    @Boss9();
     delete();
 }
 
@@ -1340,6 +1340,7 @@ Boss9_516:
     $CAPTURE = 1;
     movePosTime(120, 4, 0.0f, 224.0f);
     moveLimitReset();
+	GI3 = 0;
 	GI2 = 0;
     wait(180);
     @BossCard9();
@@ -2515,107 +2516,185 @@ BossCard9_372:
     flagSet(3);
 +90: //90
     nop();
-    $GI0 = 96;
+	enmCreate("trap", 0f,0f, 100, 100, 1);
     @BossCard9_at() async;
-    @BossCard9_at2(0, 1, -2.3561945f, _f(-1)) async 0;
-    @BossCard9_at2(1, 1, -0.7853982f, _f(1)) async 1;
-    goto BossCard9_1152 @ 90;
-BossCard9_1132:
-    wait(1000);
-BossCard9_1152:
-    if (1) goto BossCard9_1132 @ 90;
-    return;
+	wait(10000);
+}
+
+void trap()
+{
+	flagSet(3);
+	int laserID = 1;
+	float angle = rad(0);
+	float angleStart = angle;
+	int count1 = 10;
+	F0 = angle;
+	etNew(1);
+	etAim(1, 3);
+	etCount(1, 1, 1);
+	etAngle(1, rad(90), 0f);
+	etSpeed(1, 8f, 8f);
+	etSprite(1, 22, 1);
+	laserNew(1, 0f, 45f, 0f, 45f);
+	laserTiming(1, 1, 1, 5400, 80, 0);
+	float angl1 = rad(180);
+	times(count1)
+	{
+		etSprite(1, 22, 1);
+		etOffset(1,cos(angle)*300f, sin(angle)*300f);
+		etAngle(1, angle, 0f);
+		laserStOn(1, laserID);
+		@laserRotate1(angle, laserID, 1f, count1, 300f) async;
+		laserID += 1;
+		angle += rad(360)/_f(count1*2);
+		etSprite(1, 22, 2);
+		etOffset(1,cos(angle+rad(360)/10f/2f)*300f, sin(angle)*300f);
+		etAngle(1, angle+rad(360)/10f/2f, 0f);
+		laserStOn(1, laserID);
+		@laserRotate1(angle+rad(360)/10f/2f, laserID, -1f, count1, 300f) async;
+		angle += rad(360)/_f(count1*2);
+		laserID += 1;
+	}
+	wait(10000);
+}
+
+void laserRotate1(float angl1, int laserID, float A, int count1, float range)
+{
+	float X = BOSS_X;
+	float Y = BOSS_Y;
+	GI0 = 0;
+	times(200)
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1+(rad(90)*A));
+		wait(1);
+		angl1 += rad(60)/60f*A;
+		range -= 0.75f;
+	}
+	times(150)
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1+(rad(90)*A));
+		wait(1);
+		angl1 += rad(60)/90f*A;
+	}
+	times(200)
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1+(rad(90)*A));
+		wait(1);
+		angl1 += rad(60)/90f*A;
+		X += 0.5f; 
+		Y += 0.5f; 
+	}
+	times(120)
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1+(rad(90)*A));
+		wait(1);
+		angl1 += rad(60)/90f*A; 
+	}
+	floatTime(0, Y, 300, 0, Y, 128f);
+	times(300)
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1+(rad(90)*A));
+		wait(1);
+		angl1 += rad(60)/90f*A;
+		range -= 0.25f;
+	}
+	times(120)
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1+(rad(90)*A));
+		wait(1);
+		angl1 += rad(60)/90f*A; 
+	}
+	floatTime(0, X, 300, 0, X, -X);
+	times(300)
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1+(rad(90)*A));
+		wait(1);
+		angl1 += rad(60)/90f*A;
+	}
+	times(120)
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1+(rad(90)*A));
+		wait(1);
+		angl1 += rad(60)/90f*A; 
+	}
+	floatTime(0, Y, 300, 0, Y, Y+224f);
+	times(300)
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1+(rad(90)*A));
+		wait(1);
+		angl1 += rad(60)/90f*A;
+	}
+	times(120)
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1+(rad(90)*A));
+		wait(1);
+		angl1 += rad(60)/90f*A; 
+	}
+	floatTime(0, X, 300, 0, X, BOSS_X);
+	floatTime(1, Y, 300, 0, Y, BOSS_Y);
+	times(300)
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1+(rad(90)*A));
+		wait(1);
+		angl1 += rad(60)/90f*A;
+		range -= 0.12f;
+	}
+	GI0 = 1;
 }
 
 void BossCard9_at()
 {
-    wait(600);
-    @BossCard9_at3(430, 0.004870686f);
-    wait(60);
-    @BossCard9_at3(430, 0.0052765766f);
-    wait(60);
-    @BossCard9_at3(430, 0.0056824675f);
-    wait(60);
-    @BossCard9_at3(430, 0.006712805f);
-    wait(60);
-    @BossCard9_at3(390, 0.006936565f);
-    wait(60);
-    @BossCard9_at3(360, 0.007757019f);
-    wait(60);
-    @BossCard9_at3(330, 0.008726646f);
-    wait(60);
-    @BossCard9_at3(300, 0.009599311f);
-    wait(60);
-    @BossCard9_at3(270, 0.01098911f);
-    wait(60);
-    @BossCard9_at3(220, 0.014279966f);
-    return;
-}
-
-void BossCard9_at2(var A, var B, var C, var D)
-{
-    var E, F, G, H, I;
-    etNew($A);
-    etAim($A, 1);
-    etSprite($A, 8, 6);
-    etCount($A, $B, 1);
-    etAngle($A, %C, 0.5235988f);
-    etSpeed($A, 2.3f, 1.0f);
-    etEx($A, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-    etEx($A, 0, 256, 600, 0, -999999.0f, -999999.0f);
-    etEx($A, 0, 128, 700, -999999, -999999.0f, -999999.0f);
-    etEx($A, 0, -2147483648, 60, -999999, -999999.0f, -999999.0f);
-    etEx($A, 0, 8, 540, -999999, 0.0f, (-0.017453292f * 0.67f) * %D);
-    %E = _f(-192);
-    goto BossCard9_at2_1144 @ 0;
-BossCard9_at2_568:
-    %E = _f(0);
-    $G = $GI0;
-    %F = 384.0f / _f($G);
-    $H = 192 / $G;
-    $I = $G / 2;
-    goto BossCard9_at2_1100 @ 0;
-BossCard9_at2_900:
-    etOffsetAbs($A, %E * %D, 448.0f);
-    %E = %E - %F;
-    etOn($A);
-    wait(28);
-BossCard9_at2_1100:
-    if ($I--) goto BossCard9_at2_900 @ 0;
-BossCard9_at2_1144:
-    if (1) goto BossCard9_at2_568 @ 0;
-    return;
-}
-
-void BossCard9_at3(var A, var B)
-{
-    var C, D;
-    unless (%PLAYER_X2 < _f(0)) goto BossCard9_at3_256 @ 0;
-    %C = 3.141593f;
-    %B = %B * _f(-1);
-    goto BossCard9_at3_296 @ 0;
-BossCard9_at3_256:
-    %C = 0.0f;
-BossCard9_at3_296:
-    etNew(2);
-    etSprite(2, 38, 6);
-    etAngle(2, %C, %C);
-    etSpeed(2, 8.0f, 8.0f);
-    laserNew(2, 512.0f, 512.0f, 0.0f, 32.0f);
-    laserTiming(2, 20, 30, $A - 32, 30, 0);
-    etSound(0, 18, -1);
-    etOffset(2, 0.0f, 32.0f);
-    laserStOn(2, 1);
-    wait(60);
-    $D = $A;
-    goto BossCard9_at3_816 @ 0;
-BossCard9_at3_696:
-    %C = %C - %B;
-    laserStAngle(1, %C);
-    wait(1);
-BossCard9_at3_816:
-    if ($D--) goto BossCard9_at3_696 @ 0;
-    return;
+	int waitT = 6;
+	int count1 = 1;
+	int count2 = 1;
+	float speed1 = 1f;
+	float speed2 = 2f;
+	float angle1 = rad(270);
+	float angle2 = 0f;
+	int time = 0;
+	etNew(0);
+	etAim(0, 1);
+	etCount(0, count1, count2);
+	etSprite(0, 6, 4);
+	etSpeed(0, speed1, speed2);
+	etAngle(0, angle1, angle2);
+	etExSet(0, 0, 0, EX_ANIM, 0, NEG, NEGF, NEGF);
+	while(time < 410)
+	{
+		etOffsetAbs(0, RANDF2*192f, 448f);
+		etOn(0);
+		wait(waitT);
+		time += waitT;
+	}
+	floatTime(1, speed1, 180, 4, speed1, 2f);
+	waitT = 4;
+	while(GI0 == 0)
+	{
+		etSpeed(0, speed1, speed2);
+		etOffsetAbs(0, RANDF2*192f, 448f);
+		etOn(0);
+		wait(waitT);
+	}
+	waitT = 8;
+	etCount(0, 2, 1);
+	etAngle(0, rad(270), rad(30));
+	while(GI0 == 1)
+	{
+		etOffsetAbs(0, RANDF2*192f, 448f);
+		etOn(0);
+		wait(waitT);
+	}
 }
 
 void BossDead()
