@@ -2538,25 +2538,196 @@ void trap()
 	laserNew(1, 0f, 45f, 0f, 45f);
 	laserTiming(1, 1, 1, 5400, 80, 0);
 	float angl1 = rad(180);
+	float C;
+	if(RAND % 2 == 1)
+	{
+		C = 1f;
+	}else{
+		C = -1f;
+	}
 	times(count1)
 	{
+		laserNew(1, 0f, 45f, 0f, 45f);
+		laserTiming(1, 1, 1, 5400, 80, 0);
 		etSprite(1, 22, 1);
 		etOffset(1,cos(angle)*300f, sin(angle)*300f);
 		etAngle(1, angle, 0f);
 		laserStOn(1, laserID);
-		@laserRotate1(angle, laserID, 1f, count1, 300f) async;
+		@laserRotate1(angle, laserID, 1f, count1, 300f, C) async;
 		laserID += 1;
 		angle += rad(360)/_f(count1*2);
 		etSprite(1, 22, 2);
 		etOffset(1,cos(angle+rad(360)/10f/2f)*300f, sin(angle)*300f);
 		etAngle(1, angle+rad(360)/10f/2f, 0f);
 		laserStOn(1, laserID);
-		@laserRotate1(angle+rad(360)/10f/2f, laserID, -1f, count1, 300f) async;
+		@laserRotate1(angle+rad(360)/10f/2f, laserID, -1f, count1, 300f, C) async;
+		angle += rad(360)/_f(count1*2);
+		laserID += 1;
+		laserNew(1, 0f, 600f, 0f, 30f);
+		laserTiming(1, 60, 20, 5400, 80, 0);
+		etSprite(1, 8, 4);
+		etOffset(1,cos(angle)*300f, sin(angle)*300f);
+		etAngle(1, angle, 0f);
+		laserStOn(1, laserID);
+		@laserRotate2(angle, laserID, 1f, count1, 300f, C) async;
+		laserID += 1;
+		angle += rad(360)/_f(count1*2);
+		etSprite(1, 8, 6);
+		etOffset(1,cos(angle+rad(360)/10f/2f)*300f, sin(angle)*300f);
+		etAngle(1, angle+rad(360)/10f/2f, 0f);
+		laserStOn(1, laserID);
+		@laserRotate2(angle+rad(360)/10f/2f, laserID, -1f, count1, 300f, C) async;
 		angle += rad(360)/_f(count1*2);
 		laserID += 1;
 	}
 	wait(10000);
 }
+
+void laserRotate2(float angl1, int laserID, float A, int count1, float range, float C)
+{
+	float X = BOSS_X;
+	float Y = BOSS_Y;
+	GI0 = 0;
+	times(200)//
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1);
+		wait(1);
+		angl1 += rad(60)/60f*A;
+		range -= 0.75f;
+	}
+	times(150)//
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1);
+		wait(1);
+		angl1 += rad(60)/90f*A;
+	}
+	times(200)//
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1);
+		wait(1);
+		angl1 += rad(60)/90f*A;
+		X += 0.5f*C; 
+		Y += 0.5f*C; 
+	}
+	times(120)//
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1);
+		wait(1);
+		angl1 += rad(60)/90f*A; 
+	}
+	floatTime(0, Y, 300, 0, Y, Y-224f*C);
+	times(300)//
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1);
+		wait(1);
+		angl1 += rad(60)/90f*A;
+		range -= 0.25f;
+	}
+	times(120)//
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1);
+		wait(1);
+		angl1 += rad(60)/90f*A; 
+	}
+	floatTime(0, X, 300, 0, X, -X);
+	times(300)//
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1);
+		wait(1);
+		angl1 += rad(60)/90f*A;
+	}
+	times(120)//
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1);
+		wait(1);
+		angl1 += rad(60)/90f*A; 
+	}
+	
+	floatTime(0, Y, 300, 0, Y, Y+224f*C);
+	times(300)//
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1);
+		wait(1);
+		angl1 += rad(60)/90f*A;
+	}
+	times(120)//
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1);
+		wait(1);
+		angl1 += rad(60)/90f*A; 
+	}
+	floatTime(0, X, 300, 0, X, BOSS_X);
+	floatTime(1, Y, 300, 0, Y, BOSS_Y);
+	times(300)//
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1);
+		wait(1);
+		angl1 += rad(60)/90f*A;
+		range -= 0.08f;
+	}
+	GI0 = 1;
+	times(180)//
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1);
+		wait(1);
+		angl1 += rad(60)/90f*A; 
+	}
+	times(180)//
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1);
+		wait(1);
+		angl1 += rad(60)/90f*A; 
+		range += 50f/180f;
+	}
+	GI0 = 2;
+	float B = 90f;
+	times(360)//
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1);
+		wait(1);
+		angl1 += rad(60)/B*A;
+	}
+	times(100)//
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1);
+		wait(1);
+		angl1 += rad(60)/B*A;
+		range += 0.5f;
+	}
+	times(360)//
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1);
+		wait(1);
+		angl1 += rad(60)/B*A;
+	}
+	floatTime(0, B, 180, 0, B, 10f);
+	GI0 = 3;
+	while(1)
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1);
+		wait(1);
+		angl1 += rad(60)/B*A;
+		range += 0.01f;
+	}
+}
+
 void BossCard9_at1()
 {
 	etNew(2);
@@ -2575,19 +2746,12 @@ void BossCard9_at1()
 		wait(4);
 	}
 }
-void laserRotate1(float angl1, int laserID, float A, int count1, float range)
+void laserRotate1(float angl1, int laserID, float A, int count1, float range, float C)
 {
 	float X = BOSS_X;
 	float Y = BOSS_Y;
-	float C;
-	if(RAND % 2)
-	{
-		C = 1f;
-	}else{
-		C = -1f;
-	}
 	GI0 = 0;
-	times(200)
+	times(200)//
 	{
 		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
 		laserStAngle(laserID, angl1+(rad(90)*A));
@@ -2595,14 +2759,14 @@ void laserRotate1(float angl1, int laserID, float A, int count1, float range)
 		angl1 += rad(60)/60f*A;
 		range -= 0.75f;
 	}
-	times(150)
+	times(150)//
 	{
 		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
 		laserStAngle(laserID, angl1+(rad(90)*A));
 		wait(1);
 		angl1 += rad(60)/90f*A;
 	}
-	times(200)
+	times(200)//
 	{
 		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
 		laserStAngle(laserID, angl1+(rad(90)*A));
@@ -2611,7 +2775,7 @@ void laserRotate1(float angl1, int laserID, float A, int count1, float range)
 		X += 0.5f*C; 
 		Y += 0.5f*C; 
 	}
-	times(120)
+	times(120)//
 	{
 		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
 		laserStAngle(laserID, angl1+(rad(90)*A));
@@ -2619,7 +2783,7 @@ void laserRotate1(float angl1, int laserID, float A, int count1, float range)
 		angl1 += rad(60)/90f*A; 
 	}
 	floatTime(0, Y, 300, 0, Y, Y-224f*C);
-	times(300)
+	times(300)//
 	{
 		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
 		laserStAngle(laserID, angl1+(rad(90)*A));
@@ -2627,7 +2791,7 @@ void laserRotate1(float angl1, int laserID, float A, int count1, float range)
 		angl1 += rad(60)/90f*A;
 		range -= 0.25f;
 	}
-	times(120)
+	times(120)//
 	{
 		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
 		laserStAngle(laserID, angl1+(rad(90)*A));
@@ -2635,14 +2799,14 @@ void laserRotate1(float angl1, int laserID, float A, int count1, float range)
 		angl1 += rad(60)/90f*A; 
 	}
 	floatTime(0, X, 300, 0, X, -X);
-	times(300)
+	times(300)//
 	{
 		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
 		laserStAngle(laserID, angl1+(rad(90)*A));
 		wait(1);
 		angl1 += rad(60)/90f*A;
 	}
-	times(120)
+	times(120)//
 	{
 		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
 		laserStAngle(laserID, angl1+(rad(90)*A));
@@ -2651,14 +2815,14 @@ void laserRotate1(float angl1, int laserID, float A, int count1, float range)
 	}
 	
 	floatTime(0, Y, 300, 0, Y, Y+224f*C);
-	times(300)
+	times(300)//
 	{
 		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
 		laserStAngle(laserID, angl1+(rad(90)*A));
 		wait(1);
 		angl1 += rad(60)/90f*A;
 	}
-	times(120)
+	times(120)//
 	{
 		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
 		laserStAngle(laserID, angl1+(rad(90)*A));
@@ -2667,7 +2831,7 @@ void laserRotate1(float angl1, int laserID, float A, int count1, float range)
 	}
 	floatTime(0, X, 300, 0, X, BOSS_X);
 	floatTime(1, Y, 300, 0, Y, BOSS_Y);
-	times(300)
+	times(300)//
 	{
 		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
 		laserStAngle(laserID, angl1+(rad(90)*A));
@@ -2676,14 +2840,14 @@ void laserRotate1(float angl1, int laserID, float A, int count1, float range)
 		range -= 0.08f;
 	}
 	GI0 = 1;
-	times(180)
+	times(180)//
 	{
 		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
 		laserStAngle(laserID, angl1+(rad(90)*A));
 		wait(1);
 		angl1 += rad(60)/90f*A; 
 	}
-	times(180)
+	times(180)//
 	{
 		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
 		laserStAngle(laserID, angl1+(rad(90)*A));
@@ -2693,15 +2857,14 @@ void laserRotate1(float angl1, int laserID, float A, int count1, float range)
 	}
 	GI0 = 2;
 	float B = 90f;
-	floatTime(0, B, 180, 0, B, 10f);
-	times(360)
+	times(360)//
 	{
 		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
 		laserStAngle(laserID, angl1+(rad(90)*A));
 		wait(1);
 		angl1 += rad(60)/B*A;
 	}
-	times(100)
+	times(100)//
 	{
 		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
 		laserStAngle(laserID, angl1+(rad(90)*A));
@@ -2709,6 +2872,14 @@ void laserRotate1(float angl1, int laserID, float A, int count1, float range)
 		angl1 += rad(60)/B*A;
 		range += 0.5f;
 	}
+	times(360)//
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1+(rad(90)*A));
+		wait(1);
+		angl1 += rad(60)/B*A;
+	}
+	floatTime(0, B, 180, 0, B, 10f);
 	GI0 = 3;
 	while(1)
 	{
