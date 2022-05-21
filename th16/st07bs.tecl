@@ -2557,7 +2557,24 @@ void trap()
 	}
 	wait(10000);
 }
-
+void BossCard9_at1()
+{
+	etNew(2);
+	etCount(2, 2, 1);
+	etAim(2, 1);
+	etAngle(2, rad(0), rad(180));
+	etSprite(2, 8, 4);
+	etSpeed(2, 1.5f, 1.5f);
+	etExSet(2, 0, 1, EX_ANIM, 0, NEG, NEGF, NEGF);
+	while(1)
+	{
+		etSpeed(2, 1.5f, 1.5f);
+		etAngle(2, rad(270) + RANDRAD / 24f, rad(0));
+		etOffsetAbs(2, RANDF2*180f, 448f);
+		etOn(2);
+		wait(4);
+	}
+}
 void laserRotate1(float angl1, int laserID, float A, int count1, float range)
 {
 	float X = BOSS_X;
@@ -2648,9 +2665,51 @@ void laserRotate1(float angl1, int laserID, float A, int count1, float range)
 		laserStAngle(laserID, angl1+(rad(90)*A));
 		wait(1);
 		angl1 += rad(60)/90f*A;
-		range -= 0.12f;
+		range -= 0.08f;
 	}
 	GI0 = 1;
+	times(180)
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1+(rad(90)*A));
+		wait(1);
+		angl1 += rad(60)/90f*A; 
+	}
+	times(180)
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1+(rad(90)*A));
+		wait(1);
+		angl1 += rad(60)/90f*A; 
+		range += 50f/180f;
+	}
+	GI0 = 2;
+	float B = 90f;
+	floatTime(0, B, 180, 0, B, 10f);
+	times(360)
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1+(rad(90)*A));
+		wait(1);
+		angl1 += rad(60)/B*A;
+	}
+	times(100)
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1+(rad(90)*A));
+		wait(1);
+		angl1 += rad(60)/B*A;
+		range += 0.5f;
+	}
+	GI0 = 3;
+	while(1)
+	{
+		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
+		laserStAngle(laserID, angl1+(rad(90)*A));
+		wait(1);
+		angl1 += rad(60)/B*A;
+		range += 0.01f;
+	}
 }
 
 void BossCard9_at()
@@ -2692,6 +2751,41 @@ void BossCard9_at()
 	while(GI0 == 1)
 	{
 		etOffsetAbs(0, RANDF2*192f, 448f);
+		etOn(0);
+		wait(waitT);
+	}
+	waitT = 6;
+	//etCount(0, 2, 2);
+	etAngle(0, rad(270)+ RANDRAD/16f, rad(30)+ RANDRAD/8f);
+	while(GI0 == 2)
+	{
+		etOffsetAbs(0, RANDF2*192f, 448f);
+		etOn(0);
+		wait(waitT);
+	}
+	float X = -150f;
+	waitT = 1;
+	etCount(0, 1, 1);
+	etAngle(0, rad(270)+ RANDRAD/16f, 0f);
+	etSpeed(0, 5f, 5f);
+	//etExSet(0, 2, 0, EX_ACCEL, 500, NEG, -0.5f, rad(10));
+	etExSet(0, 1, 0, EX_WAIT, 25, NEG, NEGF, NEGF); 
+	float A = 1f;
+	@BossCard9_at1() async;
+	while(GI0 == 3)
+	{
+		X = RANDF2*110f;
+		if(X > 0f)
+		{
+			A = -1f;
+		}else{
+			A = 1f;
+		}
+		etExSet(0, 2, 0, EX_VELTIME, 60, NEG, 3f, rad(270));
+		etExSet(0, 3, 0, EX_ANGLE_ACCEL, 1060, NEG, 0f, rad(180)/60f*A);
+		mathAngle(angle1, X, 448f, BOSS_X, BOSS_Y);
+		etAngle(0, angle1, 0f);
+		etOffsetAbs(0, X, 448f);
 		etOn(0);
 		wait(waitT);
 	}
