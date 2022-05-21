@@ -2510,7 +2510,7 @@ BossCard9_372:
     $CAPTURE = 1;
     spec0(2400, 400, 400);
     bombShield(0, 0);
-    setNext(0, 0, 5400, "Boss10");
+    setNext(0, 0, 5400, "BossDead");
     spellEx(117, 5400, 0, "Åuîwñ ÇÃà√çïâéäyÅv");
     spellTimeout();
     flagSet(3);
@@ -2596,21 +2596,21 @@ void laserRotate2(float angl1, int laserID, float A, int count1, float range, fl
 		angl1 += rad(60)/60f*A;
 		range -= 0.75f;
 	}
-	times(150)//
+	times(300)//
 	{
 		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
 		laserStAngle(laserID, angl1);
 		wait(1);
 		angl1 += rad(60)/90f*A;
 	}
-	times(200)//
+	times(320)//
 	{
 		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
 		laserStAngle(laserID, angl1);
 		wait(1);
 		angl1 += rad(60)/90f*A;
-		X += 0.5f*C; 
-		Y += 0.5f*C; 
+		X += 100f/320f*C; 
+		Y += 100f/320f; 
 	}
 	times(120)//
 	{
@@ -2619,7 +2619,7 @@ void laserRotate2(float angl1, int laserID, float A, int count1, float range, fl
 		wait(1);
 		angl1 += rad(60)/90f*A; 
 	}
-	floatTime(0, Y, 300, 0, Y, Y-224f*C);
+	floatTime(0, Y, 300, 0, Y, Y-224f);
 	times(300)//
 	{
 		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
@@ -2651,7 +2651,7 @@ void laserRotate2(float angl1, int laserID, float A, int count1, float range, fl
 		angl1 += rad(60)/90f*A; 
 	}
 	
-	floatTime(0, Y, 300, 0, Y, Y+224f*C);
+	floatTime(0, Y, 300, 0, Y, Y+224f);
 	times(300)//
 	{
 		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
@@ -2716,7 +2716,7 @@ void laserRotate2(float angl1, int laserID, float A, int count1, float range, fl
 		wait(1);
 		angl1 += rad(60)/B*A;
 	}
-	floatTime(0, B, 180, 0, B, 10f);
+	floatTime(0, B, 180, 0, B, 20f);
 	GI0 = 3;
 	while(1)
 	{
@@ -2759,21 +2759,21 @@ void laserRotate1(float angl1, int laserID, float A, int count1, float range, fl
 		angl1 += rad(60)/60f*A;
 		range -= 0.75f;
 	}
-	times(150)//
+	times(300)//
 	{
 		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
 		laserStAngle(laserID, angl1+(rad(90)*A));
 		wait(1);
 		angl1 += rad(60)/90f*A;
 	}
-	times(200)//
+	times(320)//
 	{
 		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
 		laserStAngle(laserID, angl1+(rad(90)*A));
 		wait(1);
 		angl1 += rad(60)/90f*A;
-		X += 0.5f*C; 
-		Y += 0.5f*C; 
+		X += 100f/320f*C; 
+		Y += 100f/320f; 
 	}
 	times(120)//
 	{
@@ -2782,7 +2782,7 @@ void laserRotate1(float angl1, int laserID, float A, int count1, float range, fl
 		wait(1);
 		angl1 += rad(60)/90f*A; 
 	}
-	floatTime(0, Y, 300, 0, Y, Y-224f*C);
+	floatTime(0, Y, 300, 0, Y, Y-224f);
 	times(300)//
 	{
 		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
@@ -2814,7 +2814,7 @@ void laserRotate1(float angl1, int laserID, float A, int count1, float range, fl
 		angl1 += rad(60)/90f*A; 
 	}
 	
-	floatTime(0, Y, 300, 0, Y, Y+224f*C);
+	floatTime(0, Y, 300, 0, Y, Y+224f);
 	times(300)//
 	{
 		laserOffset(laserID, X + cos(angl1)*range, Y + sin(angl1)*range);
@@ -2961,7 +2961,7 @@ void BossCard9_at()
 			A = 1f;
 		}
 		etExSet(0, 2, 0, EX_VELTIME, 60, NEG, 3f, rad(270));
-		etExSet(0, 3, 0, EX_ANGLE_ACCEL, 1060, NEG, 0f, rad(180)/60f*A);
+		etExSet(0, 3, 0, EX_ANGLE_ACCEL, 1060, NEG, 0f, (rad(180)+RANDRAD/8f)/60f*A);
 		mathAngle(angle1, X, 448f, BOSS_X, BOSS_Y);
 		etAngle(0, angle1, 0f);
 		etOffsetAbs(0, X, 448f);
@@ -3024,7 +3024,7 @@ void Revive()
 			playSound(SE_EXPLODE2);
 			wait(1);
 		}
-		@BossCard10();
+		@Boss10();
 	}
 }
 void Petals()
