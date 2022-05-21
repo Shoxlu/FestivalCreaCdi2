@@ -193,7 +193,7 @@ void Boss1()
     timerReset();
     setNext(0, 6000, 3600, "BossCard1");
     lifeMarker(0, 6000.0f, -24448);
-    stars(7);
+    stars(8);
     spec0(2400, 200, 80);
     anmSelect(3);
     anmSetMain(0, 0);
@@ -500,7 +500,7 @@ Boss2_516:
     anmSetMain(0, 0);
     setNext(0, 3000, 3600, "BossCard2");
     lifeMarker(0, 3000.0f, -24448);
-    stars(6);
+    stars(7);
     movePosTime(60, 4, 0.0f, 128.0f);
     wait(120);
     moveLimit(0.0f, 128.0f, 240.0f, 64.0f);
@@ -603,7 +603,7 @@ Boss3_516:
     anmSetMain(0, 0);
     setNext(0, 4500, 3600, "BossCard3");
     lifeMarker(0, 4500.0f, -24448);
-    stars(5);
+    stars(6);
     movePosTime(60, 4, 0.0f, 128.0f);
     wait(120);
     moveLimit(0.0f, 128.0f, 240.0f, 64.0f);
@@ -722,7 +722,7 @@ Boss4_516:
     anmSetMain(0, 0);
     setNext(0, 5400, 3600, "BossCard4");
     lifeMarker(0, 5400.0f, -24448);
-    stars(4);
+    stars(5);
     movePosTime(60, 4, 0.0f, 128.0f);
     moveLimitReset();
     wait(120);
@@ -831,7 +831,7 @@ Boss5_516:
     anmSetMain(0, 0);
     setNext(0, 4000, 4200, "BossCard5");
     lifeMarker(0, 4000.0f, -24448);
-    stars(3);
+    stars(4);
     moveLimitReset();
     movePosTime(120, 0, 0.0f, 128.0f);
     wait(120);
@@ -939,7 +939,7 @@ Boss6_516:
     anmSetMain(0, 0);
     setNext(0, 6000, 4200, "BossCard6");
     lifeMarker(0, 6000.0f, -24448);
-    stars(2);
+    stars(3);
     movePosTime(60, 4, 0.0f, 128.0f);
     moveLimitReset();
     wait(120);
@@ -1047,7 +1047,7 @@ Boss7_516:
     anmSetMain(0, 0);
     setNext(0, 6000, 4200, "BossCard7");
     lifeMarker(0, 6000.0f, -24448);
-    stars(1);
+    stars(2);
     movePosTime(60, 4, 0.0f, 128.0f);
     moveLimitReset();
     wait(120);
@@ -1167,7 +1167,7 @@ Boss8_516:
     anmSetMain(0, 0);
     setNext(0, 1, 4200, "BossCard8");
     lifeMarker(0, 1.0f, -24448);
-    stars(0);
+    stars(1);
     movePosTime(60, 4, 0.0f, 128.0f);
     moveLimitReset();
     wait(120);
@@ -1317,7 +1317,7 @@ Boss9_180:
 Boss9_200:
     bombShield(0, 0);
     lifeSet(6000);
-    stars(1);
+    stars(0);
     @BossItemPhase3(60, 60, 64.0f);
     timerReset();
     killAllAsync();
@@ -2321,7 +2321,7 @@ BossCard8_264:
     $CAPTURE = 1;
     spec0(2400, 200, 80);
     bombShield(0, 0);
-    setNext(0, 0, 3960, "BossDead");
+    setNext(0, 0, 3960, "Boss9");
     spellEx(116, 3960, 0, "Resurrection Butterfly - 80% Reflowering");
 	spellTimeout();
 	flagSet(3);
@@ -2672,7 +2672,7 @@ void Revive()
 			playSound(SE_EXPLODE2);
 			wait(1);
 		}
-		@BossCard9();
+		@BossCard10();
 	}
 }
 void Petals()
