@@ -110,7 +110,7 @@ Boss_2832:
 Boss_2884:
     debug22(3, "Boss8");
 	enmCreate("fan", 0f, 0f, 10, 10, 1);
-    @Boss9();
+    @BossDead();
     delete();
 }
 
@@ -1413,6 +1413,7 @@ BossCard1_1364:
 void BossCard10()
 {
     var A, B;
+	flagClear(3);
     unless ($TIMEOUT == 0) goto BossCard10_160 @ 0;
     etCancel(640.0f);
     goto BossCard10_180 @ 0;
@@ -1440,7 +1441,7 @@ BossCard10_412:
     $BOMB_COUNT = 0;
     $CAPTURE = 1;
     spec0(2400, 200, 80);
-    bombShield(1, 0);
+    bombShield(1, -1);
     setNext(0, 0, 9000, "BossDead");
     spellEx(118, 9000, 0, "「アナーキーバレットヘル」");
 	GI3 = 1;
@@ -1451,161 +1452,24 @@ BossCard10_412:
     anmPlay(1, 73);
 +90: //90
     nop();
-    %F0 = 1.3f;
-    flagClear(3);
-    $A = 2;
-    @BossCard10_move() async;
-    @BossCard10_at(8000, 6600);
-    playSound(27);
-    etClear(640.0f);
-    @BossCard10_at2() async;
-    @BossCard10_at(5000, 6600);
-    playSound(27);
-    etClear(640.0f);
-    @BossCard10_at3() async;
-    @BossCard10_at(2000, 6600);
-    playSound(27);
-    etClear(640.0f);
-    @BossCard10_at4() async;
-    @BossCard10_at(0, 24000);
-    goto BossCard10_1608 @ 90;
-BossCard10_1588:
-    wait(1000);
-BossCard10_1608:
-    if (1) goto BossCard10_1588 @ 90;
-    return;
+	enmCreateA("Sakura", 0f, 0f, 100, 100, 1);
+	@BossCard10_at();
+	wait(100000);
 }
 
-void BossCard10_at(var A, var B)
+void BossCard10_at()
 {
-    var C, D, E;
-    etNew(0);
-    etAim(0, 1);
-    etSprite(0, 12, 4);
-    etCount(0, 1, 3);
-    etAngle(0, -1.5707964f, 0.0f);
-    etSpeed(0, 3.0f, 2.0f);
-    etEx(0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-    etDist(0, 24.0f);
-    %C = -1.570796f;
-    $D = 100000;
-    goto BossCard10_at_1040 @ 0;
-BossCard10_at_364:
-    etAngle(0, %C, 0.08726646f);
-    etSpeed(0, 3.0f, 2.0f);
-    %C = %C - 0.164934f;
-    %C = %C + ((%RANDF2 * 0.017453292f) * 0.1f);
-    etOn(0);
-    $E = 5;
-    goto BossCard10_at_996 @ 0;
-BossCard10_at_728:
-    unless ((($LIFE <= $A) || ($TIME >= $B)) || ($GI2 == 1)) goto BossCard10_at_976 @ 0;
-    goto BossCard10_at_1084 @ 0;
-BossCard10_at_976:
-    wait(1);
-BossCard10_at_996:
-    if ($E--) goto BossCard10_at_728 @ 0;
-BossCard10_at_1040:
-    if ($D--) goto BossCard10_at_364 @ 0;
-BossCard10_at_1084:
-    return;
+	etNew(0);
 }
 
-void BossCard10_at2()
+void Sakura()
 {
-    var A, B;
-    etNew(1);
-    etAim(1, 10);
-    etSprite(1, 18, 2);
-    etCount(1, 16, 1);
-    etAngle(1, 0.0f, 0.0f);
-    etSpeed(1, 0.01f, 3.0f);
-    etEx(1, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-    etEx(1, 0, 1048576, 1, -999999, -999999.0f, -999999.0f);
-    etEx(1, 0, -2147483648, 120, -999999, -999999.0f, -999999.0f);
-    etEx2(1, 0, 16, 1, 1, 0, 0, 0.0f, 0.01f, -999999.0f, -999999.0f);
-    etEx(1, 0, 2097152, 60, -999999, 3.0f, -999999.0f);
-    etDist(1, 24.0f);
-    $B = 100000;
-    goto BossCard10_at2_788 @ 0;
-BossCard10_at2_516:
-    mathAngle(%A, %FINAL_X, %FINAL_Y, %PLAYER_X2, %PLAYER_Y2);
-    etExSet2(1, 3, 0, 16, 1, 1, 4, 0, %A, 0.01f, -999999.0f, -999999.0f);
-    etAngle(1, %A, 0.017453292f);
-    etSpeed(1, 0.01f, 2.5f);
-    %A = %A - 0.10472f;
-    etOn(1);
-    wait(40);
-BossCard10_at2_788:
-    if ($B--) goto BossCard10_at2_516 @ 0;
-    return;
+	flagSet(3);
+	anmSelect(2);
+	anmSetSprite(0, 173);
+	wait(10000);
 }
 
-void BossCard10_at3()
-{
-    var A, B;
-    etNew(2);
-    etAim(2, 10);
-    etSprite(2, 4, 2);
-    etCount(2, 32, 1);
-    etAngle(2, 0.0f, 0.0f);
-    etSpeed(2, 0.3f, 3.0f);
-    etEx(2, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-    etEx(2, 0, 1048576, 1, -999999, -999999.0f, -999999.0f);
-    etEx(2, 0, 2097152, 60, -999999, 1.0f, -999999.0f);
-    etDist(2, 24.0f);
-    %A = %RANDRAD;
-    $B = 100000;
-    goto BossCard10_at3_596 @ 0;
-BossCard10_at3_452:
-    etAngle(2, %ANGLE_PLAYER, 0.017453292f);
-    %A = %A - 0.10472f;
-    etOn(2);
-    wait(60);
-BossCard10_at3_596:
-    if ($B--) goto BossCard10_at3_452 @ 0;
-    return;
-}
-
-void BossCard10_at4()
-{
-    var A, B;
-    etNew(3);
-    etAim(3, 1);
-    etSprite(3, 12, 2);
-    etCount(3, 1, 4);
-    etAngle(3, -1.5707964f, 0.0f);
-    etSpeed(3, 3.0f, 2.0f);
-    etEx(3, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-    etDist(3, 24.0f);
-    %A = -1.570796f;
-    $B = 100000;
-    goto BossCard10_at4_684 @ 0;
-BossCard10_at4_364:
-    etAngle(3, %A, 0.08726646f);
-    etSpeed(3, 3.0f, 2.0f);
-    %A = %A - 0.269653f;
-    %A = %A + ((%RANDF2 * 0.017453292f) * 0.1f);
-    etOn(3);
-    wait(7);
-BossCard10_at4_684:
-    if ($B--) goto BossCard10_at4_364 @ 0;
-    return;
-}
-
-void BossCard10_move()
-{
-    movePos(0.0f, 32.0f);
-    moveReset();
-    moveEllipse(1.5707964f, 0.0f, 192.0f, 0.0f, 0.0f, 0.83f);
-    moveEllipseTime(400, 0, 0.008726646f, -999999.0f, -999999.0f, -999999.0f, -999999.0f);
-    goto BossCard10_move_204 @ 0;
-BossCard10_move_184:
-    wait(10);
-BossCard10_move_204:
-    if (1) goto BossCard10_move_184 @ 0;
-    return;
-}
 
 void BossCard1_at()
 {
@@ -2740,7 +2604,7 @@ void BossCard9_at1()
 	while(1)
 	{
 		etSpeed(2, 1.5f, 1.5f);
-		etAngle(2, rad(270) + RANDRAD / 24f, rad(0));
+		etAngle(2, rad(270) + RANDRAD / 32f, rad(0));
 		etOffsetAbs(2, RANDF2*180f, 448f);
 		etOn(2);
 		wait(4);
@@ -2933,7 +2797,7 @@ void BossCard9_at()
 		etOn(0);
 		wait(waitT);
 	}
-	waitT = 6;
+	waitT = 7;
 	//etCount(0, 2, 2);
 	etAngle(0, rad(270)+ RANDRAD/16f, rad(30)+ RANDRAD/8f);
 	while(GI0 == 2)
@@ -3012,7 +2876,7 @@ void Revive()
 		//@charge() async;
 		times(90)
 		{
-			enmCreateA("Petals", 212f, RANDF*448f, 100, 100, 1);
+			enmCreateA("Petals1", 212f, RANDF*448f, 100, 100, 1);
 			enmCreateA("Petals", -212f, RANDF*448f, 100, 100, 1);
 			enmCreateA("Petals", 192f*RANDF2, -20f, 100, 100, 1);
 			wait(2);
@@ -3021,9 +2885,9 @@ void Revive()
 		{
 			anmPlay(1, 86);
 			anmPlay(1, 90);
-			playSound(SE_EXPLODE2);
 			wait(1);
 		}
+		playSound(SE_EXPLODE2);
 		@Boss10();
 	}
 }
@@ -3034,10 +2898,18 @@ void Petals()
 	anmSetSprite(0, 172);
 	movePosTime(45, 2, BOSS_X, BOSS_Y);
 	wait(45);
+	playSound(SE_CHARGE4);
+}
+void Petals1()
+{
+	flagSet(15);
+	anmSelect(2);
+	anmSetSprite(0, 172);
+	movePosTime(45, 2, BOSS_X, BOSS_Y);
+	wait(45);
 	anmPlay(1, 71);
 	playSound(SE_CHARGE4);
 }
-
 
 void BossDead2()
 {

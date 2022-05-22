@@ -4136,4 +4136,32 @@ script script172 {
     rotate(%RANDRAD, %RANDRAD, %RANDRAD);
     stop();
 }
-
+entry entry5 {
+    version: 8,
+    name: "effect/Sakura.png",
+    format: 5,
+    width: 899,
+    height: 899,
+    memoryPriority: 0,
+    lowResScale: 1,
+    hasData: 1,
+    THTXSize: 3232804,
+    THTXFormat: 5,
+    THTXWidth: 899,
+    THTXHeight: 899,
+    THTXZero: 0,
+    sprites: {
+        sprite221: { x: 0, y: 0, w: 899, h: 899}
+	}
+}
+script script173 {
+-1:
+	sprite(sprite221);
+    type(8);
+    alpha(0);
+    alphaTime(60, 0, 240);
+   // ins_306(1);
+    layer(24);
+0:
+    stop();
+}

@@ -689,104 +689,110 @@ script script12 {
 
 entry entry12 {
     version: 8,
-    name: "stgenm/stage06/cdbg06a.png",
-    format: 3,
-    width: 256,
-    height: 256,
+    name: "stgenm/stage07/cardbg0.png",
+    format: 5,
+    width: 512,
+    height: 512,
     memoryPriority: 0,
     lowResScale: 0,
     hasData: 1,
-    THTXSize: 524288,
-    THTXFormat: 3,
-    THTXWidth: 256,
-    THTXHeight: 256,
+    THTXSize: 344064,
+    THTXFormat: 5,
+    THTXWidth: 384,
+    THTXHeight: 448,
     THTXZero: 0,
     sprites: {
-        sprite35: { x: 0, y: 0, w: 384, h: 448 },
-        sprite36: { x: 150, y: 0, w: 384, h: 448 }
+        sprite35: { x: 0, y: 0, w: 384, h: 448 }
     }
 }
 
 script script13 {
     alpha(0);
-    layer(4);
-    scriptNew(script16);
+    layer(3);
     scriptNew(script15);
+    scriptNew(script16);
     scriptNew(script14);
     stop();
 }
 
 script script14 {
 -1:
-    layer(4);
+    layer(3);
     sprite(sprite35);
-    pos(0.0f, 128.0f, 0.0f);
+    pos(0.0f, 224.0f, 0.0f);
+    alpha(0);
+    alphaTime(60, 0, 255);
     blendMode(2);
-    scrollX(-0.0033333334f);
-    color(128, 128, 128);
 0:
-    iset($I0, 256);
-    iset($I1, 1);
-    scale(380.0f, 190.0f);
-    texCircle($I0);
-    rotate(0.0f, 0.0f, -1.5707964f);
-offset168:
-    colorTime(120, 9, 255, 255, 64);
-+120: // 120
-    colorTime(120, 9, 64, 255, 64);
-+120: // 240
-    colorTime(120, 9, 255, 64, 255);
-+120: // 360
-    colorTime(120, 9, 64, 64, 255);
-+120: // 480
-    jmp(offset168, 0);
     stop();
 }
 
 
 entry entry13 {
     version: 8,
-    name: "stgenm/stage07/cdbg06b.png",
-    format: 3,
+    name: "stgenm/stage07/cardbg1.png",
+    format: 5,
     width: 256,
     height: 256,
     memoryPriority: 0,
     lowResScale: 0,
     hasData: 1,
-    THTXSize: 262144,
-    THTXFormat: 3,
+    THTXSize: 131072,
+    THTXFormat: 5,
     THTXWidth: 256,
     THTXHeight: 256,
     THTXZero: 0,
     sprites: {
-        sprite37: { x: 0, y: 0, w: 384, h: 448 },
-        sprite38: { x: 192, y: 0, w: 384, h: 448 }
+        sprite36: { x: 192, y: 0, w: 384, h: 448 },
+        sprite37: { x: 0, y: 0, w: 384, h: 448 }
     }
 }
 
 script script15 {
 -1:
-    layer(4);
-    sprite(sprite37);
-    scrollY(0.00066666666f);
-    anchor(0, 1);
-    pos(0.0f, 0.0f, 0.0f);
-    color(128, 128, 128);
-    alpha(64);
-    blendMode(1);
+    layer(3);
+    scrollMode(2, 2);
+    sprite(sprite36);
+    pos(0.0f, 224.0f, 0.0f);
+    alpha(0);
+    alphaTime(60, 0, 255);
+    scrollY(0.0023809525f);
 0:
     stop();
 }
 
 script script16 {
 -1:
-    layer(4);
-    sprite(sprite38);
-    scrollY(0.0005f);
-    anchor(0, 1);
-    color(128, 128, 128);
-    pos(0.0f, 0.0f, 0.0f);
+    layer(3);
+    scrollMode(2, 2);
+    sprite(sprite37);
+    pos(0.0f, 1224.0f, 0.0f);
+    alpha(0);
+    alphaTime(60, 0, 192);
+    blendMode(1);
+    scrollY(0.00625f);
 0:
+    wait(60);
+offset128:
+    alphaTime(96, 9, 192);
+    colorTime(96, 9, 255, 255, 255);
++96: // 96
+    alphaTime(96, 9, 255);
+    colorTime(96, 9, 255, 0, 0);
++96: // 192
+    alphaTime(96, 9, 192);
+    colorTime(96, 9, 255, 255, 255);
++96: // 288
+    alphaTime(96, 9, 255);
+    colorTime(96, 9, 0, 255, 0);
++96: // 384
+    alphaTime(96, 9, 192);
+    colorTime(96, 9, 255, 255, 255);
++96: // 480
+    alphaTime(96, 9, 255);
+    colorTime(96, 9, 0, 0, 255);
++96: // 576
+    jmp(offset128, 0);
     stop();
 }
 
@@ -806,6 +812,7 @@ entry entry14 {
     THTXHeight: 128,
     THTXZero: 0,
     sprites: {
+        sprite38: { x: 0, y: 0, w: 256, h: 128 },
         sprite39: { x: 0, y: 0, w: 256, h: 128 }
     }
 }
