@@ -110,7 +110,7 @@ Boss_2832:
 Boss_2884:
     debug22(3, "Boss8");
 	enmCreate("fan", 0f, 0f, 10, 10, 1);
-    @BossDead();
+    @Boss10();
     delete();
 }
 
@@ -1444,7 +1444,8 @@ BossCard10_412:
     bombShield(1, -1);
     setNext(0, 0, 9000, "BossDead");
     spellEx(118, 9000, 0, "「アナーキーバレットヘル」");
-	GI3 = 1;
+	GI3 = 0;
+	GI2 = 0;
     lifeMarker(0, 8000.0f, -24448);
     lifeMarker(1, 5000.0f, -24448);
     lifeMarker(2, 2000.0f, -24448);
@@ -1453,6 +1454,7 @@ BossCard10_412:
 +90: //90
     nop();
 	enmCreateA("Sakura", 0f, 0f, 100, 100, 1);
+	enmCreateA("GiveItems", 0f, 0f, 100, 100, 1);
 	@BossCard10_at();
 	wait(100000);
 }
@@ -1461,6 +1463,20 @@ void BossCard10_at()
 {
 	etNew(0);
 }
+
+void GiveItems()
+{
+	flagSet(3);
+	dropExtra(16, 1000);
+	while(1)
+	{
+		dropExtra(16, 1000);
+		dropItems();
+		wait(200);
+	}
+	
+}
+
 
 void Sakura()
 {
