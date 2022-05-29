@@ -1413,7 +1413,8 @@ BossCard1_1364:
 void BossCard10()
 {
     var A, B;
-	flagClear(3);
+	flagClear(1);
+	flagSet(2);
     unless ($TIMEOUT == 0) goto BossCard10_160 @ 0;
     etCancel(640.0f);
     goto BossCard10_180 @ 0;
@@ -1461,7 +1462,6 @@ BossCard10_412:
 		times(8)
 		{
 			@BossCard10_at();
-			
 			wait(1);
 		}
 		wait(40);
@@ -1470,38 +1470,29 @@ BossCard10_412:
 	while(LIFE >= 6000){
 		times(8)
 		{
-			//@BossCard10_at();
+			@BossCard10_at();
 			@BossCard10_at1();
-				
-			wait(10);
+			wait(2);
 		}
 		wait(40);
 	}
 	while(LIFE >= 4000){
-		times(60)
-		{
 			times(8)
 			{
 				@BossCard10_at();
-				
-				wait(1);
+				@BossCard10_at1();
+				wait(2);
 			}
 			wait(40);
-		}
-		wait(100);
 	}
 	while(LIFE >= 2000){
-		times(60)
-		{
 			times(8)
 			{
 				@BossCard10_at();
-				
-				wait(1);
+				@BossCard10_at1();
+				wait(2);
 			}
 			wait(40);
-		}
-		wait(100);
 	}
 	wait(100000);
 }
@@ -1534,15 +1525,16 @@ void BossCard10_at1()
 	float B = 1.5f;
 	float angle = rad(90)+RANDF2*rad(10);
 	float speed = RANDF * 1f + 1f;
-	@CreatePattern(1, 1, 35, 4, 5, 1, angle, 0f, speed, 1f);
+	@CreatePattern(1, 1, 35, 3, 5, 1, angle, 0f, speed, 1f);
 	etOffsetAbs(1, RANDF2*192f, 0f);
 	etExSet(1, 0, 0, EX_ANIM, 0, NEG, NEGF, NEGF);
-	etExSet(1, 1, 0, EX_WAIT, _S(pyth(cos(angle)*448f, 448f)/speed-40f/speed), NEG, NEGF, NEGF);
-	etExSet(1, 2, 1, EX_INVULN, 100000, NEG, NEGF, NEGF);
-	etExSet(1, 3, 0, EX_SETSPRITE, 8, 4, NEGF, NEGF);
-	etExSet(1, 4, 1, EX_VELTIME, 30, NEG, 0f,NEGF); 
-	etExSet(1, 5, 0, EX_ANGLE_ACCEL, 30, NEG, 0f, RANDF2*rad(180)/30f); 
-	// etExSet(1, 3, 0, EX_SETSPRITE, 35, 4, NEGF, NEGF); *abandonnÈ*
+	etExSet(1, 2, 0, EX_WAIT, _S(pyth(cos(angle)*448f, 448f)/speed-40f/speed), NEG, NEGF, NEGF);
+	etExSet(1, 1, 0, EX_INVULN, 100000, NEG, NEGF, NEGF);
+	etExSet(1, 3, 0, EX_SETSPRITE, 8, 3, NEGF, NEGF);
+	//etExSet(1, 4, 0, EX_ACCEL, 30, NEG, -(speed/30f), NEGF); 
+//	etExSet(1, 5, 0, EX_VELTIME, _S(30f/speed), NEG, 0f,NEGF); 
+	etExSet(1, 4, 0, EX_ANGLE_ACCEL, 40, NEG, -(speed/40f), RANDF2*rad(90)/40f); 
+	// etExSet(1, 3, 0, EX_SETSPRITE, 35, 4, NEGF, NEGF); *abandonnÅE
 	// etExSet(1, 2, 0, EX_ACCEL, 30, NEG, B/90f, NEGF); 
 	// etExSet(1, 3, 1, EX_ANGLE_ACCEL, 200, NEG, 0f, rad(6)); 
 	// etExSet(1, 4, 0, EX_ACCEL, 60, NEG, B/60f, rad(90));
@@ -1560,23 +1552,23 @@ void LoopGiveitems(int num, int B)
 	{
 		I0 = num;
 		enmCreateA("GiveItems", RANDF2*180f, 0f, 100, 100, 0);
+		wait(10);
+		enmCreateA("GiveItems", RANDF2*180f, 0f, 100, 100, 0);
+		wait(10);
+		enmCreateA("GiveItems", RANDF2*180f, 0f, 100, 100, 0);
+		wait(10);
+		enmCreateA("GiveItems", RANDF2*180f, 0f, 100, 100, 0);
+		wait(3);
+		enmCreateA("GiveItems", RANDF2*180f, 0f, 100, 100, 0);
 		wait(1);
+		enmCreateA("GiveItems", RANDF2*180f, 0f, 100, 100, 0);
+		wait(40);
 		enmCreateA("GiveItems", RANDF2*180f, 0f, 100, 100, 0);
 		wait(1);
 		enmCreateA("GiveItems", RANDF2*180f, 0f, 100, 100, 0);
 		wait(1);
 		enmCreateA("GiveItems", RANDF2*180f, 0f, 100, 100, 0);
-		wait(1);
-		enmCreateA("GiveItems", RANDF2*180f, 0f, 100, 100, 0);
-		wait(1);
-		enmCreateA("GiveItems", RANDF2*180f, 0f, 100, 100, 0);
-		wait(1);
-		enmCreateA("GiveItems", RANDF2*180f, 0f, 100, 100, 0);
-		wait(1);
-		enmCreateA("GiveItems", RANDF2*180f, 0f, 100, 100, 0);
-		wait(1);
-		enmCreateA("GiveItems", RANDF2*180f, 0f, 100, 100, 0);
-		wait(1);
+		wait(100);
 	}
 	
 }
