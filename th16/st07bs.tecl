@@ -1473,7 +1473,7 @@ BossCard10_412:
 			//@BossCard10_at();
 			@BossCard10_at1();
 				
-			wait(1000);
+			wait(10);
 		}
 		wait(40);
 	}
@@ -1520,26 +1520,38 @@ void BossCard10_at()
 	etOn(1);
 
 }
+inline float pyth(float A, float B)
+{
+	float C;
+	squareSumRoot(C,A,B);
+	C;
+	return;
+}
+
 void BossCard10_at1()
 {
 	int A;
 	float B = 1.5f;
-	float angle = RANDRAD;
-	@CreatePattern(1, 3, 8, 4, 1, 1, angle, 0f, 0f, 0f);
-	etDist(1, 7f);
-	etOffsetAbs(1, RANDF2*180f, 20f+RANDF*100f);
+	float angle = rad(90)+RANDF2*rad(10);
+	float speed = RANDF * 1f + 1f;
+	@CreatePattern(1, 1, 35, 4, 5, 1, angle, 0f, speed, 1f);
+	etOffsetAbs(1, RANDF2*192f, 0f);
 	etExSet(1, 0, 0, EX_ANIM, 0, NEG, NEGF, NEGF);
-	etExSet(1, 1, 0, EX_WAIT, 180, NEG, NEGF, NEGF);
-	etExSet(1, 3, 0, EX_SETSPRITE, 35, 4, NEGF, NEGF);
-	etExSet(1, 2, 0, EX_ACCEL, 30, NEG, B/90f, NEGF);
-	etExSet(1, 4, 0, EX_ACCEL, 60, NEG, B/60f, rad(90));
-	times(5)
-	{
-		etOn(1);
-		angle += rad(360)/5f;
-		etAngle(1, angle, 0f);
-	}
-
+	etExSet(1, 1, 0, EX_WAIT, _S(pyth(cos(angle)*448f, 448f)/speed-40f/speed), NEG, NEGF, NEGF);
+	etExSet(1, 2, 1, EX_INVULN, 100000, NEG, NEGF, NEGF);
+	etExSet(1, 3, 0, EX_SETSPRITE, 8, 4, NEGF, NEGF);
+	etExSet(1, 4, 1, EX_VELTIME, 30, NEG, 0f,NEGF); 
+	etExSet(1, 5, 0, EX_ANGLE_ACCEL, 30, NEG, 0f, RANDF2*rad(180)/30f); 
+	// etExSet(1, 3, 0, EX_SETSPRITE, 35, 4, NEGF, NEGF); *abandonné*
+	// etExSet(1, 2, 0, EX_ACCEL, 30, NEG, B/90f, NEGF); 
+	// etExSet(1, 3, 1, EX_ANGLE_ACCEL, 200, NEG, 0f, rad(6)); 
+	// etExSet(1, 4, 0, EX_ACCEL, 60, NEG, B/60f, rad(90));
+	// etExSet2(1, 5, 0, EX_BOUNCE, 1, BOUNCE_CUSTOM_D, NEG, NEG, 0.5f, 420f, 384f, rad(90));
+    // etExSet(1, 6, 0, EX_VELADD, 6, NEG, rad(180), 0f);
+	// etExSet(1, 7, 0, EX_SETSPRITE, 8, 4, NEGF, NEGF);
+	// etExSet(1, 8, 0, EX_VELTIME, 100, NEG, 0f,NEGF);
+	// etExSet(1, 7, 0, EX_VEL, 10, NEG, NEGF, );
+	etOn(1);
 }
 
 void LoopGiveitems(int num, int B)
