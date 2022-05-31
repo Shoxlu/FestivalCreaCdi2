@@ -110,7 +110,7 @@ Boss_2832:
 Boss_2884:
     debug22(3, "Boss8");
 	enmCreate("fan", 0f, 0f, 10, 10, 1);
-    @Boss10();
+    @BossDead();
     delete();
 }
 
