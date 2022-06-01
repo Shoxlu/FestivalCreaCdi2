@@ -422,7 +422,7 @@ Boss10_200:
     bombShield(0, 0);
     flagClear(3);
     anmColorTime(0, 60, 0, 255, 255, 255);
-    lifeSet(10000);
+    lifeSet(15000);
     stars(0);
     dropClear();
     unless ($CAPTURE == 1) goto Boss10_464 @ 0;
@@ -1449,10 +1449,10 @@ BossCard10_412:
     spellEx(118, 9000, 0, "「アナーキーバレットヘル」");
 	GI3 = 0;
 	GI2 = 0;
-    lifeMarker(0, 8000.0f, -24448);
-    lifeMarker(1, 6000.0f, -24448);
-    lifeMarker(2, 4000.0f, -24448);
-    lifeMarker(3, 2000.0f, -24448);
+    lifeMarker(0, 12000.0f, -24448);
+    lifeMarker(1, 9000.0f, -24448);
+    lifeMarker(2, 6000.0f, -24448);
+    lifeMarker(3, 3000.0f, -24448);
     anmSelect(3);
     anmPlay(1, 73);
 +90: //90
@@ -1460,7 +1460,7 @@ BossCard10_412:
 	enmCreateA("Sakura", 0f, 0f, 100, 100, 1);
 	@LoopGiveitems(1000, 1) async;
 	@LoopGiveitems(3, 100000) async;
-	while(LIFE >= 8000){
+	while(LIFE >= 12000){
 		times(8)
 		{
 			@BossCard10_at();
@@ -1468,7 +1468,7 @@ BossCard10_412:
 		}
 		wait(40);
 	}
-	while(LIFE >= 6000){
+	while(LIFE >= 9000){
 		times(8)
 		{
 			@BossCard10_at();
@@ -1478,7 +1478,7 @@ BossCard10_412:
 		wait(40);
 	}
 	@BossCard10_Lasers() async 1;
-	while(LIFE >= 4000){
+	while(LIFE >= 6000){
 			times(8)
 			{
 				@BossCard10_at();
@@ -1489,7 +1489,7 @@ BossCard10_412:
 	}
 	killAsync(1);
 	@BossCard10_Lasers1() async;
-	while(LIFE >= 2000){
+	while(LIFE >= 3000){
 			times(8)
 			{
 				@BossCard10_at();
@@ -1499,13 +1499,13 @@ BossCard10_412:
 			wait(40);
 	}
 	while(LIFE >= 0){
-			times(8)
+			times(12)
 			{
 				@BossCard10_at();
 				@BossCard10_at1();
-				wait(2);
+				wait(1);
 			}
-			wait(40);
+			wait(80);
 	}
 	wait(100000);
 }
@@ -1516,14 +1516,19 @@ void BossCard10_Lasers()
 	laserNew(2, 0f, 300f,-600f, 70f);
 	etOffset(2, RANDF2*180f, 100f);
 	laserTiming(2, 1, 1, 1000, 1, 0);
+	float X;
 	while(1)
 	{
 		laserNew(2, 0f, 300f,0f, 70f);
-		etOffset(2, RANDF2*180f, 100f);
+		X = RANDF2*180f;
+		etOffset(2, X, 100f);
+		enmCreate("charge", X, 100f, 100, 100, 0);
 		laserOn(2);
 		wait(60 + RAND % 31);
+		X = RANDF2*180f;
 		laserNew(2, 0f, 300f, 0f, 70f);
-		etOffset(2, RANDF2*180f, 100f);
+		enmCreate("charge", X, 100f, 100, 100, 0);
+		etOffset(2, X, 100f);
 		laserOn(2);
 		wait(60 + RAND % 31);
 	}
@@ -1538,25 +1543,46 @@ void BossCard10_Lasers1()
 	laserTiming(2, 1, 1, 1000, 1, 0);
 	while(1)
 	{
-		laserNew(2, 0f, 300f,0f, 90f);
-		etOffset(2, 192f/2f, 100f);
-		laserOn(2);
-		laserNew(2, 0f, 300f,0f, 90f);
-		etOffset(2, -192f/2f, 100f);
-		laserOn(2);
-		wait(200);
+		enmCreate("charge", 148f, 100f, 100, 100, 0);
+		etSprite(2, 20, 2);
 		laserNew(2, 0f, 300f,0f, 90f);
 		etOffset(2, 148f, 100f);
 		laserOn(2);
+		enmCreate("charge", -148f, 100f, 100, 100, 0);
 		laserNew(2, 0f, 300f,0f, 90f);
 		etOffset(2, -148f, 100f);
 		laserOn(2);
+		etSprite(2, 20, 3);
+		enmCreate("charge1", 0f, 100f, 100, 100, 0);
 		laserNew(2, 0f, 300f,0f, 90f);
 		etOffset(2, 0f, 100f);
 		laserOn(2);
 		wait(200);
+		enmCreate("charge", 192f/2f, 100f, 100, 100, 0);
+		etSprite(2, 20, 2);
+		laserNew(2, 0f, 300f,0f, 90f);
+		etOffset(2, 192f/2f, 100f);
+		laserOn(2);
+		enmCreate("charge", -192f/2f, 100f, 100, 100, 0);
+		etSprite(2, 20, 2);
+		laserNew(2, 0f, 300f,0f, 90f);
+		etOffset(2, -192f/2f, 100f);
+		laserOn(2);
+		wait(200);
 	}
 	
+}
+
+void charge()
+{
+	anmPlay(1, 71);
+	playSound(54);
+}
+
+void charge1()
+{
+	anmPlay(1, 75);
+	playSound(54);
 }
 void BossCard10_at()
 {
