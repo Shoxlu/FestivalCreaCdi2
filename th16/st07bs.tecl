@@ -1410,13 +1410,15 @@ void flower1(int B)
 {
 	CreatePattern(0, 3, 4, 13, 20, 4, RANDRAD, rad(10), 5f, 5f/12f);
 	// etExSet(0, 0, 0, EX_WAIT, 1, NEG, NEGF, NEGF);
-	etExSet(0, 0, 0, EX_VELTIME, 20, NEG, 0f, NEGF);
+	etEx(0, 0, EX_INVULN, 800, NEG, NEGF, NEGF);
+	etExSet(0, 1, 0, EX_VELTIME, 20, NEG, 0f, NEGF);
 	etOn(0);
 	wait(50);
 	CreatePattern(0, 3, 8, 15, 20, 1, RANDRAD, 0f, 0f, 1f);
 	etDist(0, 60f);
-	etExSet(0, 0, 1, EX_SIZE, 20, NEG, 1f, 3.5f);
-	etExSet(0, 1, 1, EX_VELTIME, 20, NEG, 0f, NEGF);
+	etEx(0, 0, EX_INVULN, 800, NEG, NEGF, NEGF);
+	etExSet(0, 1, 1, EX_SIZE, 20, NEG, 1f, 3.5f);
+	etExSet(0, 2, 1, EX_VELTIME, 20, NEG, 0f, NEGF);
 	etOn(0);
 	
 }
