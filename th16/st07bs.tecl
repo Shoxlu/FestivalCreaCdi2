@@ -110,7 +110,7 @@ Boss_2832:
 Boss_2884:
     debug22(3, "Boss8");
 	enmCreate("fan", 0f, 0f, 10, 10, 1);
-    @BossDead();
+    @BossCard1();
     delete();
 }
 
@@ -1348,7 +1348,6 @@ Boss9_516:
 
 void BossCard1()
 {
-    var A, B, C, D;
     unless ($TIMEOUT == 0) goto BossCard1_160 @ 0;
     etCancel(640.0f);
     goto BossCard1_180 @ 0;
@@ -1383,31 +1382,58 @@ BossCard1_448:
     bombShield(1, 0);
     setNext(0, 0, 4200, "Boss2");
     spellEx(109, 4200, 0, "秘儀「リバースインヴォーカー」");
-    movePosTime(60, 4, 0.0f, 224.0f);
+    movePosTime(60, 4, 0.0f, 128.0f);
     moveLimit(0.0f, 192.0f, 240.0f, 224.0f);
     anmPlay(1, 79);
     anmPlay(1, 75);
     playSound(54);
 +90: //94
-    nop();
-    anm316(0, 0);
-    wait(60);
-    $A = 120;
-    $D = 10000;
-    goto BossCard1_1276 @ 94;
-BossCard1_1180:
-    %F0 = _f(1);
-    @BossCard1_at();
-    wait(100);
-BossCard1_1276:
-    if ($D--) goto BossCard1_1180 @ 94;
-    goto BossCard1_1364 @ 94;
-BossCard1_1344:
-    wait(1000);
-BossCard1_1364:
-    if (1) goto BossCard1_1344 @ 94;
-    return;
+	int B = RAND % 2;
+	while(1)
+	{
+		int A = RAND % 3;
+		if(1)
+		{
+			@flower1(B);
+		}else if(A == 1)
+		{
+			@flower2(B);
+		}else if(A == 2)
+		{
+			@flower3(B);
+		}
+		wait(300);
+	}	
 }
+
+void flower1(int B)
+{
+	CreatePattern(0, 3, 4, 13, 20, 4, RANDRAD, rad(10), 5f, 5f/12f);
+	// etExSet(0, 0, 0, EX_WAIT, 1, NEG, NEGF, NEGF);
+	etExSet(0, 0, 0, EX_VELTIME, 20, NEG, 0f, NEGF);
+	etOn(0);
+	wait(50);
+	CreatePattern(0, 3, 8, 15, 20, 1, RANDRAD, 0f, 0f, 1f);
+	etDist(0, 60f);
+	etExSet(0, 0, 1, EX_SIZE, 20, NEG, 1f, 3.5f);
+	etExSet(0, 1, 1, EX_VELTIME, 20, NEG, 0f, NEGF);
+	etOn(0);
+	
+}
+void flower2(int B)
+{
+	CreatePattern(0, 3, 4, 13, 20, 3, rad(90), 0f, 20f, 10f);
+	etOn(0);
+}
+void flower3(int B)
+{
+	CreatePattern(0, 3, 4, 13, 20, 3, rad(90), 0f, 20f, 10f);
+	etOn(0);
+}
+
+
+
+
 
 void BossCard10()
 {
