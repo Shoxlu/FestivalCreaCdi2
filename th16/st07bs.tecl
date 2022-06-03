@@ -110,6 +110,7 @@ Boss_2832:
 Boss_2884:
     debug22(3, "Boss8");
 	enmCreate("fan", 0f, 0f, 10, 10, 1);
+	dialogRead(-1);
     @BossCard1();
     delete();
 }
@@ -1389,44 +1390,227 @@ BossCard1_448:
     playSound(54);
 +90: //94
 	int B = RAND % 2;
+	float C = 1f;
 	while(1)
 	{
-		int A = RAND % 3;
-		if(1)
+		I0 = 0;
+		int A = RAND % 2;
+		if(A == 0)
 		{
 			@flower1(B);
+			wait(3);
+			times(8)
+			{
+				littleFlower(C) async;
+				wait(3);
+				C *= -1f;
+				I0 = I0 + 2;
+			}
+			wait(400);
 		}else if(A == 1)
 		{
 			@flower2(B);
-		}else if(A == 2)
-		{
-			@flower3(B);
+			wait(3);
+			times(3)
+			{
+				littleFlower2(C) async;
+				wait(3);
+				C *= -1f;
+				I0 = I0 + 2;
+			}
+			wait(400);
 		}
-		wait(300);
+		
 	}	
 }
 
 void flower1(int B)
 {
-	CreatePattern(0, 3, 4, 13, 20, 4, RANDRAD, rad(10), 5f, 5f/12f);
+	CreatePattern(I0, 3, 4, 13, 20, 4, RANDRAD, rad(10), 5f, 5f/12f);
 	// etExSet(0, 0, 0, EX_WAIT, 1, NEG, NEGF, NEGF);
-	etEx(0, 0, EX_INVULN, 800, NEG, NEGF, NEGF);
-	etExSet(0, 1, 0, EX_VELTIME, 20, NEG, 0f, NEGF);
-	etOn(0);
+	etEx(I0, 0, EX_INVULN, 800, NEG, NEGF, NEGF);
+	etExSet(I0, 1, 0, EX_VELTIME, 20, NEG, 0f, NEGF);
+	etExSet(I0, 2, 0, EX_WAIT, 120, NEG, NEGF, NEGF);
+	etExSet(I0, 3, 0, EX_VELTIME, 30, NEG, 1f, NEGF);
+	etExSet(I0, 4, 0, EX_WAIT, 90, NEG, NEGF, NEGF);
+	etEx(I0, 0, EX_ANGLE_ACCEL, 40, 14, 0f, RANDF2*rad(300)/40f);
+	etOn(I0);
 	wait(50);
-	CreatePattern(0, 3, 8, 15, 20, 1, RANDRAD, 0f, 0f, 1f);
-	etDist(0, 60f);
-	etEx(0, 0, EX_INVULN, 800, NEG, NEGF, NEGF);
-	etExSet(0, 1, 1, EX_SIZE, 20, NEG, 1f, 3.5f);
-	etExSet(0, 2, 1, EX_VELTIME, 20, NEG, 0f, NEGF);
-	etOn(0);
+	CreatePattern(1, 3, 8, 15, 19, 1, RANDRAD, 0f, 1f, 2f);
+	etDist(I0+1, 60f);
+	etEx(I0+1, 0, EX_INVULN, 800, NEG, NEGF, NEGF);
+	etExSet(I0+1, 1, 1, EX_SIZE, 20, NEG, 1f, 3f);
+	etExSet(I0+1, 2, 1, EX_VELTIME, 20, NEG, 0f, NEGF);
+	etExSet(I0+1, 3, 0, EX_WAIT, 120, NEG, NEGF, NEGF);
+	etExSet(I0+1, 4, 0, EX_VELTIME, 30, NEG, 1f, NEGF);
+	etExSet(I0+1, 5, 0, EX_WAIT, 90, NEG, NEGF, NEGF);
+	etEx(I0+1, 0, EX_SETSPRITE, 8, 14, NEGF, NEGF);
+	etEx(I0+1, 0, EX_ANGLE_ACCEL, 40, 14, 0f, RANDF2*rad(300)/40f);
+	etOn(I0+1);
 	
+}
+
+void littleFlower(float B)
+{
+	CreatePattern(I0, 3, 4, 13, 10, 3, RANDRAD, rad(10), 1f, 0.2f);
+	// etExSet(0, 0, 0, EX_WAIT, 1, NEG, NEGF, NEGF);
+	etEx(I0, 0, EX_INVULN, 800, NEG, NEGF, NEGF);
+	etEx(I0, 0, EX_OFFSCREEN, 80000, 0, NEGF, NEGF);
+	etExSet(I0, 2, 0, EX_VELTIME, 20, NEG, 0f, NEGF);
+	etExSet(I0, 3, 0, EX_WAIT, 80, NEG, NEGF, NEGF);
+	etExSet(I0, 4, 0, EX_VELTIME, 30, NEG, 1.5f, NEGF);
+	etExSet(I0, 5, 0, EX_WAIT, 60, NEG, NEGF, NEGF);
+	etEx(I0, 0, EX_ANGLE_ACCEL, 40, 14, 0f, RANDF2*rad(300)/40f);
+	int etId2 = I0 + 1;
+	CreatePattern(etId2, 3, 8, 15, 9, 1, RANDRAD, 0f, 0f, 2f);
+	etEx(etId2, 0, EX_INVULN, 800, NEG, NEGF, NEGF);
+	etEx(etId2, 0, EX_OFFSCREEN, 800000, 0, NEGF, NEGF);
+	etExSet(etId2, 2, 1, EX_SIZE, 20, NEG, 1f, 1.5f);
+	etExSet(etId2, 3, 1, EX_VELTIME, 20, NEG, 0f, NEGF);
+	etExSet(etId2, 4, 0, EX_WAIT, 60, NEG, NEGF, NEGF);
+	etExSet(etId2, 5, 0, EX_VELTIME, 30, NEG, 1.5f, NEGF);
+	etExSet(etId2, 6, 0, EX_WAIT, 60, NEG, NEGF, NEGF);
+	etEx(etId2, 0, EX_SETSPRITE, 8, 14, NEGF, NEGF);
+	etEx(etId2, 0, EX_ANGLE_ACCEL, 40, 14, 0f, RANDF2*rad(300)/40f);
+	
+	etDist(etId2, 20f);
+	float X =  (70f+RANDF*100f)*B/2f;
+	float Y =  (140f+RANDF2 * 100f)/2f;
+	etOffsetAbs(I0, X*2f, Y*2f);
+	etOffsetAbs(etId2, X*2f, Y*2f);
+	etOn(I0);
+	wait(20);
+	etOn(etId2);
+}
+
+inline float pow(float A, int B)
+{
+	1f;
+	times(B)
+	{
+		[-1.0f]*A;
+	}
+	return;
 }
 void flower2(int B)
 {
-	CreatePattern(0, 3, 4, 13, 20, 3, rad(90), 0f, 20f, 10f);
-	etOn(0);
+	float angle = RANDRAD;
+	int etId2 = I0 + 1;
+	int etId = I0;
+	CreatePattern(etId, 3, 29, 1, 20, 1, angle, rad(45), 0f, 0f/12f);
+	// etExSet(0, 0, 0, EX_WAIT, 1, NEG, NEGF, NEGF);
+	etEx(etId, 0, EX_ANIM, 1, NEG, NEGF, NEGF);
+	etEx(etId, 0, EX_INVULN, 800, NEG, NEGF, NEGF);
+	etExSet(etId, 2, 0, EX_VEL, 20, NEG, NEGF, -0.001f);
+	etExSet(etId, 3, 0, EX_WAIT, 120, NEG, NEGF, NEGF);
+	etExSet(etId, 4, 0, EX_VELTIME, 30, NEG, 1f, NEGF);
+	etExSet(etId, 5, 0, EX_WAIT, 90, NEG, NEGF, NEGF);
+	etEx(etId, 0, EX_ANGLE_ACCEL, 40, 14, 0f, RANDF2*rad(300)/40f);
+	CreatePattern(etId2, 3, 6, 2, 10, 1, RANDRAD, 0f, 0f, 2f);
+	etEx(etId2, 0, EX_INVULN, 800, NEG, NEGF, NEGF);
+	etEx(etId2, 0, EX_ANIM, 1, NEG, NEGF, NEGF);
+//	etExSet(etId2, 1, 1, EX_SIZE, 20, NEG, 1f, 3f);
+	etExSet(etId2, 2, 1, EX_VELTIME, 20, NEG, 0f, NEGF);
+	etExSet(etId2, 3, 0, EX_WAIT, 120, NEG, NEGF, NEGF);
+	etExSet(etId2, 5, 0, EX_WAIT, 90, NEG, NEGF, NEGF);
+	float D = 0.4f;
+	times(10)
+	{
+		etExSet(etId2, 4, 0, EX_ACCEL, 30, NEG, D/30f, NEGF);
+		etOn(etId2);
+		D += 0.1f;
+	}
+	wait(50);
+	float A = 20f;
+	int i = 3;
+	int time = 0;
+	times(3)
+	{
+		etDist(etId, A);
+		etOn(etId);
+		etAim(etId, 5);
+		A = 20f + pow(1.67f, i);
+		i += 1;
+		wait(10);
+		time += 10;
+		etExSet(etId, 3, 0, EX_WAIT, 120+time, NEG, NEGF, NEGF);
+		etExSet(etId2, 3, 0, EX_WAIT, 120+time, NEG, NEGF, NEGF);
+		etDist(etId, A);
+		etOn(etId);
+		etAim(etId, 3);
+		A = 20f + pow(1.67f, i);
+		i += 1;
+		wait(10);
+		time += 10;
+		etExSet(etId2, 3, 0, EX_WAIT, 120+time, NEG, NEGF, NEGF);
+		etExSet(etId, 3, 0, EX_WAIT, 120+time, NEG, NEGF, NEGF);
+	}
+	etExSet(etId, 3, 0, EX_WAIT, 120+time, NEG, NEGF, NEGF);
+	etDist(etId, A);
+	etOn(etId);
 }
+
+void littleFlower2(float B)
+{
+	float angle = RANDRAD;
+	int etId2 = I0 + 1;
+	int etId = I0;
+	CreatePattern(etId, 3, 29, 2, 10, 1, angle, rad(45), 0f, 0f/12f);
+	// etExSet(0, 0, 0, EX_WAIT, 1, NEG, NEGF, NEGF);
+	etEx(etId, 0, EX_ANIM, 1, NEG, NEGF, NEGF);
+	etEx(etId, 0, EX_INVULN, 800, NEG, NEGF, NEGF);
+	etExSet(etId, 2, 0, EX_VEL, 20, NEG, NEGF, -0.001f);
+	etExSet(etId, 3, 0, EX_WAIT, 60, NEG, NEGF, NEGF);
+	etExSet(etId, 4, 0, EX_VELTIME, 30, NEG, 1f, NEGF);
+	etExSet(etId, 5, 0, EX_WAIT, 90, NEG, NEGF, NEGF);
+	etEx(etId, 0, EX_ANGLE_ACCEL, 40, 14, 0f, RANDF2*rad(300)/40f);
+	CreatePattern(etId2, 3, 6, 2, 8, 1, RANDRAD, 0f, 0f, 0f);
+	etEx(etId2, 0, EX_INVULN, 800, NEG, NEGF, NEGF);
+	etEx(etId2, 0, EX_ANIM, 1, NEG, NEGF, NEGF);
+//	etExSet(I0+1, 1, 1, EX_SIZE, 20, NEG, 1f, 3f);
+	etExSet(etId2, 2, 1, EX_VELTIME, 20, NEG, 0f, NEGF);
+	etExSet(etId2, 3, 0, EX_WAIT, 60, NEG, NEGF, NEGF);
+	etExSet(etId2, 5, 0, EX_WAIT, 90, NEG, NEGF, NEGF);
+	float D = 0.4f;
+	float X =  (70f+RANDF*100f)*B/2f;
+		float Y =  (140f+RANDF2 * 100f)/2f;
+		etOffsetAbs(etId, X*2f, Y*2f);
+		etOffsetAbs(etId2, X*2f, Y*2f);
+	times(2)
+	{
+		etExSet(etId2, 4, 0, EX_ACCEL, 30, NEG, D/30f, NEGF);
+		etOn(etId2);
+		D += 0.1f;
+	}
+	wait(50);
+	float A = 20f;
+	int i = 3;
+	int time = 0;
+	times(3)
+	{
+		etDist(etId, A);
+		etOn(etId);
+		etAim(etId, 5);
+		A = 20f + pow(1.35f, i);
+		i += 1;
+		wait(10);
+		time += 10;
+		etExSet(etId, 3, 0, EX_WAIT, 60+time, NEG, NEGF, NEGF);
+		etDist(etId, A);
+		etOn(etId);
+		etAim(etId, 3);
+		A = 20f + pow(1.35f, i);
+		i += 1;
+		wait(10);
+		time += 10;
+		etExSet(etId, 3, 0, EX_WAIT, 60+time, NEG, NEGF, NEGF);
+	}
+	etExSet(etId, 3, 0, EX_WAIT, 60+time, NEG, NEGF, NEGF);
+	etDist(etId, A);
+	etOn(etId);
+}
+
+
 void flower3(int B)
 {
 	CreatePattern(0, 3, 4, 13, 20, 3, rad(90), 0f, 20f, 10f);
