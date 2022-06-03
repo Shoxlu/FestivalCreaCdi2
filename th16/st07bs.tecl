@@ -111,7 +111,7 @@ Boss_2884:
     debug22(3, "Boss8");
 	enmCreate("fan", 0f, 0f, 10, 10, 1);
 	dialogRead(-1);
-    @BossCard1();
+    @Boss1();
     delete();
 }
 
@@ -1406,7 +1406,7 @@ BossCard1_448:
 				C *= -1f;
 				I0 = I0 + 2;
 			}
-			wait(400);
+			wait(460);
 		}else if(A == 1)
 		{
 			@flower2(B);
@@ -1418,7 +1418,7 @@ BossCard1_448:
 				C *= -1f;
 				I0 = I0 + 2;
 			}
-			wait(400);
+			wait(460);
 		}
 		
 	}	
