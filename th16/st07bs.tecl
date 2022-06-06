@@ -111,7 +111,7 @@ Boss_2884:
     debug22(3, "Boss8");
 	enmCreate("fan", 0f, 0f, 10, 10, 1);
 	dialogRead(-1);
-    @Boss1();
+    @BossCard2();
     delete();
 }
 
@@ -1966,146 +1966,10 @@ BossCard2_264:
     anmPlay(1, 73);
 +90: //90
     nop();
-    %F0 = 1.3f;
-    $A = 2;
-    $B = -1;
-    $C = 1000;
-    goto BossCard2_1476 @ 90;
-BossCard2_984:
-    $B = $B + 1;
-    @BossCard2_at() async;
-    wait(100);
-    moveRand(60, 4, 1.0f);
-    wait(100);
-    moveRand(60, 4, 1.0f);
-    wait(100);
-    moveRand(60, 4, 1.0f);
-    wait(100);
-    moveRand(60, 4, 1.0f);
-    wait(100);
-    moveRand(60, 4, 1.0f);
-    wait(100);
-    wait(90);
-    anmPlay(1, 73);
-    wait(60);
-    @BossCard2_at2();
-    wait(40);
-BossCard2_1476:
-    if ($C--) goto BossCard2_984 @ 90;
-    goto BossCard2_1564 @ 90;
-BossCard2_1544:
-    wait(1000);
-BossCard2_1564:
-    if (1) goto BossCard2_1544 @ 90;
-    return;
+	//todo
 }
 
-void BossCard2_Dead()
-{
-    etNew(0);
-    etAim(0, 2);
-    etSprite(0, 4, 6);
-    etCount(0, 1, 1);
-    etAngle(0, 0.0f, 0.0f);
-    etSpeed(0, 1.5f, 1.0f);
-    etEx(0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-    etProtectRange(32.0f);
-    etSound(0, 21, -1);
-    etSound(0, 21, -1);
-    etOn(0);
-    return;
-}
 
-void BossCard2_ECir00()
-{
-    var A;
-    anmSelect(2);
-    anmSetSprite(0, 53);
-    %A = _f(1);
-    setHurtbox(24.0f, 24.0f);
-    setHitbox(16.0f, 16.0f);
-    dropMain(0);
-    spec0(100, 6, 3);
-    flagSet(12);
-    moveVel(0.0f, 0.8f);
-    @BossCard2_ECir00_at() async;
-    wait(120);
-    moveVelTime(120, 0, -1.5707964f, 0.5f);
-    wait(120);
-    moveVelTime(120, 0, 3.1415927f, 0.5f);
-    flagClear(12);
-    goto BossCard2_ECir00_468 @ 0;
-BossCard2_ECir00_448:
-    wait(1000);
-BossCard2_ECir00_468:
-    if (1) goto BossCard2_ECir00_448 @ 0;
-    delete();
-}
-
-void BossCard2_ECir00_at()
-{
-    var A, B, C;
-    wait(10 + ($RAND % 30));
-    etNew(0);
-    etAim(0, 3);
-    etSprite(0, 8, 2);
-    etCount(0, 1, 1);
-    etAngle(0, 0.0f, 0.0f);
-    etSpeed(0, 1.5f, 1.0f);
-    etEx(0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-    etSound(0, 21, -1);
-    %A = 1.570796f;
-    $B = 9;
-    goto BossCard2_ECir00_at_548 @ 0;
-BossCard2_ECir00_at_480:
-    etAngle(0, %ANGLE_PLAYER, 0.0f);
-    etOn(0);
-    wait(30);
-BossCard2_ECir00_at_548:
-    if ($B--) goto BossCard2_ECir00_at_480 @ 0;
-    etSprite(0, 8, 6);
-    $C = 400;
-    goto BossCard2_ECir00_at_844 @ 0;
-BossCard2_ECir00_at_684:
-    etAngle(0, %ANGLE_PLAYER + (%RANDF2 * 0.5235988f), 0.0f);
-    etOn(0);
-    wait(20);
-BossCard2_ECir00_at_844:
-    if ($C--) goto BossCard2_ECir00_at_684 @ 0;
-    return;
-}
-
-void BossCard2_at()
-{
-    var A, B;
-    %F0 = 0.0f;
-    $B = 20;
-    goto BossCard2_at_280 @ 0;
-BossCard2_at_140:
-    enmCreateA("BossCard2_ECir00", -224.0f, 448.0f, 100, 1000, -1);
-    enmCreateAM("BossCard2_ECir00", 224.0f, 448.0f, 100, 1000, -1);
-    wait(30);
-BossCard2_at_280:
-    if ($B--) goto BossCard2_at_140 @ 0;
-    return;
-}
-
-void BossCard2_at2()
-{
-    etNew(0);
-    etAim(0, 3);
-    etSprite(0, 16, 4);
-    etCount(0, 64, 1);
-    etAngle(0, 0.0f, 0.0f);
-    etSpeed(0, 1.0f, 1.0f);
-    etEx(0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-    etEx(0, 0, 2097152, 120, -999999, 2.0f, -999999.0f);
-    etDist(0, 32.0f);
-    etOffset(0, 0.0f, -24.0f);
-    etAngle(0, %ANGLE_PLAYER, 0.0f);
-    etOn(0);
-    return;
-}
 
 void BossCard3()
 {
@@ -2507,78 +2371,10 @@ BossCard7_264:
     anmPlay(1, 73);
 +90: //90
     nop();
-    moveLimit(0.0f, 224.0f, 240.0f, 64.0f);
-    %F0 = 1.3f;
-    $A = 2;
-    %GF0 = %ANGLE_PLAYER;
-    @BossCard7_at();
-    $B = -1;
-    $C = 100000;
-    goto BossCard7_1204 @ 90;
-BossCard7_1068:
-    $B = $B + 1;
-    %GF0 = %ANGLE_PLAYER;
-    wait(1);
-BossCard7_1204:
-    if ($C--) goto BossCard7_1068 @ 90;
-    goto BossCard7_1292 @ 90;
-BossCard7_1272:
-    wait(1000);
-BossCard7_1292:
-    if (1) goto BossCard7_1272 @ 90;
-    return;
+    
 }
 
-void BossCard7_at()
-{
-    enmCreateA("BossCard7_at_et", 160.0f, 70.0f, 10, 10, -1);
-    enmCreateA("BossCard7_at_et", 130.0f, 120.0f, 10, 10, -1);
-    enmCreateA("BossCard7_at_et", 60.0f, 120.0f, 10, 10, -1);
-    enmCreateA("BossCard7_at_et", 30.0f, 70.0f, 10, 10, -1);
-    enmCreateA("BossCard7_at_et", -30.0f, 50.0f, 10, 10, -1);
-    enmCreateA("BossCard7_at_et", -100.0f, 50.0f, 10, 10, -1);
-    enmCreateA("BossCard7_at_et", -160.0f, 70.0f, 10, 10, -1);
-    return;
-}
 
-void BossCard7_at2()
-{
-    etNew(1);
-    etAim(1, 3);
-    etSprite(1, 16, 6);
-    etCount(1, 32, 1);
-    etAngle(1, 0.0f, 0.0f);
-    etSpeed(1, 1.0f, 1.0f);
-    etEx(1, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-    goto BossCard7_at2_328 @ 0;
-BossCard7_at2_260:
-    etAngle(1, %RANDRAD, 0.0f);
-    etOn(1);
-    wait(100);
-BossCard7_at2_328:
-    if (1) goto BossCard7_at2_260 @ 0;
-    return;
-}
-
-void BossCard7_at_et()
-{
-    flagSet(288);
-    @BossCard7_at2() async;
-    goto BossCard7_at_et_368 @ 0;
-BossCard7_at_et_116:
-    etNew(0);
-    etSprite(0, 38, 6);
-    etAngle(0, %GF0, %GF0);
-    etSpeed(0, 8.0f, 8.0f);
-    laserNew(0, 32.0f, 512.0f, 0.0f, 16.0f);
-    laserTiming(0, 60, 30, 90, 30, 0);
-    etSound(0, 18, -1);
-    laserStOn(0, 1);
-    wait(300);
-BossCard7_at_et_368:
-    if (1) goto BossCard7_at_et_116 @ 0;
-    delete();
-}
 
 void BossCard8()
 {
@@ -3257,6 +3053,7 @@ void BossDead()
     flagSet(156);
 	GI2 = 0;
 	GI3 = 0;
+	GF0 = 1f;
     playSound(5);
     unless ($TIMEOUT == 0) goto BossDead_260 @ 0;
     enmCreate("Ecl_EtBreak2", 0.0f, 0.0f, 9999, 0, 0);
