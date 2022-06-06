@@ -111,7 +111,7 @@ Boss_2884:
     debug22(3, "Boss8");
 	enmCreate("fan", 0f, 0f, 10, 10, 1);
 	dialogRead(-1);
-    @BossCard7();
+    @Boss7();
     delete();
 }
 
@@ -2403,7 +2403,7 @@ void bowap()
 	etSprite(0, 6, 8);
 	etDist(0, 20f);
 	etExSet(0, 0, 0, EX_ANIM, 1, NEG, NEGF, NEGF);
-	etEx(0, 0, EX_WAIT, 45, NEG, NEGF, NEGF);
+	etEx(0, 0, EX_WAIT, 37, NEG, NEGF, NEGF);
 	etExSet(0, 2, 0, EX_VELTIME, 20, NEG, 2f, NEGF);
 	etExSet(0, 3, 0, EX_SAVEANGLE, NEG, NEG, NEGF, NEGF);
 	etExSet(0, 4, 0, EX_SPECIAL, NEG, NEG, NEGF, NEGF);
