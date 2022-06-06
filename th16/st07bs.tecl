@@ -2416,6 +2416,7 @@ void bowap()
 	{
 		etSprite(0, 6, 4);
 		etExSub(0, 4, "");
+		etExSet(0, 5, 0, EX_SETSPRITE, 22, 2, NEGF, NEGF);
 		times(T)
 		{
 			etOn(0);
