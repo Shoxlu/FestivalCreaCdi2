@@ -4168,3 +4168,55 @@ script script173 {
 0:
     stop();
 }
+entry entry6 {
+    version: 8,
+    name: "stgenm/stage07/stg8enm.png",
+    format: 5,
+    width: 512,
+    height: 512,
+    memoryPriority: 0,
+    lowResScale: 0,
+    hasData: 1,
+    sprites: {
+        sprite222: { x: 0, y: 197, w: 80, h: 88},
+        sprite223: { x: 256, y: 387, w: 128, h: 122},
+        sprite224: { x: 80, y: 197, w: 80, h: 88}
+	}
+}
+script script174 {
+-1:
+	layer(8);
+	sprite(sprite222);
+0:
+offset12:
+	posTime(72, 9, 0.0f, -8.0f, 0.0f);
++72:
+    posTime(72, 9, 0.0f, 0.0f, 0.0f);
++72:
+    jmp(offset12, 0);
+}
+script script175 {
+-1:
+	layer(8);
+	type(1);
+	alpha(218);
+	sprite(sprite223);
+0:
+	%F0 = rad(0);
+offset12:
+	rotate(0f, 0f, %F0);
++1:
+	%F0 = %F0 - rad(1);
+    jmp(offset12, 0);
+}
+script script176 {
+-1:
+	sprite(sprite224);
+0:
+offset12:
+    posTime(72, 9, 0.0f, -8.0f, 0.0f);
++72:
+    posTime(72, 9, 0.0f, 0.0f, 0.0f);
++72:
+    jmp(offset12, 0);
+}
