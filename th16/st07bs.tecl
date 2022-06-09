@@ -111,7 +111,7 @@ Boss_2884:
     debug22(3, "Boss8");
 	enmCreate("fan", 0f, 0f, 10, 10, 1);
 	dialogRead(-1);
-    @Boss7();
+    @Boss6();
     delete();
 }
 
@@ -1045,6 +1045,9 @@ Boss7_516:
     spec0(2400, 200, 80);
     anmSelect(3);
     anmSetMain(0, 0);
+	anmSelect(2);
+	anmSetSprite(5, 175);
+	anmSelect(3);
     setNext(0, 6000, 4200, "BossCard7");
     lifeMarker(0, 6000.0f, -24448);
     stars(2);
@@ -1717,7 +1720,7 @@ BossCard10_412:
 				@BossCard10_at1();
 				wait(1);
 			}
-			wait(80);
+			wait(40);
 	}
 	wait(100000);
 }
@@ -2285,59 +2288,33 @@ BossCard6_264:
     bombShield(1, 0);
     setNext(0, 0, 4800, "Boss7");
     spellEx(114, 4800, 0, "秘儀「マターラドゥッカ」");
-    movePosTime(60, 4, 0.0f, 224.0f);
+    movePosTime(60, 4, 0.0f, 128.0f);
     moveLimitReset();
     anmPlay(1, 73);
+	enmCreateA("Yukari1", 0f, 224f, 10, 10, 0);
 +90: //90
     nop();
-    moveLimit(0.0f, 224.0f, 240.0f, 64.0f);
-    %F0 = 1.3f;
-    $A = 2;
-    $B = -1;
-    $C = 1000;
-    goto BossCard6_1132 @ 90;
-BossCard6_1000:
-    $B = $B + 1;
-    @BossCard6_at();
-    wait(40);
-BossCard6_1132:
-    if ($C--) goto BossCard6_1000 @ 90;
-    goto BossCard6_1220 @ 90;
-BossCard6_1200:
-    wait(1000);
-BossCard6_1220:
-    if (1) goto BossCard6_1200 @ 90;
-    return;
+	wait(100);
+	lifeNow(500);
+	wait(10000);
 }
 
-void BossCard6_at()
+
+void Yukari1()
 {
-    var A, B, C;
-    etNew(0);
-    etAim(0, 3);
-    etSprite(0, 10, 2);
-    etCount(0, 1, 1);
-    etAngle(0, 0.0f, 0.0f);
-    etSpeed(0, 1.0f, 1.0f);
-    etEx(0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-    etEx(0, 0, 256, 200, 0, -999999.0f, -999999.0f);
-    etDist(0, -320.0f);
-    etOffset(0, 0.0f, -24.0f);
-    %A = 1.570796f;
-    %B = -1.570796f;
-    $C = 10000;
-    goto BossCard6_at_860 @ 0;
-BossCard6_at_476:
-    etAngle(0, %A, 0.0f);
-    etSpeed(0, 1.0f + (%RANDF2 * 0.1f), 0.0f);
-    etExSet2(0, 2, 0, 16, 1, 1, 0, 0, %RANDF2 * 0.2617994f, -999999.0f, -999999.0f, -999999.0f);
-    etOn(0);
-    %A = %A + 0.056112f;
-    wait(2);
-BossCard6_at_860:
-    if ($C--) goto BossCard6_at_476 @ 0;
-    return;
+	flagSet(1);
+	flagSet(2);
+	flagSet(16);
+	anmPlay(1, 86);
+	wait(10);
+	anmSelect(2);
+	anmSetSprite(0, 174);
+	anmSetSprite(1, 175);
+	deathAnm(1, 86);
+	//movePosTime(90, 0, 0f, 112f);
+	wait(9000);
 }
+
 
 void BossCard7()
 {
@@ -2364,6 +2341,8 @@ BossCard7_264:
     $CAPTURE = 1;
     spec0(2400, 200, 80);
     bombShield(1, 0);
+	anmSelect(2);
+	anmSetSprite(5, -1);
 	enmCreateA("Yukari", 0f, -50f, 10, 10, 0);
     setNext(0, 0, 4800, "Boss8");
     spellEx(115, 4800, 0, "秘儀「七星の剣」");
@@ -2377,12 +2356,14 @@ BossCard7_264:
 
 void Yukari()
 {
+	movePos(BOSS_X, BOSS_Y);
 	flagSet(1);
 	flagSet(2);
 	flagSet(16);
 	anmSelect(2);
 	anmSetSprite(0, 174);
 	anmSetSprite(1, 175);
+	anmPlay(1, 73);
 	movePosTime(90, 0, 0f, 112f);
 	wait(90);
 	bowap();
@@ -3106,15 +3087,20 @@ void BossCard9_at()
 		etOn(0);
 		wait(waitT);
 	}
-	float X = -150f;
+	float X = -110f;
 	waitT = 1;
 	etCount(0, 1, 1);
 	etAngle(0, rad(270)+ RANDRAD/16f, 0f);
 	etSpeed(0, 5f, 5f);
 	//etExSet(0, 2, 0, EX_ACCEL, 500, NEG, -0.5f, rad(10));
-	etExSet(0, 1, 0, EX_WAIT, 25, NEG, NEGF, NEGF); 
+	etExSet(0, 1, 0, EX_WAIT, 35, NEG, NEGF, NEGF); 
 	float A = 1f;
 	@BossCard9_at1() async;
+	times(55)
+	{
+		enmCreateA("charge", X, 448f, 10, 10, 1);
+		X += 4f;
+	}
 	while(GI0 == 3)
 	{
 		X = RANDF2*110f;
@@ -3161,7 +3147,6 @@ BossDead_316:
     gameSpeed(0.25f);
     wait(30);
     gameSpeed(1.0f);
-	GF0 = GF0 * -1f;
 	@Revive();
 BossDead_680:
     setBoss(-1);
@@ -3171,7 +3156,7 @@ BossDead_680:
 
 void Revive()
 {
-	if(GF0 == -1f)
+	if(GF0 == 1f)
 	{
 		wait(200);
 		//@charge() async;
@@ -3189,6 +3174,7 @@ void Revive()
 			wait(1);
 		}
 		playSound(SE_EXPLODE2);
+		GF0 = GF0 * -1f;
 		@Boss10();
 	}
 }
