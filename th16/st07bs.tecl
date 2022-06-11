@@ -100,18 +100,18 @@ Boss_2596:
     unless ($SPELL_ID == 117) goto Boss_2752 @ 3;
 Boss_2676:
     lifeSet(6000);
-    @BossCard9();
+    @Boss9();
     goto Boss_2832 @ 3;
 Boss_2752:
     unless ($SPELL_ID == 118) goto Boss_2884 @ 3;
 Boss_2832:
-    lifeSet(11000);
-    @BossCard10();
+    lifeSet(15000);
+    @BossDead();
 Boss_2884:
     debug22(3, "Boss8");
 	enmCreate("fan", 0f, 0f, 10, 10, 1);
 	dialogRead(-1);
-    @BossCard6();
+    @Boss9();
     delete();
 }
 
@@ -432,9 +432,9 @@ Boss10_200:
 Boss10_464:
     dropMain(0);
 Boss10_484:
-    dropExtra(1, 100);
+    dropExtra(1, 300);
     dropExtra(2, 100);
-    dropArea(64.0f, 64.0f);
+    dropArea(128.0f, 128.0f);
     dropItems();
     moveLimitReset();
     movePos(0.0f, 416.0f);
@@ -1696,7 +1696,7 @@ BossCard10_412:
 		}
 		wait(40);
 	}
-	@BossCard10_Lasers() async 1;
+	@BossCard10_Lasers() async;
 	while(LIFE >= 6000){
 			times(8)
 			{
@@ -1706,8 +1706,7 @@ BossCard10_412:
 			}
 			 wait(80);
 	}
-	killAsync(1);
-	@BossCard10_Lasers1() async;
+	@BossCard10_move() async;
 	while(LIFE >= 3000){
 			times(8)
 			{
@@ -1717,8 +1716,9 @@ BossCard10_412:
 			}
 			wait(40);
 	}
+	@BossCard10_Lasers1() async;
 	while(LIFE >= 0){
-			times(8)
+			times(10)
 			{
 				@BossCard10_at();
 				@BossCard10_at1();
@@ -1728,6 +1728,17 @@ BossCard10_412:
 	}
 	wait(100000);
 }
+
+void BossCard10_move()
+{
+	while(1)
+	{
+		movePosTime(90, 0, RANDF2 * 100f, ABS_Y);
+		wait(140);
+	}
+}
+
+
 void BossCard10_Lasers()
 {
 	
@@ -2347,9 +2358,9 @@ void Yukari1()
 void Yukari1_at()
 {
 	etNew(0);
-	etAim(0, 4);
+	etAim(0, 2);
 	etSprite(0, 22, 3);
-	etCount(0, 35, 1);
+	etCount(0, 37, 1);
 	etSpeed(0, 1.5f, 3.5f);
 	float A = 2f;
 	times(2)
@@ -2374,7 +2385,7 @@ void Yukari1_at1()
 	etAngle(1, ANGLE_PLAYER, 0f);
 	etSpeed(1, 1000000f, 10000f);
 	laserNew(1, 900f, 900f, 0f, 10f);
-	laserTiming(1, 30, 20, 360, 20, 0); 
+	laserTiming(1, 50, 20, 360, 20, 0);
 	times(6)
 	{
 		etAngle(1, angle, 0f);
@@ -2382,6 +2393,8 @@ void Yukari1_at1()
 		laserId += 1;
 		angle += rad(60);
 	}
+	wait(50);
+	playSound(18);
 }
 
 
@@ -2653,6 +2666,8 @@ void BossCard8_atLasers(int count1, float angleStart)
 		angle += rad(360)/_f(count1*2);
 		laserID += 1;
 	}
+	wait(60);
+	playSound(18);
 }
 
 void laserRotate(float angl1, int laserID, float A, int count1)
@@ -3223,6 +3238,7 @@ void BossCard9_at()
 		}
 		etExSet(0, 2, 0, EX_VELTIME, 60, NEG, 3f, rad(270));
 		etExSet(0, 3, 0, EX_ANGLE_ACCEL, 1060, NEG, 0f, (rad(180)+RANDRAD/8f)/60f*A);
+		etExSet(0, 4, 0, EX_VEL, NEG, NEG, NEGF, 1.5f);
 		mathAngle(angle1, X, 448f, BOSS_X, BOSS_Y);
 		etAngle(0, angle1, 0f);
 		etOffsetAbs(0, X, 448f);
@@ -3236,7 +3252,6 @@ void BossDead()
     flagSet(156);
 	GI2 = 0;
 	GI3 = 0;
-	GF0 = 1f;
     playSound(5);
     unless ($TIMEOUT == 0) goto BossDead_260 @ 0;
     enmCreate("Ecl_EtBreak2", 0.0f, 0.0f, 9999, 0, 0);
@@ -3252,6 +3267,8 @@ BossDead_316:
     setScreenShake(30, 12, 0);
     anmPlay(1, 32);
     anmPlay(1, 64);
+    anmSetSprite(1, -1);
+    anmSetSprite(2, -1);
     playSound(5);
     flagSet(32);
     unless ($SPELL_ID < 0) goto BossDead_680 @ 60;
