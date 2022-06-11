@@ -2397,14 +2397,12 @@ void AuraYukari()
 	wait(30);
 	while(1)
 	{
-		if(ABS_X < 90f){
-			X = 40f + RANDF*120f;
-		}else if(ABS_X > 90f){
-			X = 40f + RANDF*-120f;
+		if(ABS_X < 0f){
+			X = RANDF*120f;
+		}else if(ABS_X > 0f){
+			X = RANDF*-120f;
 		}else if(ABS_X == 0f){
-			X = 40f + RANDF2*122f;
-		}else{
-			X =  ABS_X + RANDF2*90f;
+			X = RANDF2*122f;
 		}
 		if(ABS_Y < 224f)
 		{
