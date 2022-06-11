@@ -2411,7 +2411,7 @@ void AuraYukari()
 			Y = ABS_Y + RANDF*224f;
 		}else if(ABS_Y > 224f)
 		{
-			Y = ABS_Y - RANDF*224f;
+			Y = RANDF*224f;
 		}else if(ABS_Y == 224f)
 		{
 			Y = ABS_Y + RANDF2 * 200f;
