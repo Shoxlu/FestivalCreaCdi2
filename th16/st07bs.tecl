@@ -111,7 +111,7 @@ Boss_2884:
     debug22(3, "Boss8");
 	enmCreate("fan", 0f, 0f, 10, 10, 1);
 	dialogRead(-1);
-    @BossDead();
+    @BossCard6();
     delete();
 }
 
@@ -1170,6 +1170,7 @@ Boss8_516:
     anmSelect(3);
     anmSetMain(0, 0);
 	GI2 = 1;
+	GI3 = 1;
 	enmCreate("fan", 0f, 0f, 10, 10, 1);
     setNext(0, 1, 4200, "BossCard8");
     lifeMarker(0, 1.0f, -24448);
@@ -2290,17 +2291,42 @@ BossCard6_264:
     spec0(2400, 200, 80);
     bombShield(1, 0);
 	GI2 = 0;
+	GI3 = 0;
     setNext(0, 0, 4800, "Boss7");
     spellEx(114, 4800, 0, "秘儀「マターラドゥッカ」");
-    movePosTime(60, 4, 0.0f, 128.0f);
+    movePosTime(60, 4, 0.0f, 60.0f);
     moveLimitReset();
     anmPlay(1, 73);
-	enmCreateA("Yukari1", 0f, 224f, 10, 10, 0);
+	lifeNow(6000);
+	enmCreateA("Yukari1_fake", 0f, 224f, 10, 10, 0);
+	enmCreateA("AuraYukari", 0f, 224f, 100, 100, 0);
 +90: //90
     nop();
-	wait(100);
-	lifeNow(500);
+	while(1)
+	{
+		@BossCard6_at();
+		wait(60);
+	}
 	wait(10000);
+}
+
+void BossCard6_at()
+{
+	@CreatePattern(2, 2, 8, 8, 20, 3, 0f, rad(50), 1f, 2f);
+	etOn(2);
+}
+
+
+void Yukari1_fake()
+{
+	flagSet(1);
+	flagSet(2);
+	flagSet(16);
+	anmPlay(1, 86);
+	anmSelect(2);
+	anmSetSprite(0, 174);
+	deathAnm(1, 86);
+	wait(150);
 }
 
 
@@ -2310,13 +2336,91 @@ void Yukari1()
 	flagSet(2);
 	flagSet(16);
 	anmPlay(1, 86);
-	wait(10);
 	anmSelect(2);
 	anmSetSprite(0, 174);
-	anmSetSprite(1, 175);
 	deathAnm(1, 86);
-	//movePosTime(90, 0, 0f, 112f);
-	wait(9000);
+	@Yukari1_at() async;
+	@Yukari1_at1() async;
+	wait(220);
+}
+
+void Yukari1_at()
+{
+	etNew(0);
+	etAim(0, 4);
+	etSprite(0, 22, 3);
+	etCount(0, 35, 1);
+	etSpeed(0, 1.5f, 3.5f);
+	float A = 2f;
+	times(2)
+	{
+		etSpeed(0, A, A);
+		etSprite(0, 22, 3);
+		etOn(0);
+		A += (3.5f-1.5f)/(4f-1f);
+		etSpeed(0, A, A);
+		etSprite(0, 22, 2);
+		etOn(0);
+		A += (3.5f-1.5f)/(4f-1f);
+	}
+}
+
+void Yukari1_at1()
+{
+	float angle = ANGLE_PLAYER;
+	int laserId = 0;
+	etNew(1);
+	etSprite(1, 38, 4);
+	etAngle(1, ANGLE_PLAYER, 0f);
+	etSpeed(1, 1000000f, 10000f);
+	laserNew(1, 900f, 900f, 0f, 10f);
+	laserTiming(1, 30, 20, 360, 20, 0); 
+	times(6)
+	{
+		etAngle(1, angle, 0f);
+		laserStOn(1, laserId);
+		laserId += 1;
+		angle += rad(60);
+	}
+}
+
+
+void AuraYukari()
+{
+	deathAnm(2, -1);
+	flagSet(19);
+	anmSelect(2);
+	anmSetSprite(1, 175);
+	moveLimit(0f, 224f, 350f, 430f);
+	float X;
+	float Y;
+	wait(30);
+	while(1)
+	{
+		if(ABS_X < 90f){
+			X = 40f + RANDF*120f;
+		}else if(ABS_X > 90f){
+			X = 40f + RANDF*-120f;
+		}else if(ABS_X == 0f){
+			X = 40f + RANDF2*122f;
+		}else{
+			X =  ABS_X + RANDF2*90f;
+		}
+		if(ABS_Y < 224f)
+		{
+			Y = ABS_Y + RANDF*224f;
+		}else if(ABS_Y > 224f)
+		{
+			Y = ABS_Y - RANDF*224f;
+		}else if(ABS_Y == 224f)
+		{
+			Y = ABS_Y + RANDF2 * 200f;
+		}
+		movePosTime(90, 4, X, Y);
+		wait(120);
+		enmCreate("Yukari1", 0f, 0f, 100, 1, 0);
+		wait(100);
+	}
 }
 
 
