@@ -130,14 +130,14 @@
         "Cette musique rappelle bien la difficulté du niveau, donc c'est assez déprimant (mdr)"
     ],
     "15": [
-        "@",
+        "Éternelle et Parfaite Floraison ~ Vie Cachée Parmis les Spectres",
         "",
-        "C'est le thème de Okina Matara (Véritable).",
+        "C'est le thème de Yuyuko Saigyouji.",
         "",
-        "Même si c'est le Niveau Extra, il a fini par faire partie de l'histoire principale.",
-        "Puisque c'est votre vrai combat contre Okina, j'ai enlevé la sensation rafraîchissante de la nature",
-        "mais j'ai quand même créé une mélodie puissante qui correspond au vrai boss de fin.",
-        "Honnêtement, se faire attaquer par derrière c'est la pire chose qui puisse exister !"
+        "Une très gentille personne au pseudonyme de MLM3 l'a composée.",
+        "Elle reprend son premier thème dans Perfect Cherry Blossom",
+        "mais avec une instrumentation proche des Touhou plus récents.",
+        "C'est dommage, j'aurais bien voulu encore l'embêter."
     ],
     "16": [
         "@",
