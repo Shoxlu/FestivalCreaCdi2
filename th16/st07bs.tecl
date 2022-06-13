@@ -111,7 +111,7 @@ Boss_2884:
     debug22(3, "Boss8");
 	enmCreate("fan", 0f, 0f, 10, 10, 1);
 	dialogRead(-1);
-    @Boss9();
+    @BossCard4();
     delete();
 }
 
@@ -829,6 +829,8 @@ Boss5_516:
     spec0(2400, 200, 80);
     anmSelect(3);
     anmSetMain(0, 0);
+	GI2 = 1;
+	GI3 = 1;
     setNext(0, 4000, 4200, "BossCard5");
     lifeMarker(0, 4000.0f, -24448);
     stars(4);
@@ -2127,67 +2129,147 @@ BossCard4_264:
     bombShield(1, 0);
     setNext(0, 0, 4800, "Boss5");
     spellEx(112, 4800, 0, "”é‹Vuâq“ß‚Ì‰Îv");
-    movePosTime(180, 0, 0.0f, 356.0f);
+    movePosTime(90, 0, 0.0f, 224.0f);
     moveLimitReset();
+	GI2 = 0;
+	GI3 = 0;
     anmPlay(1, 73);
-+180: //180
+	lifeNow(5400);
++90: //90
     nop();
-    moveLimit(0.0f, 384.0f, 240.0f, 64.0f);
-    %F0 = 1.3f;
-    $A = 2;
-    $B = -1;
-    $C = 1000;
-    goto BossCard4_1124 @ 180;
-BossCard4_992:
-    $B = $B + 1;
-    @BossCard4_at();
-    wait(40);
-BossCard4_1124:
-    if ($C--) goto BossCard4_992 @ 180;
-    goto BossCard4_1212 @ 180;
-BossCard4_1192:
-    wait(1000);
-BossCard4_1212:
-    if (1) goto BossCard4_1192 @ 180;
-    return;
+	F0 = rad(0);
+	@BossCard4_at() async;
+	while(1)
+	{	
+		times(10)
+		{
+			enmCreate("Spirit", 0f, 0f, 100, 1, 0);
+			enmCreate("SpiritCreate", 0f, 0f, 100, 1, 0);
+			F0 += rad(36);
+		}
+		wait(460);
+	}
+	
+    wait(10000);
 }
 
 void BossCard4_at()
 {
-    var A, B, C;
-    etNew(0);
-    etAim(0, 3);
-    etSprite(0, 25, 0);
-    etCount(0, 1, 1);
-    etAngle(0, 0.0f, 0.0f);
-    etSpeed(0, 1.5f, 1.0f);
-    etEx(0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-    etEx(0, 0, 1048576, 1, -999999, -999999.0f, -999999.0f);
-    etEx(0, 0, 256, 120, 0, -999999.0f, -999999.0f);
-    etEx(0, 0, 4, 120, -999999, 0.02f, -1.5707964f);
-    etEx2(0, 0, 16, 1, 1, 4, 0, -1.5707964f, 0.01f, -999999.0f, -999999.0f);
-    etEx(0, 0, 4, 120, -999999, 0.015f, -999999.0f);
-    etDist(0, 16.0f);
-    etCopy(1, 0);
-    etExSet2(1, 4, 0, 16, 1, 1, 1, 0, 0.0f, 0.01f, -999999.0f, -999999.0f);
-    %A = -1.570796f;
-    %B = -1.570796f;
-    $C = 10000;
-    goto BossCard4_at_1352 @ 0;
-BossCard4_at_728:
-    etAngle(0, (%RANDF2 * 1.5707964f) + 1.5707964f, 0.0f);
-    etOn(0);
-    %A = %A + 0.034907f;
-    %B = %B - 0.034907f;
-    wait(3);
-    etAngle(1, (%RANDF2 * 1.5707964f) + 1.5707964f, 0.0f);
-    etOn(1);
-    %A = %A + 0.034907f;
-    %B = %B - 0.034907f;
-    wait(4);
-BossCard4_at_1352:
-    if ($C--) goto BossCard4_at_728 @ 0;
-    return;
+	CreatePattern(2, 2, 8, 10, 15, 2, 0f, rad(60), 1f, 0.5f);
+	
+	while(1)
+	{
+		etOn(2);
+		wait(170);
+		etAngle(2, 0f, rad(-60));
+		etOn(2);
+		wait(120);
+		etAngle(2, 0f, rad(60));
+	}
+}
+
+
+void Spirit()
+{
+	float A = F0;
+	float range = 300f;
+	// flagSet(1);
+	flagSet(2);
+	deathAnm(2, -1);
+	angleLoop() async;
+	lifeSet(100);
+	flagSet(4);
+	flagSet(8);
+	setDeath("Spirit_at");
+	anmSelect(2);
+	anmSetSprite(0, ENM_PHANTOM_BLUE_FLIP);
+	moveCircle(A, 0.02f, 400f, -2f);
+	wait(240);
+	moveVel(0f, 0f);
+	wait(120);
+	mathAngle(A, BOSS_X, BOSS_Y, ABS_X, ABS_Y);
+	moveCircle(A, 0.02f, 0f, -2f);
+	wait(10000);
+}
+void SpiritCreate()
+{
+	float A = F0;
+	float range = 300f;
+	flagSet(1);
+	flagSet(2);
+	deathAnm(2, -1);
+	// lifeSet(100);
+	flagSet(4);
+	flagSet(8);
+	// @Spirit_at() async;
+	// anmSelect(2);
+	// anmSetSprite(0, ENM_PHANTOM_BLUE_FLIP);
+	moveCircle(A, 0.02f, 400f, -2f);
+	wait(240);
+	moveVel(0f, 0f);
+	wait(120);
+	mathAngle(A, BOSS_X, BOSS_Y, ABS_X, ABS_Y);
+	moveCircle(A, 0.02f, 0f, -2f);
+	int B = 240;
+	times(5)
+	{
+		mathAngle(A, BOSS_X, BOSS_Y, ABS_X, ABS_Y);
+		F0 = A;
+		enmCreateA("Spirit1", 0f, 224f, B, 1, 0);
+		B += 24;
+		wait(40);
+	}
+	wait(10);
+}
+void Spirit1()
+{
+	float A = F0;
+	int waitT = LIFE;
+	// flagSet(1);
+	flagSet(2);
+	deathAnm(2, -1);
+	angleLoop() async;
+	setDeath("Spirit_at");
+	lifeSet(100);
+	flagSet(4);
+	flagSet(8);
+	@Spirit_at() async;
+	anmSelect(2);
+	anmSetSprite(0, ENM_PHANTOM_BLUE_FLIP);
+	moveCircle(A, 0.02f, 400f, -2f);
+	wait(waitT);
+	moveVel(0f, 0f);
+	wait(120);
+	mathAngle(A, BOSS_X, BOSS_Y, ABS_X, ABS_Y);
+	moveCircle(A, 0.02f, 0f, -2f);
+	
+	wait(10000);
+}
+
+void angleLoop()
+{
+	while(1)
+	{
+		mathAngle(F0, BOSS_X, BOSS_Y, ABS_X, ABS_Y);
+		//enmCreate("Spirit1", 0f, 0f, 1, 1, 0);
+		// F0 += rad(36);
+		wait(1);
+	}
+}
+
+void Spirit_at()
+{
+	CreatePattern(0, 1, 6, 4, 2, 2, F0, rad(120), 2f, 1f);
+	CreatePattern(1, 1, 6, 8, 1, 2, F0, 0f, 2f, 1f);
+	if(ABS_X > -192f && ABS_X < 192f && ABS_Y < 448f && ABS_Y > 0f && SHOTTYPE != 2)
+	{	
+		BI3 = BI3 + 20;
+	}
+	if(DIST_PLAYER >= 50f)
+	{
+		etOn(0);
+		etOn(1);
+	}
 }
 
 void BossCard5()
@@ -2223,58 +2305,8 @@ BossCard5_264:
 	wait(10000);
 }
 
-void BossCard5_at(var A)
-{
-    var B, C;
-    etNew(0);
-    etAim(0, 3);
-    etSprite(0, 8, 2);
-    etCount(0, 1, 1);
-    etAngle(0, 0.0f, 0.0f);
-    etSpeed(0, 1.0f, 1.0f);
-    etEx(0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-    etEx(0, 0, 256, 600, 0, -999999.0f, -999999.0f);
-    etEx(0, 0, 8, 120, -999999, 0.01f, (0.017453292f * 0.5f) * %A);
-    etEx(0, 0, 8, 100, -999999, -0.012f, 0.017453292f * %A);
-    etEx(0, 0, 8, 120, -999999, 0.01f, (0.017453292f * 0.5f) * %A);
-    etEx(0, 0, 8, 100, -999999, -0.012f, 0.017453292f * %A);
-    etEx(0, 0, 2097152, 120, -999999, 0.0f, -999999.0f);
-    etEx(0, 0, 1024, 0, -999999, -999999.0f, -999999.0f);
-    etDist(0, 16.0f);
-    etOffset(0, 0.0f, -24.0f);
-    %B = -1.570796f;
-    $C = 500;
-    goto BossCard5_at_1176 @ 0;
-BossCard5_at_996:
-    etAngle(0, %B, 0.0f);
-    etOn(0);
-    %B = %B + (3.883222f * %A);
-    wait(2);
-BossCard5_at_1176:
-    if ($C--) goto BossCard5_at_996 @ 0;
-    return;
-}
 
-void BossCard5_at2()
-{
-    var A;
-    etNew(1);
-    etAim(1, 2);
-    etSprite(1, 4, 2);
-    etCount(1, 5, 1);
-    etAngle(1, 0.0f, 0.0f);
-    etSpeed(1, 2.5f, 1.0f);
-    etEx(1, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-    wait(200);
-    $A = 100;
-    goto BossCard5_at2_360 @ 0;
-BossCard5_at2_320:
-    etOn(1);
-    wait(10);
-BossCard5_at2_360:
-    if ($A--) goto BossCard5_at2_320 @ 0;
-    return;
-}
+
 
 void BossCard6()
 {
