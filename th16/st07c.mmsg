@@ -1,0 +1,664 @@
+#pragma mapfile "map/any.msgm"
+
+meta {
+    table: {
+        0: {script: "script0", flags: 256},
+        1: {script: "script1", flags: 256},
+        2: {script: "script2", flags: 256},
+    },
+}
+
+
+script script0 {
+    skippable(0);
+    playerShow(0);
++4: // 4
+    playerFace(1);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
++30: // 34
+    skippable(1);
+    bubbleType(0);
+    bubblePos(110.0, 240.0);
+    textAdd("やあやあ");
+    textAdd("我こそは疾風の鴉天狗、射命丸文なり！");
++4: // 38
+    textPause(600);
++4: // 42
+    playerFace(1);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("この度は天狗の未来を賭けて");
+    textAdd("再び勝負を挑みにきたものである！");
++4: // 46
+    textPause(600);
++4: // 50
+    playerFace(1);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("|88,16,おきな");
+    textAdd("障碍の神、隠岐奈よ！");
+    textAdd("出てくるがいい！");
++4: // 54
+    textPause(600);
++4: // 58
+    skippable(0);
+    speakerBoss(0);
+    bubblePos(224.0, 144.0);
+    eclResume();
+    textClear();
++60: // 118
+    skippable(0);
+    textAdd("この間の天狗か");
++30: // 148
+    skippable(1);
++4: // 152
+    textPause(600);
+    bossShow(0);
+    intro(0);
++4: // 156
+    bossFace(0, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    playerFace(0);
+    textAdd("再び姿を現すとは");
+    textAdd("良い度胸だな");
++4: // 160
+    textPause(600);
++4: // 164
+    playerFace(3);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("この間は卑怯な罠で逃げられたけど");
+    textAdd("今度は逃がさない");
++4: // 168
+    textPause(600);
++4: // 172
+    bossFace(4, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("逃がさない？");
+    textAdd("何をいう、逃げ帰ったのはお前だぞ？");
++4: // 176
+    textPause(600);
++4: // 180
+    bossFace(0, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("背中の魔力を返して貰ったら");
+    textAdd("お前は手も足も出せない状態で");
++4: // 184
+    textPause(600);
++4: // 188
+    bossFace(0, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("お前は季節の扉に入って");
+    textAdd("元の世界に帰ったんだ");
++4: // 192
+    textPause(600);
++4: // 196
+    bossFace(4, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("逃げたのはお前だよ");
++4: // 200
+    textPause(600);
++4: // 204
+    playerFace(6);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("……少しだけそんな気もしてました");
++4: // 208
+    textPause(600);
++4: // 212
+    playerFace(0);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("貴方と戦っていたはずが、いつの間にか");
+    textAdd("幻想郷に居たんでね");
++4: // 216
+    textPause(600);
++4: // 220
+    playerFace(6);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("私が集めた季節の魔力は");
+    textAdd("貴方に全て奪われて強制解放された");
++4: // 224
+    textPause(600);
++4: // 228
+    playerFace(5);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("それ自体が強制退出の罠だと");
+    textAdd("気付かずにね！");
++4: // 232
+    textPause(600);
++4: // 236
+    bossFace(0, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("そうだ、だからお前に勝ち目は無い！");
+    textAdd("何度やっても同じだよ");
++4: // 240
+    textPause(600);
++4: // 244
+    playerFace(2);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("ふっ、そこまで判っていて");
+    textAdd("私が無策でここに来る訳が無いでしょう");
++4: // 248
+    textPause(600);
++4: // 252
+    bossFace(5, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("ほう？");
+    textAdd("策、とな");
++4: // 256
+    textPause(600);
++4: // 260
+    playerFace(5);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("私の背中の季節を見よ！");
++4: // 264
+    textPause(600);
++4: // 268
+    bossFace(6, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("ほう……なるほど！");
+    textAdd("お前は季節の隙間の魔力を集めてきたのか！");
++4: // 272
+    textPause(600);
++4: // 276
+    playerFace(2);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("そうです");
+    textAdd("季節の変わり目の魔力だけを集めました");
++4: // 280
+    textPause(600);
++4: // 284
+    playerFace(5);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("四季の生命力がもっとも失われ、");
+    textAdd("|99,6,あらわ");
+    textAdd("この世の魔が顕れる季節の隙間よ！");
++4: // 288
+    textPause(600);
++4: // 292
+    bossFace(5, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("ふふふ、それを私が吸収して");
+    textAdd("解放すれば天狗の魔によって自滅すると");
++4: // 296
+    textPause(600);
++4: // 300
+    bossFace(4, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("黙っていれば判らなかったかも");
+    textAdd("知れないのに、何故教える？");
++4: // 304
+    textPause(600);
++4: // 308
+    playerFace(5);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("神ともあろう方が気付かないわけがない");
+    textAdd("と思ったからです");
++4: // 312
+    textPause(600);
++4: // 316
+    playerFace(0);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("それに貴方を滅しにきた訳では");
+    textAdd("ございません");
++4: // 320
+    textPause(600);
++4: // 324
+    playerFace(2);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("卑劣な罠に掛けたいのではなく");
+    textAdd("貴方の罠を封じたいだけですから");
++4: // 328
+    textPause(600);
++4: // 332
+    bossFace(0, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    musicBoss();
+    textAdd("ふっふっふ");
+    textAdd("正々堂々と勝負したいという訳か");
++4: // 336
+    textPause(600);
++4: // 340
+    bossFace(5, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("良いだろう、その勇気に敬意を払って");
+    textAdd("季節の魔力は使わないでやる");
++4: // 344
+    textPause(600);
++4: // 348
+    playerFace(1);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("正々堂々と戦いたいというか");
+    textAdd("取材をしたいだけなんです");
++4: // 352
+    textPause(600);
++4: // 356
+    playerFace(1);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("天狗と祖先を等しくする障碍の神に");
++4: // 360
+    textPause(600);
++4: // 364
+    playerFace(1);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("世間から疎外されてきた");
+    textAdd("河原者の歴史と、これからを");
++4: // 368
+    textPause(600);
++4: // 372
+    bossFace(1, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("良いだろう、お前が勝ったら");
+    textAdd("取材でも何でも受けてやろう");
++4: // 376
+    textPause(600);
++4: // 380
+    bossFace(1, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("幻想郷の縁起は我々、障碍の者を");
+    textAdd("抜きにしては語れぬ");
++4: // 384
+    textPause(600);
++4: // 388
+    bossFace(1, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    bubbleType(1);
+    textAdd("見よ！　聞け！　語れ！");
+    textAdd("これが障碍の秘神の姿だ！");
++4: // 392
+    textPause(600);
+    playerHide();
+    bossHide(0);
+    textboxHide();
+    skippable(0);
++30: // 422
+    end();
+}
+
+
+script script1 {
+    skippable(0);
+    playerShow(0);
+    playerFace(1);
+    bossShow(0);
+    bossFace(8, 0);
++4: // 4
+    playerFace(6);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    bubbleType(1);
++30: // 34
+    skippable(1);
+    bubblePos(110.0, 240.0);
+    textAdd("はあはあ");
+    textAdd("まだやるか！");
++4: // 38
+    textPause(600);
++4: // 42
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    bubbleType(0);
+    textAdd("見事だ！");
+    textAdd("もう十分、お前の強さは判った");
++4: // 46
+    textPause(600);
++4: // 50
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("勝負は私の負けだ");
++4: // 54
+    textPause(600);
++4: // 58
+    playerFace(6);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("……いいえ、私の負けです");
++4: // 62
+    textPause(600);
++4: // 66
+    playerFace(6);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("背中の魔力無しでは");
+    textAdd("到底勝つことは出来ませんでした");
++4: // 70
+    textPause(600);
++4: // 74
+    playerFace(0);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("そしてこの力は貴方の力です");
++4: // 78
+    textPause(600);
++4: // 82
+    playerFace(0);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("背中の魔力を使う事");
+    textAdd("前提の戦闘を見て");
++4: // 86
+    textPause(600);
++4: // 90
+    playerFace(1);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("最初から貴方の掌で踊らされている");
+    textAdd("かのようでした");
++4: // 94
+    textPause(600);
++4: // 98
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("確かにいつだって背中の扉を封じたり");
+    textAdd("別の魔力を呼び出す事も出来た");
++4: // 102
+    textPause(600);
++4: // 106
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("だが、私がそれをしなかったのは");
+    textAdd("お前の勇気に敬意を払ってのことだ");
++4: // 110
+    textPause(600);
++4: // 114
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("私の掌の上だろうと");
+    textAdd("お前の勝ちは変わらない");
++4: // 118
+    textPause(600);
++4: // 122
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("堂々とするが良い");
++4: // 126
+    textPause(600);
++4: // 130
+    playerFace(5);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("ですよねー");
+    textAdd("私の勝ちでいいんですよねー");
++4: // 134
+    textPause(600);
++4: // 138
+    playerFace(2);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("じゃあ約束通り私の取材を");
+    textAdd("受けてもらいます！");
++4: // 142
+    textPause(600);
++4: // 146
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("う、うむ");
++4: // 150
+    textPause(600);
++4: // 154
+    playerFace(1);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("この度は");
+    textAdd("何故こんな事をしたのですか？");
++4: // 158
+    textPause(600);
++4: // 162
+    playerFace(0);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("あ、こんな事ってのは四季異変の事ね");
++4: // 166
+    textPause(600);
++4: // 170
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("うちの二童子もそろそろ");
+    textAdd("解放してやりたくてね");
++4: // 174
+    textPause(600);
++4: // 178
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("その後継者を探していたんだ");
++4: // 182
+    textPause(600);
++4: // 186
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("可能性ありそうな奴らを広域で");
+    textAdd("引っかけるために");
++4: // 190
+    textPause(600);
++4: // 194
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("ありとあらゆる奴の");
+    textAdd("潜在能力を引き出させたのさ");
++4: // 198
+    textPause(600);
++4: // 202
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("妖精や精霊たちの潜在能力によって");
+    textAdd("季節が少しおかしく見えただけ");
++4: // 206
+    textPause(600);
++4: // 210
+    playerFace(0);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("なるほど、それで後継者は");
+    textAdd("見つかったのですか？");
++4: // 214
+    textPause(600);
++4: // 218
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("まだだね");
+    textAdd("いくつか候補はいるけど");
++4: // 222
+    textPause(600);
++4: // 226
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("でも、幻想郷全域に背中の扉を");
+    textAdd("使うのはこれっきりにしておくよ");
++4: // 230
+    textPause(600);
++4: // 234
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("もう、十分伝わったと思うから");
++4: // 238
+    textPause(600);
++4: // 242
+    playerFace(6);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("？？");
+    textAdd("では次の質問です");
++4: // 246
+    textPause(600);
++4: // 250
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("ちょっと待って、質問ってどの位あるの？");
++4: // 254
+    textPause(600);
++4: // 258
+    playerFace(0);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("いくらでも出てくるわよ");
++4: // 262
+    textPause(600);
++4: // 266
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("今は闘いの直後で疲れている");
+    textAdd("また今度にしてくれないか？");
++4: // 270
+    textPause(600);
++4: // 274
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("そうだ、今度は天狗の元に");
+    textAdd("行ってやる");
++4: // 278
+    textPause(600);
++4: // 282
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("お前を見ていたら");
+    textAdd("今の天狗に興味が湧いてきたよ");
++4: // 286
+    textPause(600);
++4: // 290
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("天狗さえ良ければ");
+    textAdd("平和協定を結ぼうじゃないか");
++4: // 294
+    textPause(600);
++4: // 298
+    playerFace(0);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("はあ、良いですが");
++4: // 302
+    textPause(600);
++4: // 306
+    playerFace(1);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("ただし約束してください");
++4: // 310
+    textPause(600);
++4: // 314
+    playerFace(1);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("私以外の取材を受けないでください");
++4: // 318
+    textPause(600);
++4: // 322
+    playerFace(1);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("こんな大きなネタ");
+    textAdd("他の人には渡しませんから");
++4: // 326
+    textPause(600);
++4: // 330
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("う、うむ");
++4: // 334
+    textPause(600);
+    playerHide();
+    bossHide(0);
+    textboxHide();
+    skippable(0);
++40: // 374
+    stageEnd();
+    musicEnd();
+    skippable(0);
++30: // 404
+    end();
+}
+
+
+script script2 {
++90: // 90
+    skippable(0);
+    speakerBoss(0);
+    eclResume();
+    textClear();
++60: // 150
+    skippable(0);
++30: // 180
+    skippable(0);
+    playerShow(1);
+    bossShow(1);
+    playerFace(6);
++4: // 184
+    bossFace(7, 1);
+    speakerBoss(1);
+    bubblePos(356.0, 260.0);
+    textAdd("何だ、また来たのか");
++120: // 304
+    skippable(0);
++4: // 308
+    playerFace(6);
+    speakerPlayer();
+    bubblePos(110.0, 240.0);
+    textAdd("貴方のせいで私達が怒られたわ");
++120: // 428
+    skippable(0);
++4: // 432
+    bossFace(1, 1);
+    speakerBoss(1);
+    bubblePos(356.0, 260.0);
+    textAdd("即刻立ち去れい！");
+    textAdd("薄汚い天狗めが！");
++200: // 632
+    skippable(0);
+    playerHide();
+    bossHide(1);
+    textboxHide();
+    eclResume();
+    skippable(0);
++30: // 662
+    end();
+}

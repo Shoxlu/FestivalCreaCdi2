@@ -1,0 +1,733 @@
+#pragma mapfile "map/any.msgm"
+
+meta {
+    table: {
+        0: {script: "script0", flags: 256},
+        1: {script: "script1", flags: 256},
+        2: {script: "script2", flags: 256},
+    },
+}
+
+
+script script0 {
+    skippable(0);
+    playerShow(0);
++4: // 4
+    playerFace(3);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
++30: // 34
+    skippable(1);
+    bubbleType(0);
+    bubblePos(112.0, 270.0);
+    textAdd("そろそろ出てきなさいよ！");
++4: // 38
+    textPause(600);
++4: // 42
+    skippable(0);
+    speakerBoss(0);
+    bubblePos(224.0, 144.0);
+    eclResume();
+    textClear();
++60: // 102
+    skippable(0);
+    textAdd("まさかまた");
+    textAdd("やってくるとはね");
++30: // 132
+    skippable(1);
++4: // 136
+    textPause(600);
+    bossShow(0);
+    intro(0);
++4: // 140
+    bossFace(0, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    playerFace(7);
+    textAdd("大した勇気だ");
+    textAdd("褒めて使わす");
++4: // 144
+    textPause(600);
++4: // 148
+    bossFace(5, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("だが、お前も判った筈だ");
+    textAdd("私に勝つことは不可能だと");
++4: // 152
+    textPause(600);
++4: // 156
+    playerFace(3);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("そりゃあんたが勝負の途中で");
+    textAdd("逃げたからでしょ");
++4: // 160
+    textPause(600);
++4: // 164
+    bossFace(4, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("何だと？");
+    textAdd("記憶違いをしているな");
++4: // 168
+    textPause(600);
++4: // 172
+    bossFace(0, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("逃げたのはお前だよ");
++4: // 176
+    textPause(600);
++4: // 180
+    bossFace(0, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("お前に集めさせていた");
+    textAdd("魔力を頂いたら");
++4: // 184
+    textPause(600);
++4: // 188
+    bossFace(5, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("最後は手も足も出なくなって");
+    textAdd("逃げていったんじゃないか");
++4: // 192
+    textPause(600);
++4: // 196
+    playerFace(7);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("私が逃げた？");
+    textAdd("そんな馬鹿なことあるわけ無いでしょ");
++4: // 200
+    textPause(600);
++4: // 204
+    bossFace(4, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("覚えてないんだねぇ");
+    textAdd("私は鮮明に覚えているよ");
++4: // 208
+    textPause(600);
++4: // 212
+    bossFace(0, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("全ての武器を封印されたお前が");
+    textAdd("自分の扉から逃げ帰っていったんだよ");
++4: // 216
+    textPause(600);
++4: // 220
+    bossFace(5, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("自分の持ってきた季節の扉からね");
+    textAdd("また同じ目に遭いたいのか？");
++4: // 224
+    textPause(600);
++4: // 228
+    playerFace(7);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("季節の扉……");
+    textAdd("やっぱりそうか");
++4: // 232
+    textPause(600);
++4: // 236
+    playerFace(6);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("私は逃げた記憶が無いけど");
+    textAdd("でも、もしかしたら……という思いもあった");
++4: // 240
+    textPause(600);
++4: // 244
+    playerFace(6);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("気が付いたら、集めた季節の場所に");
+    textAdd("戻らされてたからね");
++4: // 248
+    textPause(600);
++4: // 252
+    playerFace(1);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("つまり、背中の扉は魔力回収と強制排出を");
+    textAdd("兼ねている罠だった！");
++4: // 256
+    textPause(600);
++4: // 260
+    bossFace(0, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("そうだ、よく判ったな");
++4: // 264
+    textPause(600);
++4: // 268
+    bossFace(0, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("だからお前に勝ち目は無い");
+    textAdd("最後はここから追い出されるのだから");
++4: // 272
+    textPause(600);
++4: // 276
+    playerFace(2);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("ふっふっふ");
++4: // 280
+    textPause(600);
++4: // 284
+    bossFace(4, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("ん？　どうした？");
+    textAdd("気でも触れたか？");
++4: // 288
+    textPause(600);
++4: // 292
+    playerFace(2);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("予想が当たったわ！");
+    textAdd("これで勝った！");
++4: // 296
+    textPause(600);
++4: // 300
+    bossFace(6, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("何だと？");
++4: // 304
+    textPause(600);
++4: // 308
+    playerFace(0);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("私の背中を見て");
++4: // 312
+    textPause(600);
++4: // 316
+    playerFace(0);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("今回集めてきたのは");
+    textAdd("季節の境目よ！");
++4: // 320
+    textPause(600);
++4: // 324
+    playerFace(0);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("これなら強制的に戻される場所は");
+    textAdd("存在しないはず！");
++4: // 328
+    textPause(600);
++4: // 332
+    bossFace(0, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("ほう……今のお前の背中の扉は");
++4: // 336
+    textPause(600);
++4: // 340
+    bossFace(0, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("もっとも生命力が失われる");
+    textAdd("季節の境目、土用か……");
++4: // 344
+    textPause(600);
++4: // 348
+    bossFace(0, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    musicBoss();
+    textAdd("ふっふっふ");
+    textAdd("悪くない策だ");
++4: // 352
+    textPause(600);
++4: // 356
+    bossFace(5, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("しかしそれは、自らの退路を");
+    textAdd("断ったと言う事だ");
++4: // 360
+    textPause(600);
++4: // 364
+    playerFace(1);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("今度はあんたを倒すまで");
+    textAdd("この場を去らないって事よ！");
++4: // 368
+    textPause(600);
++4: // 372
+    bossFace(0, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("気に入った！");
++4: // 376
+    textPause(600);
++4: // 380
+    bossFace(0, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("お前は博麗の巫女だから");
+    textAdd("部下にすることは出来ないが");
++4: // 384
+    textPause(600);
++4: // 388
+    bossFace(5, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("その聡明さに敬意を払って");
++4: // 392
+    textPause(600);
++4: // 396
+    bossFace(1, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("集めた季節の魔力を");
+    textAdd("使わずに戦ってやる");
++4: // 400
+    textPause(600);
++4: // 404
+    bossFace(1, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    bubbleType(1);
+    textAdd("見よ！　聞け！　語れ！");
+    textAdd("秘神の真なる魔力がお前の障碍となろう！");
++4: // 408
+    textPause(600);
+    playerHide();
+    bossHide(0);
+    textboxHide();
+    skippable(0);
++30: // 438
+    end();
+}
+
+
+script script1 {
+    skippable(0);
+    playerShow(0);
+    playerFace(1);
+    bossShow(0);
+    bossFace(8, 0);
++4: // 4
+    playerFace(7);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    bubbleType(1);
++30: // 34
+    skippable(1);
+    bubblePos(112.0, 270.0);
+    textAdd("やったか！？");
++4: // 38
+    textPause(600);
++4: // 42
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    bubbleType(0);
+    textAdd("やられたー！");
++4: // 46
+    textPause(600);
++4: // 50
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    playerFace(4);
+    textAdd("さすが博麗の巫女ね");
+    textAdd("この私の攻撃を避けきるなんて");
++4: // 54
+    textPause(600);
++4: // 58
+    playerFace(2);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("よし、今度こそ勝った");
++4: // 62
+    textPause(600);
++4: // 66
+    playerFace(1);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("今すぐ、悪巧みは辞める事ね！");
++4: // 70
+    textPause(600);
++4: // 74
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("うーん、どうしようかなー");
++4: // 78
+    textPause(600);
++4: // 82
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("まだ二童子の後継者が");
+    textAdd("見つかってないんだけどなー");
++4: // 86
+    textPause(600);
++4: // 90
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("見つからないとあの二人も");
+    textAdd("ずっと解放出来ないし、可哀想よねー");
++4: // 94
+    textPause(600);
++4: // 98
+    playerFace(4);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("派手に季節が狂わない方法で");
+    textAdd("探して下さい");
++4: // 102
+    textPause(600);
++4: // 106
+    playerFace(4);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("チラシ貼るとか面接とか……");
++4: // 110
+    textPause(600);
++4: // 114
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("秘神がそんな事するの？");
+    textAdd("嫌だなー");
++4: // 118
+    textPause(600);
++4: // 122
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("ま、いっか");
+    textAdd("暫くはあの二人に頑張って貰おうかな");
++4: // 126
+    textPause(600);
++4: // 130
+    playerFace(6);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("どうして妖怪達はいちいち");
+    textAdd("派手な行動を取るのかしら");
++4: // 134
+    textPause(600);
++4: // 138
+    playerFace(4);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("それに負けると急に");
+    textAdd("馴れ馴れしくなるし");
++4: // 142
+    textPause(600);
++4: // 146
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("妖怪じゃなくて神様ですよー");
++4: // 150
+    textPause(600);
++4: // 154
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("ところで……");
++4: // 158
+    textPause(600);
++4: // 162
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("背中の扉に季節の境目を使用する");
+    textAdd("というテクニックだけど");
++4: // 166
+    textPause(600);
++4: // 170
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("本当は貴方が考えたんじゃ無いでしょ");
++4: // 174
+    textPause(600);
++4: // 178
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("その境界線を使う手法、よく知っている");
+    textAdd("彼奴のやり方に似ているのよね");
++4: // 182
+    textPause(600);
++4: // 186
+    playerFace(0);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("……まあね");
++4: // 190
+    textPause(600);
++4: // 194
+    playerFace(4);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    bubbleType(3);
+    textAdd("正直言うと、理屈はよく判ってないしー");
++4: // 198
+    textPause(600);
++4: // 202
+    playerFace(3);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    bubbleType(0);
+    textAdd("何なのよ、背中の扉って");
+    textAdd("季節装備って、生命力の暴走って……");
++4: // 206
+    textPause(600);
++4: // 210
+    playerFace(2);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("そんな訳のわからない妖怪理論なんて");
+    textAdd("理解しようって方が無理があるわ！");
++4: // 214
+    textPause(600);
++4: // 218
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("妖怪じゃなくて神様ね");
++4: // 222
+    textPause(600);
++4: // 226
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("人智を超えてしまうのは");
+    textAdd("仕方が無い");
++4: // 230
+    textPause(600);
++4: // 234
+    playerFace(6);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("はいそうですか");
++4: // 238
+    textPause(600);
++4: // 242
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("でも、貴方もこちら側としか");
+    textAdd("見えないけどね");
++4: // 246
+    textPause(600);
++4: // 250
+    playerFace(0);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("どうでもいいや");
+    textAdd("そろそろ帰る");
++4: // 254
+    textPause(600);
++4: // 258
+    playerFace(4);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    bubbleType(3);
+    textAdd("……帰りはどの扉から出れば良いの？");
++4: // 262
+    textPause(600);
++4: // 266
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    bubbleType(0);
+    textAdd("博麗神社なら下から２番目");
+    textAdd("右から４０番目が良いね");
++4: // 270
+    textPause(600);
++4: // 274
+    playerFace(4);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("ありがとう");
+    textAdd("じゃあ、季節の件は戻しておくようにね！");
++4: // 278
+    textPause(600);
+    textClear();
+    playerHide();
++4: // 282
+    textPause(600);
++4: // 286
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("……そうか");
+    textAdd("気付いているアピールしてくるか");
++4: // 290
+    textPause(600);
++4: // 294
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("二童子の後継探しなんていう");
+    textAdd("嘘の口実で派手に動いた甲斐があった");
++4: // 298
+    textPause(600);
++4: // 302
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("私達が創った幻想郷は");
+    textAdd("無事に機能しているようだな");
++4: // 306
+    textPause(600);
++4: // 310
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("機能しすぎて、もはや誰にも");
+    textAdd("制御出来ないようだが");
++4: // 314
+    textPause(600);
++4: // 318
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("それも賢者達が望んだこと");
++4: // 322
+    textPause(600);
+    playerShow(0);
++4: // 326
+    playerFace(6);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("あのー");
++4: // 330
+    textPause(600);
++4: // 334
+    playerFace(4);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("右から４０番目の扉って");
+    textAdd("何処から見て右なのよ？");
++4: // 338
+    textPause(600);
++4: // 342
+    playerFace(6);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("そもそも上下すら怪しいし");
++4: // 346
+    textPause(600);
++4: // 350
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("おお、すまんすまん");
++4: // 354
+    textPause(600);
++4: // 358
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("今は、私から見て左に");
+    textAdd("１６番目の扉が良い……");
++4: // 362
+    textPause(600);
++4: // 366
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("何なら付いていってやるよ？");
++4: // 370
+    textPause(600);
++4: // 374
+    playerFace(4);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("お願いします……");
++4: // 378
+    textPause(600);
++4: // 382
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("ついでに博麗神社で花見酒でも");
+    textAdd("していこうかな");
++4: // 386
+    textPause(600);
++4: // 390
+    bossFace(8, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("これからが楽しみだねぇ");
++4: // 394
+    textPause(600);
+    playerHide();
+    bossHide(0);
+    textboxHide();
+    skippable(0);
++40: // 434
+    stageEnd();
+    musicEnd();
+    skippable(0);
++30: // 464
+    end();
+}
+
+
+script script2 {
++90: // 90
+    skippable(0);
+    speakerBoss(0);
+    eclResume();
+    textClear();
++60: // 150
+    skippable(0);
++30: // 180
+    skippable(0);
+    playerShow(1);
+    bossShow(1);
+    playerFace(5);
++4: // 184
+    bossFace(7, 1);
+    speakerBoss(1);
+    bubblePos(356.0, 260.0);
+    textAdd("おお、君はこの前の");
++120: // 304
+    skippable(0);
++4: // 308
+    playerFace(5);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("不合格だったらしいわね");
+    textAdd("意外だわー");
++120: // 428
+    skippable(0);
++4: // 432
+    bossFace(1, 1);
+    speakerBoss(1);
+    bubblePos(356.0, 260.0);
+    textAdd("だから君はここに居る資格は無い！");
++200: // 632
+    skippable(0);
+    playerHide();
+    bossHide(1);
+    textboxHide();
+    eclResume();
+    skippable(0);
++30: // 662
+    end();
+}
