@@ -51,9 +51,9 @@
     "111": "Cérémonie secrète « Danmaku de soie dupion »",
     "112": "Cérémonie secrète « Feu d’Ena »",
     "113": "Cérémonie secrète « Kyōgen de la porte de derrière »",
-    "114": "Cérémonie secrète « Matarah Dukkha »",
-    "115": "70/100 'Border Between Inert and Living'",
-    "116": "'Resurrection Butterfly - 80/100 Reflowering - '",
-    "117": "90/100 'Vital Spring in the Dead's World'",
-    "118": "'Perfect Cherry Blossom'"
+    "114": "60/100 « Synergie millénaire »",
+    "115": "70/100 « Frontière entre l'inerte et le vivant »",
+    "116": "« Resurrection Butterfly - 80/100 Reflowering - »",
+    "117": "90/100 « Vitalité donnée au monde des morts »",
+    "118": "« Perfect Cherry Blossom »"
 }
