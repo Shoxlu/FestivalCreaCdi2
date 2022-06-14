@@ -1,6 +1,6 @@
 anim { "enemy.anm"; "st07enm.anm"; "st07enm2.anm"; "st07enm3.anm";}
 ecli { "default.ecl"; "st07mbs.ecl"; "st07mbs2.ecl"; "st07bs.ecl"; }
-
+#include "main.tecl"
 void MainBossSpell();
 
 void ECir00()
@@ -1542,6 +1542,34 @@ void Test2()
     return;
 }
 
+
+void GivePlayerFullPower()
+{
+	anmSelect(2);
+	setDeath("died");
+	anmSetMain(0, ENM_GIRL_L_DARK);
+	anmSetSprite(1, ENM_AURA_L_PURPLE);
+	dropExtra(16, 400);
+	dropArea(64f, 64f);
+	// dropItems();
+	pattern();
+	wait(10000);
+}
+void died()
+{
+	scoreAdd(20000000);
+	
+}
+void pattern()
+{
+	CreatePattern(0, 1, 11, 4, 20, 1, rad(270), rad(340)/20f, 4f, 4f);
+	while(1)
+	{
+		etOn(0);
+		wait(4);
+	}
+}
+
 void main()
 {
     flagSet(32);
@@ -1586,6 +1614,7 @@ main_568:
     // etClear(640.0f);
     // ins_571();
     setChapter(41);
+	enmCreate("GivePlayerFullPower", 0f, 128f, 1000, 100, 16);
     // wait(160);
 	wait(400);
 	callSTD(1);
