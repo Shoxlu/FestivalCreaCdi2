@@ -292,4 +292,58 @@ offset116:
     stop();
 }
 
+entry entry6 {
+    version: 8,
+    name: "background/stage07/stg6bg.png",
+    format: 1,
+    width: 512,
+    height: 512,
+    memoryPriority: 0,
+    lowResScale: 0,
+    hasData: 1,
+    sprites: {
+        sprite6: { x: 257, y: 257, w: 252, h: 252 }
+    }
+}
+
+script script13 {
+	type(1);
+	layer(3);
+	sprite(sprite6);
+	pos(0f, 150f, 0f);
+	scale(2.0f, 2.0f);
+	scaleTime(240, 5, 1.0f, 1.0f);
+	F0 = rad(0);
+loop:
+	rotate(F0, F0, F0);
+	F0 = F0 + rad(1);
++1:
+	jmp(loop,0);
+	stop();
+}
+
+entry entry7 {
+    version: 8,
+    name: "background/stage07/weirdeffect.png",
+    format: 1,
+    width: 300,
+    height: 1000,
+    memoryPriority: 0,
+    lowResScale: 0,
+    hasData: 1,
+    sprites: {
+        sprite7: { x: 0, y: 0, w: 300, h: 1000 }
+    }
+}
+
+script script14 {
+	type(1);
+	layer(3);
+	sprite(sprite7);
+	pos(140f, 230f, 0f);
+	rotate(0f, 0f, rad(-45));
+	scale(0.3f, 0.3f);
+	scrollY(0.001f);
+	stop();
+}
 
