@@ -13,7 +13,7 @@
     "th16_12": "Par la porte arrière",
     "th16_13": "Les Quatre Saisons Cachées",
     "th16_14": "Plus de passage par les portes",
-    "th16_15": "La déesse secrète Matara ~ Hidden Star in All Seasons.",
+    "th16_15": "Éternelle et Parfaite Floraison ~ Vie Cachée Parmis les Spectres",
     "th16_16": "Nature non naturelle",
     "th16_17": "Voyageur blanc",
     "th16_18": "Score du joueur",
