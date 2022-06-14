@@ -1587,7 +1587,10 @@ main_568:
     // ins_571();
     setChapter(41);
     // wait(160);
-    dialogRead(0);
+	wait(400);
+	callSTD(1);
+	wait(300);
+	dialogRead(0);
     @MainBoss();
     goto main_1316 @ 60;
 main_1296:
