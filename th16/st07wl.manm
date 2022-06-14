@@ -21,9 +21,8 @@ script script0 {
     sprite(sprite0);
     type(8);
     alpha(0);
-+400: // 400
-    alphaTime(200, 0, 255);
-+200: // 600
+    alphaTime(100, 0, 255);
++100: // 600
     case(8);
     alpha(255);
     stop();
