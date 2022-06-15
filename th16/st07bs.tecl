@@ -75,7 +75,7 @@ Boss_1896:
 Boss_1972:
     unless ($SPELL_ID == 113) goto Boss_2128 @ 3;
 Boss_2052:
-    lifeSet(4000);
+    lifeSet(6000);
     @BossCard5();
     goto Boss_2208 @ 3;
 Boss_2128:
@@ -831,8 +831,8 @@ Boss5_516:
     anmSetMain(0, 0);
 	GI2 = 1;
 	GI3 = 1;
-    setNext(0, 4000, 4200, "BossCard5");
-    lifeMarker(0, 4000.0f, -24448);
+    setNext(0, 6000, 4200, "BossCard5");
+    lifeMarker(0, 6000.0f, -24448);
     stars(4);
     moveLimitReset();
     movePosTime(120, 0, 0.0f, 128.0f);
@@ -2291,12 +2291,121 @@ BossCard5_264:
     spellEx(113, 4800, 0, "îÈãVÅuå„åÀÇÃã∂åæÅv");
     movePosTime(60, 4, 0.0f, 224.0f);
     moveLimitReset();
++90:
+	@BossCard5_at();
+}
+
+void BossCard5_at()
+{
+	enmCreate("Chen", 0f, 0f, 1, 1, 1);
+	enmCreate("Ran", 0f, 0f, 1, 1, 1);
 	wait(10000);
 }
 
+void Chen()
+{
+	float A;
+	flagSet(1);
+	flagSet(2);
+	anmSelect(2);
+	// anmSetMain(0, 177);
+	// wait(200);
+	anmSetSprite(0, 178);
+	@Chen_at() async;
+	moveCircle(rad(180), 0.02f, ABS_ORIGIN_DIST, 0.20f);
+	wait(500);
+	while(1)
+	{
+		if(BOSS_X == ABS_X && BOSS_Y == ABS_Y)
+		{
+			A += rad(1);
+		}else{
+			mathAngle(A, BOSS_X, BOSS_Y, ABS_X, ABS_Y);
+		}
+		moveCircle(A, 0.02f, ABS_ORIGIN_DIST, -0.19f);
+		wait(500);
+		mathAngle(A, BOSS_X, BOSS_Y, ABS_X, ABS_Y);
+		if(BOSS_X == ABS_X && BOSS_Y == ABS_Y)
+		{
+			A += rad(1);
+		}else{
+			mathAngle(A, BOSS_X, BOSS_Y, ABS_X, ABS_Y);
+		}
+		moveCircle(A, 0.02f, ABS_ORIGIN_DIST, 0.20f);
+		wait(500);
+	}
+	wait(10000);
+}
 
+void Ran()
+{
+	float A;
+	flagSet(1);
+	flagSet(2);
+	anmSelect(2);
+	// anmSetMain(0, 179);
+	// wait(200);
+	anmSetSprite(0, 180);
+	@Ran_at() async;
+	moveCircle(rad(0), 0.02f, ABS_ORIGIN_DIST, 0.2f);
+	wait(500);
+	while(1)
+	{
+		mathAngle(GF7, BOSS_X, BOSS_Y, ABS_X, ABS_Y);
+		moveCircle(GF7, 0.02f, ABS_ORIGIN_DIST, -0.19f);
+		wait(500);
+		mathAngle(GF7, BOSS_X, BOSS_Y, ABS_X, ABS_Y);
+		moveCircle(GF7, 0.02f, ABS_ORIGIN_DIST, 0.2f);
+		wait(500);
+	}
+	wait(10000);
+}
 
+void Ran_at()
+{
+	float A;
+	etNew(0);
+	etAim(0, 1);
+	etSprite(0, 4, 14);
+	etCount(0, 6, 1);
+	etSpeed(0, 2f, 1f);
+	etAngle(0, rad(90), rad(5));
+	etExSet(0, 0, 0, EX_ANIM, 0, NEG, NEGF, NEGF);
+	etCopy(2, 0);
+	etSprite(2, 4, 10);
+	while(1)
+	{
+		mathAngle(A, BOSS_X, BOSS_Y, ABS_X, ABS_Y);
+		etAngle(0, A, rad(10));
+		etAngle(2, A+rad(180), rad(10));
+		etOn(0);
+		etOn(2);
+		wait(7);
+	}
+}
 
+void Chen_at()
+{
+	float A;
+	etNew(1);
+	etAim(1, 1);
+	etSprite(1, 4, 2);
+	etCount(1, 6, 1);
+	etSpeed(1, 2f, 1f);
+	etAngle(1, rad(90), rad(5));
+	etExSet(1, 0, 0, EX_ANIM, 0, NEG, NEGF, NEGF);
+	etCopy(3, 1);
+	etSprite(1, 4, 6);
+	while(1)
+	{
+		mathAngle(A, BOSS_X, BOSS_Y, ABS_X, ABS_Y);
+		etAngle(1, A, rad(10));
+		etAngle(3, A+rad(180), rad(10));
+		etOn(1);
+		etOn(3);
+		wait(7);
+	}
+}
 void BossCard6()
 {
     var A, B, C;
