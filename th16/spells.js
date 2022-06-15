@@ -50,7 +50,7 @@
     "110": "Cérémonie secrète « Coups dans le dos de la trahison »",
     "111": "Cérémonie secrète « Danmaku de soie dupion »",
     "112": "40/100 «Silencieuse danse fantômatique»",
-    "113": "40/100 «Silencieuse danse fantômatique»",
+    "113": "50/100 «»",
     "114": "60/100 «Synergie millénaire»",
     "115": "70/100 «Frontière entre l'inerte et le vivant»",
     "116": "«Resurrection Butterfly - 80/100 Reflowering -»",
