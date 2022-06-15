@@ -4220,3 +4220,80 @@ offset12:
 +72:
     jmp(offset12, 0);
 }
+
+entry entry7 {
+    version: 8,
+    name: "stgenm/stage07/stg7enm.png",
+    format: 5,
+    width: 512,
+    height: 512,
+    memoryPriority: 0,
+    lowResScale: 0,
+    hasData: 1,
+    sprites: {
+        sprite225: { x: 0, y: 195, w: 49, h: 64},
+        sprite226: { x: 0, y: 323, w: 49, h: 64},
+        sprite227: { x: 49, y: 323, w: 49, h: 64},
+        sprite228: { x: 98, y: 323, w: 49, h: 64},
+		sprite229: { x: 265, y: 81, w: 60, h: 79},
+        sprite230: { x: 265, y: 239, w: 60, h: 79},
+        sprite231: { x: 325, y: 239, w: 60, h: 79},
+        sprite232: { x: 385, y: 239, w: 60, h: 79}
+	}
+}
+script script177 {
+-1:
+	sprite(sprite225);
+0:
+offset12:
+    posTime(72, 9, 0.0f, -8.0f, 0.0f);
++72:
+    posTime(72, 9, 0.0f, 0.0f, 0.0f);
++72:
+    jmp(offset12, 0);
+}
+script script178 {
+-1:
+	type(1);
+	sprite(sprite226);
+0:
++4:
+	sprite(sprite227);
++4:
+	sprite(sprite228);
+	F0 = 0f;
+loop:
+	rotate(0f, 0f, F0);
+	F0 = F0 - rad(25);
++1:
+	jmp(loop, 8);
+}
+
+script script179 {
+-1:
+	sprite(sprite229);
+0:
+offset12:
+    posTime(72, 9, 0.0f, -8.0f, 0.0f);
++72:
+    posTime(72, 9, 0.0f, 0.0f, 0.0f);
++72:
+    jmp(offset12, 0);
+}
+script script180 {
+-1:
+	type(1);
+	sprite(sprite230);
+0:
++4:
+	sprite(sprite231);
++4:
+	sprite(sprite232);
+	F0 = 0f;
+loop:
+	rotate(0f, 0f, F0);
+	F0 = F0 - rad(25);
++1:
+	jmp(loop, 8);
+}
+
