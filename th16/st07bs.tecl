@@ -528,6 +528,7 @@ void Boss2_at(int count1, int count2)
 	etSpeed(0, 4f, 1.5f);
 	etAngle(0, rad(0), rad(20));
 	etCount(0, count1, count2);
+	etNew(1);
 	etCopy(1, 0);
 	etEx(1, 0, EX_HITBOX, 1, 0, 0.1f, 0.1f);
 	etSprite(1, 33, 2);
@@ -631,6 +632,7 @@ void Boss3_at(int count1, int count2)
 	etSpeed(0, 4f, 1.5f);
 	etAngle(0, rad(0), rad(180));
 	etCount(0, count1, count2);
+	etNew(1);
 	etCopy(1, 0);
 	etEx(1, 0, EX_HITBOX, 1, 0, 0.1f, 0.1f);
 	etSprite(1, 33, 1);
@@ -752,6 +754,7 @@ void Boss4_at(int count1, int count2)
 	etSpeed(0, 4f, 2f);
 	etAngle(0, rad(0), rad(180));
 	etCount(0, count1, count2);
+	etNew(1);
 	etCopy(1, 0);
 	etEx(1, 0, EX_HITBOX, 1, 0, 0.1f, 0.1f);
 	etSprite(1, 33, 3);
@@ -883,6 +886,7 @@ void Boss5_at2()
 	etAngle(1, 0f, 0f);
 	etExSet(1, 0, 0, EX_WAIT, 10, NEG, NEGF, NEGF);
 	etExSet(1, 1, 0, EX_SAVEANGLE, NEG, NEG, NEGF, NEGF);
+	etNew(2);
 	etCopy(2, 1);
 	etAngle(2, A-rad(3), 0f);
 	etSpeed(2, 3.1f, 3.1f);
@@ -990,6 +994,7 @@ void Boss6_at2()
 	etAngle(1, 0f, 0f);
 	etExSet(1, 0, 0, EX_WAIT, 10, NEG, NEGF, NEGF);
 	etExSet(1, 1, 0, EX_SAVEANGLE, NEG, NEG, NEGF, NEGF);
+	etNew(2);
 	etCopy(2, 1);
 	etAngle(2, A-rad(3), 0f);
 	etSpeed(2, 2.1f, 1.1f);
@@ -1101,6 +1106,9 @@ void Boss7_at2()
 	etAngle(1, 0f, 0f);
 	etExSet(1, 0, 0, EX_WAIT, 10, NEG, NEGF, NEGF);
 	etExSet(1, 1, 0, EX_SAVEANGLE, NEG, NEG, NEGF, NEGF);
+	etNew(2);
+	etNew(3);
+	etNew(4);
 	etCopy(2, 1);
 	etCopy(3, 1);
 	etCopy(4, 1);
@@ -2436,6 +2444,7 @@ void Ran_at()
 	etSpeed(0, 2f, 1f);
 	etAngle(0, rad(90), rad(5));
 	etExSet(0, 0, 0, EX_ANIM, 0, NEG, NEGF, NEGF);
+	etNew(2);
 	etCopy(2, 0);
 	etSprite(2, 4, 10);
 	while(1)
@@ -2459,6 +2468,7 @@ void Chen_at()
 	etSpeed(1, 2f, 1f);
 	etAngle(1, rad(90), rad(5));
 	etExSet(1, 0, 0, EX_ANIM, 0, NEG, NEGF, NEGF);
+	etNew(3);
 	etCopy(3, 1);
 	etSprite(1, 4, 6);
 	while(1)
@@ -2929,6 +2939,7 @@ void BossCard8_at2()
 	etAngle(3, rad(90), rad(0));
 	etExSet(3, 0, 1, EX_ANIM, 0, NEG, NEGF, NEGF);
 	etExSet(3, 1, 0, EX_WAIT, 60, NEG, NEGF, NEGF);
+	etNew(4);
 	etCopy(4, 3);
 	etAim(4, 5);
 	etSprite(4, 22, 2);
