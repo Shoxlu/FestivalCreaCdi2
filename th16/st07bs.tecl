@@ -2292,7 +2292,24 @@ BossCard5_264:
     movePosTime(60, 4, 0.0f, 224.0f);
     moveLimitReset();
 +90:
-	@BossCard5_at();
+	@BossCard5_at() async;
+	while(1)
+	{
+		BossCard5_at1();
+		wait(250);
+	}
+}
+
+void BossCard5_at1()
+{
+	int time = 250;
+	CreatePattern(4, 4, 8, 4, 10, 2, 0f, rad(20), 1f, 2f);
+	while(time > 0)
+	{
+		etOn(4);
+		wait(75);
+		time -= 75;
+	}
 }
 
 void BossCard5_at()
