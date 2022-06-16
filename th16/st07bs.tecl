@@ -498,8 +498,8 @@ Boss2_516:
     spec0(2400, 200, 80);
     anmSelect(3);
     anmSetMain(0, 0);
-    setNext(0, 3000, 3600, "BossCard2");
-    lifeMarker(0, 3000.0f, -24448);
+    setNext(0, 6000, 3600, "BossCard2");
+    lifeMarker(0, 6000.0f, -24448);
     stars(7);
     movePosTime(60, 4, 0.0f, 128.0f);
     wait(120);
