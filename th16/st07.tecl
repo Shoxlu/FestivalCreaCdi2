@@ -1550,19 +1550,20 @@ void GivePlayerFullPower()
 	anmSetMain(0, ENM_GIRL_L_DARK);
 	anmSetSprite(1, ENM_AURA_L_PURPLE);
 	dropExtra(16, 400);
-	dropArea(64f, 64f);
+	dropExtra(1, 50);
+	dropExtra(2, 50);
 	// dropItems();
 	pattern();
 	wait(10000);
 }
 void died()
 {
-	scoreAdd(20000000);
+	scoreAdd(20000000/3);
 	
 }
 void pattern()
 {
-	CreatePattern(0, 1, 11, 4, 20, 1, rad(270), rad(340)/20f, 4f, 4f);
+	CreatePattern(0, 1, 11, 4, 20, 1, rad(270), rad(300)/20f, 4f, 4f);
 	while(1)
 	{
 		etOn(0);
@@ -1615,6 +1616,8 @@ main_568:
     // ins_571();
     setChapter(41);
 	enmCreate("GivePlayerFullPower", 0f, 128f, 1000, 100, 16);
+	enmCreate("GivePlayerFullPower", 100f, 168f, 1000, 100, 16);
+	enmCreate("GivePlayerFullPower", -100f, 158f, 1000, 100, 16);
     // wait(160);
 	wait(400);
 	callSTD(1);

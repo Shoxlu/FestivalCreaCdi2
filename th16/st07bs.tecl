@@ -1987,6 +1987,7 @@ void BossCard2_at()
 	etSprite(0, 12, 4);
 	etAngle(0, rad(270) + cos(A), rad(120)/8f);
 	etSpeed(0, 3f, 3f);
+	etNew(1);
 	etCopy(1, 0);
 	// etSprite(1, 10, 1);
 	etEx(0, 0, EX_ANIM, 0, NEG, NEGF, NEGF);
