@@ -1674,7 +1674,7 @@ BossCard10_412:
     $CAPTURE = 1;
     spec0(2400, 200, 80);
     bombShield(1, 0);
-    setNext(0, 0, 9000, "BossDead");
+    setNext(0, 0, 9000, "BossDeadforReal");
     spellEx(118, 9000, 0, "「アナーキーバレットヘル」");
 	GI3 = 0;
 	GI2 = 0;
@@ -2062,90 +2062,28 @@ BossCard3_264:
     bombShield(1, 0);
     setNext(0, 0, 4200, "Boss4");
     spellEx(111, 4200, 0, "秘儀「弾幕の玉繭」");
-    movePosTime(60, 4, 0.0f, 224.0f);
+    movePosTime(60, 4, 0.0f, 128.0f);
     moveLimitReset();
-    spec0(2400, 200, 80);
+    // spec0(2400, 200, 80);
     anmPlay(1, 73);
 +90: //90
     nop();
-    moveLimit(0.0f, 224.0f, 240.0f, 64.0f);
-    %F0 = 1.3f;
-    $A = 2;
-    @BossCard3_at2() async;
-    $B = -1;
-    $C = 1000;
-    goto BossCard3_1160 @ 90;
-BossCard3_1028:
-    $B = $B + 1;
-    @BossCard3_at();
-    wait(40);
-BossCard3_1160:
-    if ($C--) goto BossCard3_1028 @ 90;
-    goto BossCard3_1248 @ 90;
-BossCard3_1228:
-    wait(1000);
-BossCard3_1248:
-    if (1) goto BossCard3_1228 @ 90;
-    return;
+	enmCreate("Youmu", 0f, 120f, 10, 10, 1);
+	wait(100000);
 }
 
-void BossCard3_at()
+void Youmu()
 {
-    var A, B, C;
-    etNew(0);
-    etAim(0, 3);
-    etSprite(0, 8, 10);
-    etCount(0, 1, 1);
-    etAngle(0, 0.0f, 0.0f);
-    etSpeed(0, 0.01f, 1.0f);
-    etEx(0, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-    etDist(0, 160.0f);
-    %A = -1.570796f;
-    %B = -1.570796f;
-    $C = 10000;
-    goto BossCard3_at_768 @ 0;
-BossCard3_at_404:
-    etExSet(0, 1, 0, 8, 240, -999999, 0.01f, 0.023561945f);
-    etAngle(0, %A, 0.0f);
-    etOn(0);
-    etExSet(0, 1, 0, 8, 240, -999999, 0.01f, -0.023561945f);
-    etAngle(0, %B, 0.0f);
-    etOn(0);
-    %A = %A + 0.034907f;
-    %B = %B - 0.034907f;
-    wait(2);
-BossCard3_at_768:
-    if ($C--) goto BossCard3_at_404 @ 0;
-    return;
+	anmSelect(2);
+	anmSetSprite(0, 181);
+	while(1)
+	{
+		anmSetSprite(0, 181);
+		wait(180);
+	}
+	
 }
 
-void BossCard3_at2()
-{
-    var A, B, C;
-    wait(300);
-    etNew(1);
-    etAim(1, 3);
-    etSprite(1, 6, 13);
-    etCount(1, 1, 1);
-    etAngle(1, 0.0f, 0.0f);
-    etSpeed(1, 0.01f, 1.0f);
-    etEx(1, 0, 2, 1, -999999, -999999.0f, -999999.0f);
-    etDist(1, 160.0f);
-    %A = -1.570796f;
-    floatTime(0, %F0, 0, 3600, 30.0f, 2.0f);
-    $C = 10000;
-    goto BossCard3_at2_728 @ 0;
-BossCard3_at2_424:
-    etExSet2(1, 1, 0, 16, 1, 1, 0, 0, %RANDF2 * 0.17453292f, -1.0f, -999999.0f, -999999.0f);
-    etAngle(1, %A, 0.0f);
-    etOn(1);
-    %A = %A + 3.883222f;
-    $B = _S(%F0);
-    wait($B);
-BossCard3_at2_728:
-    if ($C--) goto BossCard3_at2_424 @ 0;
-    return;
-}
 
 void BossCard4()
 {
@@ -3483,10 +3421,42 @@ BossDead_680:
     delete();
 }
 
+void BossDeadforReal()
+{
+    flagSet(156);
+	GI2 = 0;
+	GI3 = 0;
+    playSound(5);
+    unless ($TIMEOUT == 0) goto BossDead_260 @ 0;
+    enmCreate("Ecl_EtBreak2", 0.0f, 0.0f, 9999, 0, 0);
+    goto BossDead_316 @ 0;
+BossDead_260:
+    enmCreate("Ecl_EtBreak2_ni", 0.0f, 0.0f, 9999, 0, 0);
+BossDead_316:
+    enmKillAll();
++60: //60
+    etClearAll();
+    spellEnd();
+    @BossItemPhase(0, 100, 64.0f);
+    setScreenShake(30, 12, 0);
+    anmPlay(1, 32);
+    anmPlay(1, 64);
+    anmSetSprite(1, -1);
+    anmSetSprite(2, -1);
+    playSound(5);
+    flagSet(32);
+    unless ($SPELL_ID < 0) goto BossDead_680 @ 60;
+    gameSpeed(0.25f);
+    wait(30);
+    gameSpeed(1.0f);
+BossDead_680:
+    setBoss(-1);
+    delete();
+    delete();
+}
+
 void Revive()
 {
-	if(GF0 == 1f)
-	{
 		wait(200);
 		//@charge() async;
 		times(90)
@@ -3503,9 +3473,7 @@ void Revive()
 			wait(1);
 		}
 		playSound(SE_EXPLODE2);
-		GF0 = GF0 * -1f;
 		@Boss10();
-	}
 }
 void Petals()
 {
