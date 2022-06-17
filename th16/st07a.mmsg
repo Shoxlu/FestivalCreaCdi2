@@ -152,9 +152,9 @@ script script0 {
 +4: // 248
     textPause(600);
 +4: // 252
-    bossFace(5, 0);
-    speakerBoss(0);
-    bubblePos(360.0, 250.0);
+    playerFace(2);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
     textAdd("しかしそれは、自らの退路を");
     textAdd("断ったと言う事だ");
 +4: // 256
