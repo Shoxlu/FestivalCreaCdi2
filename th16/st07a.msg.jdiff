@@ -111,7 +111,8 @@
         },
         "252_0": {
             "lines": [
-                "Mais bon, au moins je vais à nouveau pouvoir te battre à plate couture !"
+                "Mais bon, au moins je vais à nouveau", 
+				"pouvoir te battre à plate couture !"
             ]
         },
         "260_0": {
@@ -144,7 +145,7 @@
         },
         "300_0": {
             "lines": [
-                "ÇLaisse-moi te montrer à quoi ressemble",
+                "Laisse-moi te montrer à quoi ressemble",
                 "une éclosion parfaite des cerisiers !"
             ]
         }
