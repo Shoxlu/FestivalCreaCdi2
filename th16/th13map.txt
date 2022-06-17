@@ -103,6 +103,7 @@
 334 anm334
 335 anmScale2
 336 anmLayer
+338 anmPlayPos
 370 enmDelete
 
 400 movePos

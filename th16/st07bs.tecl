@@ -2068,7 +2068,7 @@ BossCard3_264:
     anmPlay(1, 73);
 +90: //90
     nop();
-	enmCreate("Youmu", 0f, 120f, 10, 10, 1);
+	enmCreate("Youmu", -180f, 120f, 10, 10, 1);
 	wait(100000);
 }
 
@@ -2079,7 +2079,21 @@ void Youmu()
 	while(1)
 	{
 		anmSetSprite(0, 181);
-		wait(180);
+		playSound(54);
+		anmPlay(1, EFF_CHARGE_CYAN);
+		anmPlayPos(2, 183, 0f + ABS_X, 0f, 0f);
+		wait(8*6);
+		playSound(38);
+		movePos(180f, BOSS_Y + 120f);
+		wait(300);
+		anmSetSprite(0, 182);
+		playSound(54);
+		anmPlay(1, EFF_CHARGE_CYAN);
+		anmPlayPos(2, 183, 0f - ABS_X, 0f, 0f);
+		wait(8*6);
+		playSound(38);
+		movePos(-180f, BOSS_Y + 120f);
+		wait(300);
 	}
 	
 }

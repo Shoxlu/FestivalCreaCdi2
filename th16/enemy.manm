@@ -4297,3 +4297,169 @@ loop:
 	jmp(loop, 8);
 }
 
+entry entry7 {
+    version: 8,
+    name: "stgenm/stage07/stg6enm.png",
+    format: 5,
+    width: 512,
+    height: 512,
+    memoryPriority: 0,
+    lowResScale: 0,
+    hasData: 1,
+    sprites: {
+        sprite233: { x: 257, y: 288, w: 48, h: 78},
+        sprite234: { x: 305, y: 288, w: 43, h: 78},
+        sprite235: { x: 350, y: 288, w: 50, h: 78},
+        sprite236: { x: 412, y: 288, w: 50, h: 78},
+        sprite237: { x: 258, y: 369, w: 71, h: 78},
+        sprite238: { x: 331, y: 369, w: 71, h: 78},
+        sprite239: { x: 403, y: 369, w: 71, h: 78},
+        sprite240: { x: 0, y: 241, w: 250, h: 14},
+        sprite241: { x: 258, y: 97, w: 48, h: 65},
+        sprite242: { x: 306, y: 97, w: 48, h: 65},
+        sprite243: { x: 354, y: 97, w: 48, h: 65},
+        sprite244: { x: 402, y: 97, w: 48, h: 65}
+	}
+}
+
+script script181 {
+-1:
+	type(1);
+	pos(0f, -13f, 0f);
+	sprite(sprite233);
+0:
++8:
+	sprite(sprite234);
++8:
+	sprite(sprite235);
++8:
+	sprite(sprite236);
++8:
+	sprite(sprite237);
++8:
+	sprite(sprite238);
++8:
+	sprite(sprite239);
++16:
+	pos(0f, 0f, 0f);
+offset12:
+	
+   posTime(72, 9, 0.0f, -8.0f, 0.0f);
+    sprite(sprite241);
++8: // 8
+    sprite(sprite242);
++8: // 16
+    sprite(sprite243);
++8: // 24
+    sprite(sprite242);
++8: // 32
+    sprite(sprite241);
++8: // 40
+    sprite(sprite242);
++8: // 48
+    sprite(sprite243);
++8: // 56
+    sprite(sprite242);
++8: // 64
+    sprite(sprite241);
++8: // 72
+   posTime(72, 9, 0.0f, 0.0f, 0.0f);
+    sprite(sprite241);
++8: // 8
+    sprite(sprite242);
++8: // 16
+    sprite(sprite243);
++8: // 24
+    sprite(sprite242);
++8: // 32
+    sprite(sprite241);
++8: // 40
+    sprite(sprite242);
++8: // 48
+    sprite(sprite243);
++8: // 56
+    sprite(sprite242);
++8: // 64
+    sprite(sprite241);
++8: // 72
+    jmp(offset12, 80);
+	stop();
+}
+script script182 {
+-1:
+	flipX();
+	type(1);
+	sprite(sprite233);
+0:
++8:
+	sprite(sprite234);
++8:
+	sprite(sprite235);
++8:
+	sprite(sprite236);
++8:
+	sprite(sprite237);
++8:
+	sprite(sprite238);
++8:
+	sprite(sprite239);
++16:
+	flipX();
+offset12:
+	
+    posTime(72, 9, 0.0f, -8.0f, 0.0f);
+    sprite(sprite241);
++8: // 8
+    sprite(sprite242);
++8: // 16
+    sprite(sprite243);
++8: // 24
+    sprite(sprite242);
++8: // 32
+    sprite(sprite241);
++8: // 40
+    sprite(sprite242);
++8: // 48
+    sprite(sprite243);
++8: // 56
+    sprite(sprite242);
++8: // 64
+    sprite(sprite241);
++8: // 72
+    posTime(72, 9, 0.0f, 0.0f, 0.0f);
+    sprite(sprite241);
++8: // 8
+    sprite(sprite242);
++8: // 16
+    sprite(sprite243);
++8: // 24
+    sprite(sprite242);
++8: // 32
+    sprite(sprite241);
++8: // 40
+    sprite(sprite242);
++8: // 48
+    sprite(sprite243);
++8: // 56
+    sprite(sprite242);
++8: // 64
+    sprite(sprite241);
++8: // 72
+    jmp(offset12, 80);
+	stop();
+}
+script script183{
+	type(1);
+	alpha(125);
+	layer(6);
+	scale(3f, 0.5f);
+	sprite(sprite240);
++60:
+	alphaTime(20, 6, 255);
+	scaleTime(20, 6, 3f,2f);
++260:
+	alphaTime(30, 0, 0);
+	scaleTime(30, 0, 3f, 0f);
++40:
+	stop();
+}
