@@ -152,165 +152,65 @@ script script0 {
 +4: // 248
     textPause(600);
 +4: // 252
-    playerFace(1);
-    speakerPlayer();
-    bubblePos(112.0, 270.0);
-    textAdd("つまり、背中の扉は魔力回収と強制排出を");
-    textAdd("兼ねている罠だった！");
+    bossFace(5, 0);
+    speakerBoss(0);
+    bubblePos(360.0, 250.0);
+    textAdd("しかしそれは、自らの退路を");
+    textAdd("断ったと言う事だ");
 +4: // 256
     textPause(600);
 +4: // 260
-    bossFace(0, 0);
-    speakerBoss(0);
-    bubblePos(360.0, 250.0);
-    textAdd("そうだ、よく判ったな");
+    playerFace(1);
+    speakerPlayer();
+    bubblePos(112.0, 270.0);
+    textAdd("今度はあんたを倒すまで");
+    textAdd("この場を去らないって事よ！");
 +4: // 264
     textPause(600);
 +4: // 268
     bossFace(0, 0);
     speakerBoss(0);
     bubblePos(360.0, 250.0);
-    textAdd("だからお前に勝ち目は無い");
-    textAdd("最後はここから追い出されるのだから");
+    textAdd("気に入った！");
 +4: // 272
     textPause(600);
 +4: // 276
-    playerFace(2);
-    speakerPlayer();
-    bubblePos(112.0, 270.0);
-    textAdd("ふっふっふ");
-+4: // 280
-    textPause(600);
-+4: // 284
-    bossFace(4, 0);
-    speakerBoss(0);
-    bubblePos(360.0, 250.0);
-    textAdd("ん？　どうした？");
-    textAdd("気でも触れたか？");
-+4: // 288
-    textPause(600);
-+4: // 292
-    playerFace(2);
-    speakerPlayer();
-    bubblePos(112.0, 270.0);
-    textAdd("予想が当たったわ！");
-    textAdd("これで勝った！");
-+4: // 296
-    textPause(600);
-+4: // 300
-    bossFace(6, 0);
-    speakerBoss(0);
-    bubblePos(360.0, 250.0);
-    textAdd("何だと？");
-+4: // 304
-    textPause(600);
-+4: // 308
-    playerFace(0);
-    speakerPlayer();
-    bubblePos(112.0, 270.0);
-    textAdd("私の背中を見て");
-+4: // 312
-    textPause(600);
-+4: // 316
-    playerFace(0);
-    speakerPlayer();
-    bubblePos(112.0, 270.0);
-    textAdd("今回集めてきたのは");
-    textAdd("季節の境目よ！");
-+4: // 320
-    textPause(600);
-+4: // 324
-    playerFace(0);
-    speakerPlayer();
-    bubblePos(112.0, 270.0);
-    textAdd("これなら強制的に戻される場所は");
-    textAdd("存在しないはず！");
-+4: // 328
-    textPause(600);
-+4: // 332
-    bossFace(0, 0);
-    speakerBoss(0);
-    bubblePos(360.0, 250.0);
-    textAdd("ほう……今のお前の背中の扉は");
-+4: // 336
-    textPause(600);
-+4: // 340
-    bossFace(0, 0);
-    speakerBoss(0);
-    bubblePos(360.0, 250.0);
-    textAdd("もっとも生命力が失われる");
-    textAdd("季節の境目、土用か……");
-+4: // 344
-    textPause(600);
-+4: // 348
-    bossFace(0, 0);
-    speakerBoss(0);
-    bubblePos(360.0, 250.0);
-    musicBoss();
-    textAdd("ふっふっふ");
-    textAdd("悪くない策だ");
-+4: // 352
-    textPause(600);
-+4: // 356
-    bossFace(5, 0);
-    speakerBoss(0);
-    bubblePos(360.0, 250.0);
-    textAdd("しかしそれは、自らの退路を");
-    textAdd("断ったと言う事だ");
-+4: // 360
-    textPause(600);
-+4: // 364
-    playerFace(1);
-    speakerPlayer();
-    bubblePos(112.0, 270.0);
-    textAdd("今度はあんたを倒すまで");
-    textAdd("この場を去らないって事よ！");
-+4: // 368
-    textPause(600);
-+4: // 372
-    bossFace(0, 0);
-    speakerBoss(0);
-    bubblePos(360.0, 250.0);
-    textAdd("気に入った！");
-+4: // 376
-    textPause(600);
-+4: // 380
     bossFace(0, 0);
     speakerBoss(0);
     bubblePos(360.0, 250.0);
     textAdd("お前は博麗の巫女だから");
     textAdd("部下にすることは出来ないが");
-+4: // 384
++4: // 280
     textPause(600);
-+4: // 388
++4: // 284
     bossFace(5, 0);
     speakerBoss(0);
     bubblePos(360.0, 250.0);
     textAdd("その聡明さに敬意を払って");
-+4: // 392
++4: // 288
     textPause(600);
-+4: // 396
++4: // 292
     bossFace(1, 0);
     speakerBoss(0);
     bubblePos(360.0, 250.0);
     textAdd("集めた季節の魔力を");
     textAdd("使わずに戦ってやる");
-+4: // 400
++4: // 296
     textPause(600);
-+4: // 404
++4: // 300
     bossFace(1, 0);
     speakerBoss(0);
     bubblePos(360.0, 250.0);
     bubbleType(1);
     textAdd("見よ！　聞け！　語れ！");
     textAdd("秘神の真なる魔力がお前の障碍となろう！");
-+4: // 408
++4: // 304
     textPause(600);
     playerHide();
     bossHide(0);
     textboxHide();
     skippable(0);
-+30: // 438
++30: // 334
     end();
 }
 
