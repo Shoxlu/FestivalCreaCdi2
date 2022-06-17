@@ -301,6 +301,12 @@ script script0 {
     textAdd("真なる秘神の秘術をしかと見よ！");
 +4: // 408
     textPause(600);
+	playerHide();
+    bossHide(0);
+    textboxHide();
+    skippable(0);
++30: // 382
+    end();
 }
 
 
