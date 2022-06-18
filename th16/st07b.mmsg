@@ -148,22 +148,22 @@ script script0 {
 +4: // 248
     textPause(600);
 +4: // 252
-    bossFace(4, 0);
-    speakerBoss(0);
-    bubblePos(360.0, 250.0);
-    textAdd("気のせいではないぞ");
-    textAdd("目の前のコイツはただの残念な奴だ");
-+4: // 256
-    textPause(600);
-+4: // 260
-    bossFace(4, 0);
-    speakerBoss(0);
-    bubblePos(360.0, 250.0);
-    textAdd("さっさと背中の扉の魔力を頂いて");
-    textAdd("元の世界に強制帰還させるか");
-+4: // 264
-    textPause(600);
-+4: // 268
+    // bossFace(4, 0);
+    // speakerBoss(0);
+    // bubblePos(360.0, 250.0);
+    // textAdd("気のせいではないぞ");
+    // textAdd("目の前のコイツはただの残念な奴だ");
+// +4: // 256
+    // textPause(600);
+// +4: // 260
+    // bossFace(4, 0);
+    // speakerBoss(0);
+    // bubblePos(360.0, 250.0);
+    // textAdd("さっさと背中の扉の魔力を頂いて");
+    // textAdd("元の世界に強制帰還させるか");
+// +4: // 264
+    // textPause(600);
+// +4: // 268
     playerFace(1);
     speakerPlayer();
     bubblePos(112.0, 270.0);
