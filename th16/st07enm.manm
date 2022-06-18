@@ -766,7 +766,7 @@ script script16 {
     layer(3);
     scrollMode(2, 2);
     sprite(sprite37);
-    pos(0.0f, 1224.0f, 0.0f);
+    pos(0.0f, 224.0f, 0.0f);
     alpha(0);
     alphaTime(60, 0, 192);
     blendMode(1);
