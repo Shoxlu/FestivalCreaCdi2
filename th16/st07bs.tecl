@@ -2068,34 +2068,181 @@ BossCard3_264:
     anmPlay(1, 73);
 +90: //90
     nop();
-	enmCreate("Youmu", -180f, 120f, 10, 10, 1);
+	enmCreate("Youmu", -180f, 180f, 10, 10, 1);
+	// enmCreateA("debug", PLAYER_X+10f, PLAYER_Y, 10, 10, 1);
 	wait(100000);
 }
 
-void Youmu()
+void debug()
 {
-	anmSelect(2);
-	anmSetSprite(0, 181);
+	flagSet(32);
+	CreatePattern(3, 1, 11, _S(GF7), 1, 1, 0f, 0f, 0f, 0f);
+	// etOffsetAbs(3, ABS_X, ABS_Y);
 	while(1)
 	{
-		anmSetSprite(0, 181);
+		etSprite(3, 11, _S(GF7));
+		etOn(3);
+		wait(1);
+		etCancel(1f);
+	}
+}
+
+
+void Youmu()
+{
+	flagSet(1);
+	flagSet(2);
+	anmSelect(2);
+	anmSetSprite(0, 184);
+	F0 = 0f;
+	F1 = 0f;
+	GF7 = 0f;
+	float X = ABS_X;
+	float A = -1f;
+	float Y = ABS_Y;
+	GF6 = ABS_X+X;
+	GF5 = ABS_Y;
+	BossCard3_at() async;
+	while(1)
+	{
 		playSound(54);
 		anmPlay(1, EFF_CHARGE_CYAN);
-		anmPlayPos(2, 183, 0f + ABS_X, 0f, 0f);
-		wait(8*6);
-		playSound(38);
-		movePos(180f, BOSS_Y + 120f);
+		times(5)
+		{
+			X *= -1f;
+			Y += 40f * A;
+			if(X > 0f)
+			{			
+				anmSetSprite(0, 181);
+			}else if(X < 0f)
+			{
+				anmSetSprite(0, 182);
+			}
+			mathAngle(GF0, ABS_X, ABS_Y, X, Y);
+			wait(8);
+			GF6 = ABS_X+X;
+			GF5 = ABS_Y;
+			enmCreateA("Slash", GF6,GF5, 10, 10, 0);
+			wait(8*4);
+			movePosTime(4, 3, X, Y);
+			GF7 = 1f;
+			wait(8*5);
+			GF7 = 0f;
+		}
+		wait(1);
+		GF7 = 0f;
 		wait(300);
-		anmSetSprite(0, 182);
-		playSound(54);
-		anmPlay(1, EFF_CHARGE_CYAN);
-		anmPlayPos(2, 183, 0f - ABS_X, 0f, 0f);
-		wait(8*6);
-		playSound(38);
-		movePos(-180f, BOSS_Y + 120f);
-		wait(300);
+		A *= -1f;
+		
 	}
 	
+}
+
+void Slash()
+{
+	flagSet(1);
+	flagSet(2);
+	anmPlayRotate(2, 183, GF0);
+	wait(8*6);
+	playSound(38);
+	wait(60);
+	// GF7 = 0f;
+	wait(100);
+}
+
+void BossCard3_at()
+{
+	etNew(0);
+	etAim(0, 3);
+	etSprite(0, 33, 4);
+	etCount(0, 1, 1);
+	etSpeed(0, 2f, 2f);
+	etOffsetAbs(0, BOSS_X, BOSS_Y);
+	etNew(1);
+	etAim(1, 5);
+	etCount(1, 1, 1);
+	etSpeed(1, 2f, 2f);
+	etSprite(1, 33, 2);
+	etOffsetAbs(1, BOSS_X, BOSS_Y);
+	float A = rad(90);
+	while(1)
+	{
+		times(10)
+		{
+			times(20)
+			{
+				etAngle(0, A, 0f);
+				etAngle(1, A+rad(45), 0f);
+				enmCreateA("BulletFollower_enemy", BOSS_X, A, 100, 10, 1);
+				enmCreateA("BulletFollower_enemy", BOSS_X, A+rad(45), 100, 10, 1);
+				etOn(0);
+				etOn(1);
+				A += rad(360)/20f;
+			}
+			wait(20);
+			A = A + rad(45)/2f;
+			etAngle(0, A, 0f);
+			etAngle(1, A, 0f);
+			
+		}
+		//wait(160);
+	}
+}
+
+
+void BulletFollower_enemy()
+{
+	flagSet(3);
+	// anmSelect(2);
+	// anmSetMain(0, 40);
+	deathAnm(0, -1);
+	moveVel(ABS_Y, 2f);
+	movePos(BOSS_X, BOSS_Y);
+	@Collision(F2, F3, F0);
+}
+
+void Collision(float boxX, float boxY, float boxAngle)
+{
+	int interrupt = 1;
+	float A = -GF0;
+	CreatePattern(0, 1, 8, 1, 1, 1, 0f, 0f, 0f, 0f);
+	while(1)
+	{
+		float B = -360.0;
+		if(GF7 == 1f)
+		{	
+			times(45)
+			{
+				if(ABS_Y >= (GF5 - sin(A)*B-10f))
+				{
+					if(ABS_Y <= (GF5 - sin(A)*B+10f))
+					{
+						if(ABS_X >= (GF6+cos(A)*B-20f))
+						{
+							if(ABS_X <= (GF6+cos(A)*B+20f))
+							{
+								etCancel(1f);
+								interrupt = 0;
+							}
+						}
+					}
+				}
+				B += 360f*2f/45f;
+			}
+			// if(GF7 == 1f)
+			// {
+				// etOffsetAbs(0, GF6+cos(A)*_f(B) , GF5 - sin(A)*_f(B));
+				// etOn(0);
+			// }
+		}
+		if(interrupt == 0)
+		{
+			goto end @ 0;
+		}
+		A = -GF0;
+		wait(1);
+	}
+end:
 }
 
 

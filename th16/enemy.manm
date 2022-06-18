@@ -4390,6 +4390,7 @@ script script182 {
 	flipX();
 	type(1);
 	sprite(sprite233);
+	pos(0f, -13f, 0f);
 0:
 +8:
 	sprite(sprite234);
@@ -4404,6 +4405,7 @@ script script182 {
 +8:
 	sprite(sprite239);
 +16:
+	pos(0f, 0f, 0f);
 	flipX();
 offset12:
 	
@@ -4452,14 +4454,58 @@ script script183{
 	type(1);
 	alpha(125);
 	layer(6);
-	scale(3f, 0.5f);
+	scale(1.5f, 0.5f);
 	sprite(sprite240);
-+60:
-	alphaTime(20, 6, 255);
-	scaleTime(20, 6, 3f,2f);
-+260:
-	alphaTime(30, 0, 0);
-	scaleTime(30, 0, 3f, 0f);
 +40:
+	alphaTime(20, 6, 255);
+	scaleTime(20, 6, 1.5f,2f);
++60:
+	alphaTime(30, 0, 0);
+	scaleTime(30, 0, 1.5f, 0f);
++40:
+	stop();
+}
+
+script script184{
+	offset12:
+    posTime(72, 9, 0.0f, -8.0f, 0.0f);
+    sprite(sprite241);
++8: // 8
+    sprite(sprite242);
++8: // 16
+    sprite(sprite243);
++8: // 24
+    sprite(sprite242);
++8: // 32
+    sprite(sprite241);
++8: // 40
+    sprite(sprite242);
++8: // 48
+    sprite(sprite243);
++8: // 56
+    sprite(sprite242);
++8: // 64
+    sprite(sprite241);
++8: // 72
+    posTime(72, 9, 0.0f, 0.0f, 0.0f);
+    sprite(sprite241);
++8: // 8
+    sprite(sprite242);
++8: // 16
+    sprite(sprite243);
++8: // 24
+    sprite(sprite242);
++8: // 32
+    sprite(sprite241);
++8: // 40
+    sprite(sprite242);
++8: // 48
+    sprite(sprite243);
++8: // 56
+    sprite(sprite242);
++8: // 64
+    sprite(sprite241);
++8: // 72
+    jmp(offset12, 0);
 	stop();
 }
