@@ -170,98 +170,6 @@ script script0 {
     textAdd("つまりお前に勝ち目は無い");
 +4: // 272
     textPause(600);
-+4: // 276
-    bossFace(6, 0);
-    speakerBoss(0);
-    bubblePos(360.0, 250.0);
-    textAdd("そこまで判っていてよく来たな");
-+4: // 280
-    textPause(600);
-+4: // 284
-    playerFace(6);
-    speakerPlayer();
-    bubblePos(110.0, 260.0);
-    textAdd("そうはいっても負けたままで");
-    textAdd("居るわけには行かない");
-+4: // 288
-    textPause(600);
-+4: // 292
-    playerFace(6);
-    speakerPlayer();
-    bubblePos(110.0, 260.0);
-    textAdd("だから今度はお前の罠を");
-    textAdd("逆に利用してやるぜ");
-+4: // 296
-    textPause(600);
-+4: // 300
-    bossFace(0, 0);
-    speakerBoss(0);
-    bubblePos(360.0, 250.0);
-    textAdd("利用……？");
-    textAdd("ほう、それは何だ");
-+4: // 304
-    textPause(600);
-+4: // 308
-    playerFace(2);
-    speakerPlayer();
-    bubblePos(110.0, 260.0);
-    textAdd("私の背中を見よ！");
-    textAdd("これが答えだ！");
-+4: // 312
-    textPause(600);
-+4: // 316
-    bossFace(0, 0);
-    speakerBoss(0);
-    bubblePos(360.0, 250.0);
-    textAdd("ほう……今のお前の背中の扉は");
-+4: // 320
-    textPause(600);
-+4: // 324
-    bossFace(0, 0);
-    speakerBoss(0);
-    bubblePos(360.0, 250.0);
-    textAdd("もっとも生命力が失われる");
-    textAdd("季節の境目、土用か……");
-+4: // 328
-    textPause(600);
-+4: // 332
-    playerFace(2);
-    speakerPlayer();
-    bubblePos(110.0, 260.0);
-    textAdd("どうだ！");
-+4: // 336
-    textPause(600);
-+4: // 340
-    playerFace(5);
-    speakerPlayer();
-    bubblePos(110.0, 260.0);
-    textAdd("これならお前が強制解放しても");
-    textAdd("退出先が存在しない！");
-+4: // 344
-    textPause(600);
-+4: // 348
-    bossFace(0, 0);
-    speakerBoss(0);
-    bubblePos(360.0, 250.0);
-    musicBoss();
-    textAdd("ふっふっふ");
-+4: // 352
-    textPause(600);
-+4: // 356
-    bossFace(0, 0);
-    speakerBoss(0);
-    bubblePos(360.0, 250.0);
-    textAdd("そう上手くいくとは思わないが");
-    textAdd("悪くない策だ");
-+4: // 360
-    textPause(600);
-+4: // 364
-    playerFace(1);
-    speakerPlayer();
-    bubblePos(110.0, 260.0);
-    textAdd("今度は心置きなく戦わせて貰うぜ！");
-+4: // 368
-    textPause(600);
 +4: // 372
     bossFace(0, 0);
     speakerBoss(0);
@@ -301,6 +209,7 @@ script script0 {
     textAdd("真なる秘神の秘術をしかと見よ！");
 +4: // 408
     textPause(600);
+	musicBoss();
 	playerHide();
     bossHide(0);
     textboxHide();

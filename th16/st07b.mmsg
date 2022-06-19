@@ -198,7 +198,6 @@ script script0 {
     bossFace(0, 0);
     speakerBoss(0);
     bubblePos(360.0, 250.0);
-    musicBoss();
     textAdd("ふっふっふ");
     textAdd("お前の愚劣な演技に騙されるところだった");
 +4: // 304
@@ -252,6 +251,7 @@ script script0 {
     textAdd("全て味わい尽くすが良い");
 +4: // 352
     textPause(600);
+	musicBoss();
     playerHide();
     bossHide(0);
     textboxHide();

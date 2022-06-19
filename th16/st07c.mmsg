@@ -178,7 +178,6 @@ script script0 {
     bossFace(0, 0);
     speakerBoss(0);
     bubblePos(360.0, 250.0);
-    musicBoss();
     textAdd("ふっふっふ");
     textAdd("正々堂々と勝負したいという訳か");
 +4: // 336
@@ -239,6 +238,7 @@ script script0 {
     textAdd("これが障碍の秘神の姿だ！");
 +4: // 392
     textPause(600);
+	musicBoss();
     playerHide();
     bossHide(0);
     textboxHide();

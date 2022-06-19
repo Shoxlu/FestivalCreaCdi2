@@ -206,6 +206,7 @@ script script0 {
     textAdd("秘神の真なる魔力がお前の障碍となろう！");
 +4: // 304
     textPause(600);
+	musicBoss();
     playerHide();
     bossHide(0);
     textboxHide();
