@@ -48,7 +48,7 @@
     "108": "Danse des projectiles « Les typhons jumeaux »",
     "109": "10/100 « Le printemps volé »",
     "110": "20/100 « Espoir d'un printemps total »",
-    "111": "Cérémonie secrète « Danmaku de soie dupion »",
+    "111": "30/100 « Tranchant d'une fleur gelée »",
     "112": "40/100 « Silencieuse danse fantômatique »",
     "113": "50/100 « Tourbillon de pétales »",
     "114": "60/100 « Synergie millénaire »",
