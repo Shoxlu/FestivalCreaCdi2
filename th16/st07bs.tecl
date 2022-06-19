@@ -2126,12 +2126,14 @@ void Youmu()
 			wait(8*4);
 			movePosTime(4, 3, X, Y);
 			GF7 = 1f;
-			wait(8*5);
+			wait(8*2);
 			GF7 = 0f;
+			wait(8*3);
 		}
 		wait(1);
+		@BossCard3_at1(25, 5, 3f, 1.5f) async;
 		GF7 = 0f;
-		wait(300);
+		wait(100);
 		A *= -1f;
 		
 	}
@@ -2185,7 +2187,7 @@ void BossCard3_at()
 			etAngle(1, A, 0f);
 			
 		}
-		//wait(160);
+		wait(300);
 	}
 }
 
@@ -2221,8 +2223,12 @@ void Collision(float boxX, float boxY, float boxAngle)
 						{
 							if(ABS_X <= (GF6+cos(A)*B+20f))
 							{
-								etCancel(1f);
-								interrupt = 0;
+								if(interrupt == 1)
+								{
+									etCancel(1f);
+									enmCreate("Butterfly_from_slash", 0f, 0f, 100, 100, 0);
+									interrupt = 0;
+								}
 							}
 						}
 					}
@@ -2245,6 +2251,49 @@ void Collision(float boxX, float boxY, float boxAngle)
 end:
 }
 
+void Butterfly_from_slash()
+{
+	etNew(0);
+	etAim(0, 2);
+	etSprite(0, 22, 1);
+	etCount(0, 4, 1);
+	etAngle(0, rad(90), 0f);
+	etSpeed(0, 2f, 3f);
+	etNew(1);
+	etCopy(1, 0);
+	etAim(1, 4);
+	etSprite(1, 22, 2);
+	etExSet(0, 0, 0, EX_OFFSCREEN, 100000, NEG, NEGF, NEGF);
+	etExSet(1, 0, 0, EX_OFFSCREEN, 100000, NEG, NEGF, NEGF);
+	// etExSet(0, 1, 0, EX_ANGLE_ACCEL, 120, NEG, 0.5/120f, rad(75)/120f); 
+	// etExSet(1, 1, 0, EX_ANGLE_ACCEL, 120, NEG, 0.5/120f, rad(-75)/120f); 
+	etOn(1);
+	etOn(0);
+}
+
+void BossCard3_at1(int count1, int count2, float speed1, float speed2)
+{
+	float A = speed2;
+	float D = speed2;
+	etNew(3);
+	etAim(3, 2);
+	etSprite(3, 32, 0);
+	etExSet(3, 0, 0, EX_WAIT, 10, NEG, NEGF, NEGF);
+	etCount(3, count1, 1);
+	etOffsetAbs(3, BOSS_X, BOSS_Y);
+	// wait(100);
+	times(count2)
+	{
+		etSpeed(3, A, A);
+		etExSet(3, 1, 0, EX_ACCEL, 20, -999999, D / _f(20), -999999.0f);
+			etSprite(3, 32, 0);
+			etOn(3);
+			etSprite(3, 32, 1);
+			etOn(3);
+		A = A + (speed1-speed2)/_f(count2-1);
+		D = D - (speed1-speed2)/_f(count2-1)*2f;
+	}
+}
 
 void BossCard4()
 {
