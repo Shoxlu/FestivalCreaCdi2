@@ -1558,7 +1558,7 @@ void GivePlayerFullPower()
 }
 void died()
 {
-	scoreAdd(20000000/3);
+	scoreAdd(1000000);
 	
 }
 void pattern()
