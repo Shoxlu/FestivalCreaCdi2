@@ -31,7 +31,7 @@ Boss_376:
 Boss_764:
     flagClear(32);
     flagSet(64);
-    lifeSet(32000);
+    lifeSet(35000);
     spec1(200);
     anmSetSprite(0, 0);
 +2: //2
@@ -570,7 +570,7 @@ void Boss2_at1(int color, int color2, float rotation)
 void Boss3()
 {
     setInvuln(120);
-    lifeSet(26000);
+    lifeSet(29000);
     unless ($TIMEOUT == 0) goto Boss3_200 @ 0;
     etCancel(640.0f);
     goto Boss3_220 @ 0;
@@ -690,7 +690,7 @@ void Boss3_at1(int color, int color2, float rotation)
 void Boss4()
 {
     setInvuln(120);
-    lifeSet(27000);
+    lifeSet(29000);
     unless ($TIMEOUT == 0) goto Boss4_200 @ 0;
     etCancel(640.0f);
     goto Boss4_220 @ 0;
@@ -800,7 +800,7 @@ void Boss5()
 {
     var A;
     setInvuln(120);
-    lifeSet(26000);
+    lifeSet(30000);
     unless ($TIMEOUT == 0) goto Boss5_200 @ 0;
     etCancel(640.0f);
     goto Boss5_220 @ 0;
@@ -1020,7 +1020,7 @@ void Boss6_at2()
 void Boss7()
 {
     setInvuln(120);
-    lifeSet(28000);
+    lifeSet(32000);
     unless ($TIMEOUT == 0) goto Boss7_200 @ 0;
     etCancel(640.0f);
     goto Boss7_220 @ 0;
@@ -1146,7 +1146,7 @@ void Boss7_at2()
 void Boss8()
 {
     setInvuln(120);
-    lifeSet(26800);
+    lifeSet(30000);
     unless ($TIMEOUT == 0) goto Boss8_200 @ 0;
     etCancel(640.0f);
     goto Boss8_220 @ 0;
