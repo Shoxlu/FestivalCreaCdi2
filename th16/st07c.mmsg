@@ -135,22 +135,6 @@ script script0 {
     textAdd("気付かずにね！");
 +4: // 232
     textPause(600);
-+4: // 236
-    bossFace(0, 0);
-    speakerBoss(0);
-    bubblePos(360.0, 250.0);
-    textAdd("そうだ、だからお前に勝ち目は無い！");
-    textAdd("何度やっても同じだよ");
-+4: // 240
-    textPause(600);
-+4: // 244
-    playerFace(2);
-    speakerPlayer();
-    bubblePos(110.0, 240.0);
-    textAdd("ふっ、そこまで判っていて");
-    textAdd("私が無策でここに来る訳が無いでしょう");
-+4: // 248
-    textPause(600);
 +4: // 252
     bossFace(5, 0);
     speakerBoss(0);
@@ -172,47 +156,6 @@ script script0 {
     bubblePos(360.0, 250.0);
     textAdd("ほう……なるほど！");
     textAdd("お前は季節の隙間の魔力を集めてきたのか！");
-+4: // 272
-    textPause(600);
-+4: // 276
-    playerFace(2);
-    speakerPlayer();
-    bubblePos(110.0, 240.0);
-    textAdd("そうです");
-    textAdd("季節の変わり目の魔力だけを集めました");
-+4: // 280
-    textPause(600);
-+4: // 284
-    playerFace(5);
-    speakerPlayer();
-    bubblePos(110.0, 240.0);
-    textAdd("四季の生命力がもっとも失われ、");
-    textAdd("|99,6,あらわ");
-    textAdd("この世の魔が顕れる季節の隙間よ！");
-+4: // 288
-    textPause(600);
-+4: // 292
-    bossFace(5, 0);
-    speakerBoss(0);
-    bubblePos(360.0, 250.0);
-    textAdd("ふふふ、それを私が吸収して");
-    textAdd("解放すれば天狗の魔によって自滅すると");
-+4: // 296
-    textPause(600);
-+4: // 300
-    bossFace(4, 0);
-    speakerBoss(0);
-    bubblePos(360.0, 250.0);
-    textAdd("黙っていれば判らなかったかも");
-    textAdd("知れないのに、何故教える？");
-+4: // 304
-    textPause(600);
-+4: // 308
-    playerFace(5);
-    speakerPlayer();
-    bubblePos(110.0, 240.0);
-    textAdd("神ともあろう方が気付かないわけがない");
-    textAdd("と思ったからです");
 +4: // 312
     textPause(600);
 +4: // 316
