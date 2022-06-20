@@ -124,10 +124,10 @@
         "",
         "C'est le thème du Niveau Extra.",
         "",
-        "Nous plongeons dans un monde mystérieux encore une fois, après avoir rassemblé notre courage.",
-        "C'est une musique à la fois étrange et douce.",
-        "",
-        "Cette musique rappelle bien la difficulté du niveau, donc c'est assez déprimant (mdr)"
+        "Nous plongeons une nouvelle fois dans le monde des morts, dans la demeure de Yuyuko Saigyouji.",
+		"",
+        "Nos héroïnes se préparent à faire face une nouvelle fois au fantôme bloqué entre la vie et la mort,",
+        "tentant tant bien que mal de faire ressusciter le corps enfoui sous le Saigyou Ayakashi."
     ],
     "15": [
         "Éternelle et Parfaite Floraison ~ Vie Cachée Parmis les Spectres",
