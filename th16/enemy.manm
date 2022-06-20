@@ -4143,7 +4143,7 @@ entry entry5 {
     width: 899,
     height: 899,
     memoryPriority: 0,
-    lowResScale: 1,
+    lowResScale: 0,
     hasData: 1,
     THTXSize: 3232804,
     THTXFormat: 5,
@@ -4157,14 +4157,15 @@ entry entry5 {
 script script173 {
 -1:
 	sprite(sprite221);
-    type(8);
+    type(1);
     alpha(0);
 	anchor(0, 1);
-	pos(0f, -128f, 0f);
+	pos(0f, 0f, 0f);
     alphaTime(60, 0, 240);
+	originMode(2);
    // ins_306(1);
 	scale(0.5f, 0.5f);
-    layer(24);
+    // layer(24);
 0:
     stop();
 }

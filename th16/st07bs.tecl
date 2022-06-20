@@ -106,7 +106,7 @@ Boss_2752:
     unless ($SPELL_ID == 118) goto Boss_2884 @ 3;
 Boss_2832:
     lifeSet(15000);
-    @BossDead();
+    @Boss10();
 Boss_2884:
     debug22(3, "Boss8");
 	enmCreate("fan", 0f, 0f, 10, 10, 1);
