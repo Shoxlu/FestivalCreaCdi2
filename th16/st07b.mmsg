@@ -148,115 +148,99 @@ script script0 {
 +4: // 248
     textPause(600);
 +4: // 252
-    // bossFace(4, 0);
-    // speakerBoss(0);
-    // bubblePos(360.0, 250.0);
-    // textAdd("気のせいではないぞ");
-    // textAdd("目の前のコイツはただの残念な奴だ");
-// +4: // 256
-    // textPause(600);
-// +4: // 260
-    // bossFace(4, 0);
-    // speakerBoss(0);
-    // bubblePos(360.0, 250.0);
-    // textAdd("さっさと背中の扉の魔力を頂いて");
-    // textAdd("元の世界に強制帰還させるか");
-// +4: // 264
-    // textPause(600);
-// +4: // 268
     playerFace(1);
     speakerPlayer();
     bubblePos(112.0, 270.0);
     textAdd("やるきだな！");
     textAdd("いつでもかかってこい！");
-+4: // 272
++4: // 256
     textPause(600);
-+4: // 276
++4: // 260
     bossFace(6, 0);
     speakerBoss(0);
     bubblePos(360.0, 250.0);
     textAdd("ん？　……なんだと");
     textAdd("お前の背中の季節は……");
-+4: // 280
++4: // 264
     textPause(600);
-+4: // 284
++4: // 268
     bossFace(6, 0);
     speakerBoss(0);
     bubblePos(360.0, 250.0);
     textAdd("どの四季にも属していないだと？");
-+4: // 288
++4: // 272
     textPause(600);
-+4: // 292
++4: // 276
     bossFace(0, 0);
     speakerBoss(0);
     bubblePos(360.0, 250.0);
     textAdd("もっとも妖精の生命力が失われる");
     textAdd("季節の境目、土用……");
-+4: // 296
++4: // 280
     textPause(600);
-+4: // 300
++4: // 284
     bossFace(0, 0);
     speakerBoss(0);
     bubblePos(360.0, 250.0);
     textAdd("ふっふっふ");
     textAdd("お前の愚劣な演技に騙されるところだった");
-+4: // 304
++4: // 288
     textPause(600);
-+4: // 308
++4: // 292
     bossFace(5, 0);
     speakerBoss(0);
     bubblePos(360.0, 250.0);
     textAdd("やはりおもしろい妖精だな");
     textAdd("一戦交えていくか？");
-+4: // 312
++4: // 296
     textPause(600);
-+4: // 316
++4: // 300
     playerFace(1);
     speakerPlayer();
     bubblePos(112.0, 270.0);
     textAdd("あー、思い出したぞー！");
     textAdd("あたいが再戦したいのは");
-+4: // 320
++4: // 304
     textPause(600);
-+4: // 324
++4: // 308
     playerFace(1);
     speakerPlayer();
     bubblePos(112.0, 270.0);
     textAdd("椅子に坐っていた奴だ！");
     textAdd("お前は関係無い、邪魔だよ");
-+4: // 328
++4: // 312
     textPause(600);
-+4: // 332
++4: // 316
     bossFace(4, 0);
     speakerBoss(0);
     bubblePos(360.0, 250.0);
     textAdd("その時椅子に坐っていたのは私だ！");
     textAdd("見てわからんか");
-+4: // 336
++4: // 320
     textPause(600);
-+4: // 340
++4: // 324
     bossFace(1, 0);
     speakerBoss(0);
     bubblePos(360.0, 250.0);
     textAdd("私と再戦したがっていたのなら");
     textAdd("やってやろう");
-+4: // 344
++4: // 328
     textPause(600);
-+4: // 348
++4: // 332
     bossFace(1, 0);
     speakerBoss(0);
     bubblePos(360.0, 250.0);
     bubbleType(1);
     textAdd("真なる秘神の力");
     textAdd("全て味わい尽くすが良い");
-+4: // 352
++4: // 336
     textPause(600);
-	musicBoss();
+    musicBoss();
     playerHide();
     bossHide(0);
     textboxHide();
     skippable(0);
-+30: // 382
++30: // 366
     end();
 }
 
