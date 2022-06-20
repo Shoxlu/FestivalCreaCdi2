@@ -130,7 +130,7 @@
         "tentant tant bien que mal de faire ressusciter le corps enfoui sous le Saigyou Ayakashi."
     ],
     "15": [
-        "Éternelle et Parfaite Floraison ~ Vie Cachée Parmis les Spectres",
+        "@",
         "",
         "C'est le thème de Yuyuko Saigyouji.",
         "",
